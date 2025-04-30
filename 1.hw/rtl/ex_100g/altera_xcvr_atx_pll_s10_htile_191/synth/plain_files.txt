@@ -1,0 +1,9 @@
+./altera_std_synchronizer_nocut.v
+./alt_xcvr_resync.sv
+./alt_xcvr_arbiter.sv
+./s10_avmm_h.sv
+./altera_xcvr_native_s10_functions_h.sv
+./alt_xcvr_native_anlg_reset_seq.sv
+./alt_xcvr_pll_rcfg_arb.sv
+./alt_xcvr_pll_embedded_debug.sv
+./alt_xcvr_pll_avmm_csr.sv

@@ -1,0 +1,4 @@
+./altera_std_synchronizer_nocut.v
+./alt_xcvr_resync_std.sv
+./altera_xcvr_reset_control_s10.sv
+./alt_xcvr_reset_counter_s10.sv

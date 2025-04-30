@@ -28,3 +28,73 @@ Info: ex_100g_inst.altera_xcvr_fpll_s10_tx_ext: For the selected device(1SX280HU
 Info: ex_100g: "Transforming system: ex_100g"
 Info: ex_100g: "Naming system components in system: ex_100g"
 Info: ex_100g: "Processing generation queue"
+Info: ex_100g: "Generating: ex_100g"
+Info: ex_100g: "Generating: ex_100g_alt_e100s10_1910_sgjuooq"
+Info: ex_100g_inst: Current dir is C:/intelFPGA_pro/19.1/ip/altera/ethernet/alt_e100s10/hwtcl
+Info: atx_pll_s100: "Generating: atx_pll_s100"
+Info: caui4_xcvr: "Generating: caui4_xcvr"
+Info: s10_xcvr_reset_controller: "Generating: s10_xcvr_reset_controller"
+Info: altera_xcvr_fpll_s10_tx_ext: "Generating: altera_xcvr_fpll_s10_tx_ext"
+Info: alt_e100s10_jtag_avalon: "Generating: alt_e100s10_jtag_avalon"
+Info: ex_100g: "Generating: atx_pll_s100"
+Info: ex_100g: "Generating: ex_100g_alt_e100s10_1910_msocaki"
+Info: ex_100g: "Generating: s10_xcvr_reset_controller"
+Info: ex_100g: "Generating: altera_xcvr_fpll_s10_tx_ext"
+Info: ex_100g: "Generating: alt_e100s10_jtag_avalon"
+Info: ex_100g: "Generating: ex_100g_altera_xcvr_atx_pll_s10_htile_191_3kcg2aa"
+Info: atx_pll_s100: add_fileset_file ./altera_std_synchronizer_nocut.v VERILOG PATH ../../../../primitives/altera_std_synchronizer/altera_std_synchronizer_nocut.v
+Info: atx_pll_s100: add_fileset_file ./alt_xcvr_resync.sv SYSTEM_VERILOG PATH ../../../../altera_xcvr_generic/ctrl/alt_xcvr_resync.sv
+Info: atx_pll_s100: add_fileset_file ./alt_xcvr_arbiter.sv SYSTEM_VERILOG PATH ../../../../altera_xcvr_generic/ctrl/alt_xcvr_arbiter.sv
+Info: atx_pll_s100: add_fileset_file ./s10_avmm_h.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/s10_avmm_h.sv
+Info: atx_pll_s100: add_fileset_file ./altera_xcvr_native_s10_functions_h.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/altera_xcvr_native_s10_functions_h.sv
+Info: atx_pll_s100: add_fileset_file ./alt_xcvr_native_anlg_reset_seq.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/alt_xcvr_native_anlg_reset_seq.sv
+Info: atx_pll_s100: add_fileset_file ./alt_xcvr_pll_rcfg_arb.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_rcfg_arb.sv
+Info: atx_pll_s100: add_fileset_file ./alt_xcvr_pll_embedded_debug.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_embedded_debug.sv
+Info: atx_pll_s100: add_fileset_file ./alt_xcvr_pll_avmm_csr.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_avmm_csr.sv
+Info: ex_100g: "Generating: ex_100g_altera_xcvr_native_s10_htile_191_qufrg4q"
+Info: caui4_xcvr: add_fileset_file ./alt_xcvr_arbiter.sv SYSTEM_VERILOG PATH ../../../../altera_xcvr_generic/ctrl/alt_xcvr_arbiter.sv
+Info: caui4_xcvr: add_fileset_file ./altera_std_synchronizer_nocut.v VERILOG PATH ../../../../primitives/altera_std_synchronizer/altera_std_synchronizer_nocut.v
+Info: caui4_xcvr: add_fileset_file ./alt_xcvr_resync_std.sv SYSTEM_VERILOG PATH ../../../alt_xcvr_generic/alt_xcvr_resync_std.sv
+Info: caui4_xcvr: add_fileset_file ./alt_xcvr_reset_counter_s10.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_reset_control_s10/alt_xcvr_reset_counter_s10.sv
+Info: caui4_xcvr: add_fileset_file ./altera_xcvr_native_s10_functions_h.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/altera_xcvr_native_s10_functions_h.sv
+Info: caui4_xcvr: add_fileset_file ./s10_avmm_h.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/s10_avmm_h.sv
+Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_avmm_csr.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_avmm_csr.sv
+Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_prbs_accum.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_prbs_accum.sv
+Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_odi_accel.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_odi_accel.sv
+Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_rcfg_arb.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_rcfg_arb.sv
+Info: caui4_xcvr: add_fileset_file ./alt_xcvr_early_spd_chng_s10_htile.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_early_spd_chng_s10_htile.sv
+Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_anlg_reset_seq.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_anlg_reset_seq.sv
+Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_dig_reset_seq.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_dig_reset_seq.sv
+Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_reset_seq.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_reset_seq.sv
+Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_anlg_reset_seq_wrapper.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_anlg_reset_seq_wrapper.sv
+Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_re_cal_chnl.v VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_re_cal_chnl.v
+Info: caui4_xcvr: add_fileset_file ./alt_xcvr_pcie_rx_eios_prot.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_pcie_rx_eios_prot.sv
+Info: caui4_xcvr: Building configuration data for reconfiguration profile 0
+Info: ex_100g: "Generating: altera_xcvr_reset_control_s10"
+Info: s10_xcvr_reset_controller: add_fileset_file ./altera_std_synchronizer_nocut.v VERILOG PATH ../../../primitives/altera_std_synchronizer/altera_std_synchronizer_nocut.v
+Info: s10_xcvr_reset_controller: add_fileset_file ./alt_xcvr_resync_std.sv SYSTEM_VERILOG PATH ../../alt_xcvr_generic/alt_xcvr_resync_std.sv
+Info: s10_xcvr_reset_controller: add_fileset_file ./altera_xcvr_reset_control_s10.sv SYSTEM_VERILOG PATH ..//altera_xcvr_reset_control_s10.sv
+Info: s10_xcvr_reset_controller: add_fileset_file ./alt_xcvr_reset_counter_s10.sv SYSTEM_VERILOG PATH ..//alt_xcvr_reset_counter_s10.sv
+Info: ex_100g: "Generating: ex_100g_altera_xcvr_fpll_s10_htile_191_jh5viiy"
+Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./altera_std_synchronizer_nocut.v VERILOG PATH ../../../../primitives/altera_std_synchronizer/altera_std_synchronizer_nocut.v
+Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./s10_avmm_h.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/s10_avmm_h.sv
+Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./altera_xcvr_native_s10_functions_h.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/altera_xcvr_native_s10_functions_h.sv
+Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./alt_xcvr_native_anlg_reset_seq.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/alt_xcvr_native_anlg_reset_seq.sv
+Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./alt_xcvr_pll_rcfg_arb.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_rcfg_arb.sv
+Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./alt_xcvr_pll_embedded_debug.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_embedded_debug.sv
+Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./alt_xcvr_pll_avmm_csr.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_avmm_csr.sv
+Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./alt_xcvr_resync.sv SYSTEM_VERILOG PATH ../../../../altera_xcvr_generic/ctrl/alt_xcvr_resync.sv
+Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./alt_xcvr_arbiter.sv SYSTEM_VERILOG PATH ../../../../altera_xcvr_generic/ctrl/alt_xcvr_arbiter.sv
+Info: ex_100g: "Generating: ex_100g_altera_jtag_avalon_master_191_3zppvky"
+Info: ex_100g: "Generating: altera_avalon_st_jtag_interface"
+Info: ex_100g: "Generating: ex_100g_timing_adapter_191_rrgemwi"
+Info: ex_100g: "Generating: ex_100g_altera_avalon_sc_fifo_191_e5eqkcq"
+Info: ex_100g: "Generating: altera_avalon_st_bytes_to_packets"
+Info: ex_100g: "Generating: altera_avalon_st_packets_to_bytes"
+Info: ex_100g: "Generating: altera_avalon_packets_to_master"
+Info: ex_100g: "Generating: ex_100g_channel_adapter_191_uc27kqq"
+Info: ex_100g: "Generating: ex_100g_channel_adapter_191_cco4x3a"
+Info: ex_100g: "Generating: altera_reset_controller"
+Info: ex_100g: Done "ex_100g" with 21 modules, 391 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis
