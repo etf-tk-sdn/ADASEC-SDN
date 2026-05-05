@@ -1,0 +1,15 @@
+`timescale 1ns / 1ps
+`define NULL 0
+
+// Author: Amina Tankovic
+// 
+// Description: 
+
+module dut#
+(
+) (
+    avalon_if.in from_pcap_reader,
+    avalon_if.out to_pcap_writer
+);
+
+

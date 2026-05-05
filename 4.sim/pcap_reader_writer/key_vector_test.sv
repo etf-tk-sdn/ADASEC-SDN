@@ -1,29 +1,26 @@
+
 `timescale 1ps / 1ps
 `define NULL 0
 
-//Basic pcap reader-writer test;
-
-module pcap_reader_writer_test;
+module key_vector_test;
 
     // Inputs
-    logic clk = 0;
-    logic rst = 1;
-    logic available;
-    logic [4:0] pktcount;
-    logic pcapfinished;
+    logic CLOCK = 0;
+    logic reset = 1;
+    
     parameter DATA_WIDTH = 512;
     parameter SIGNAL_TYPE = "avalon";
   
-    avalon_if #(.DATA_WIDTH(DATA_WIDTH)) avalon_int(.clk(clk),.rst(rst));
-    axis_if #(.DATA_WIDTH(DATA_WIDTH)) axis_int(.clk(clk),.rst(rst));
+    avalon_if #(.DATA_WIDTH(DATA_WIDTH)) avalon_int(.clk(CLOCK),.rst(reset),.sop(0),.eop(0));
+    axis_if #(.DATA_WIDTH(DATA_WIDTH)) axis_int(.clk(CLOCK),.rst(reset));
 
     pcapreader #(
-        .PCAP_FILENAME( "amina50.pcap" ),
+        .PCAP_FILENAME( "testtest.pcap" ),
         .SIGNAL_TYPE(SIGNAL_TYPE),
         .DATA_WIDTH(DATA_WIDTH)
     ) pcap (
-	.clk_out(clk),
-        .reset(rst),
+	.clk_out(CLOCK),
+        .reset(reset),
         .available(available),
         .pktcount(pktcount),
 	.pcapfinished(pcapfinished),
@@ -33,19 +30,20 @@ module pcap_reader_writer_test;
     );
 
     pcapwriter #(
-	.PCAP_FILENAME( "novipcap_reader_writer_test.pcap" ),
+	.PCAP_FILENAME( "novipcap.pcap" ),
         .SIGNAL_TYPE(SIGNAL_TYPE),
         .DATA_WIDTH(DATA_WIDTH)
     ) pcapwr (
-	.clk_in(clk),
-	.reset(rst),
+	.clk_in(CLOCK),
+	.reset(reset),
 
 	.to_writer_avalon(avalon_int),
         .to_writer_axis(axis_int)
     );
 
-    integer clock_period = 5120;
-    always #(clock_period/2) clk = ~clk;
+    integer clock_period = 2560;
+
+    always #(clock_period/2) CLOCK = ~CLOCK;
 	
 
     integer i = 0;
@@ -57,13 +55,13 @@ module pcap_reader_writer_test;
         avalon_int.ready <= 1;
 
         #clock_period;
-        rst <= 0;
+        reset <= 0;
         #(2*clock_period);
-        //avalon_int.ready <= 0;
+        avalon_int.ready <= 0;
         #(3*clock_period);
-        //avalon_int.ready <= 1;
+        avalon_int.ready <= 1;
 		
-        while (~pcapfinished) begin
+        while (~pcapfinished ) begin
 	    #20
 	    i = i+1;
 	end

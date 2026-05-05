@@ -1,0 +1,51 @@
+
+// Author: Amina Tankovic
+// Description: 
+             
+module reader_demux#(                                     
+) ( 
+    input logic clk,
+    input logic rst,
+    avalon_if.in from_pcap_reader,
+    avalon_if.out from_pcap_reader_to_key_provider,
+    avalon_if.out from_pcap_reader_to_pcap_reader_fifo
+);
+
+always_ff  @(posedge clk) begin
+
+    if(rst) begin
+       from_pcap_reader_to_key_provider.sop <= 1'b0;;
+       from_pcap_reader_to_key_provider.eop <= 1'b0;;
+       from_pcap_reader_to_key_provider.valid <= 1'b0;
+       from_pcap_reader_to_key_provider.channel <= '0;
+       from_pcap_reader_to_key_provider.data <= '0;
+       from_pcap_reader_to_key_provider.empty <= '0;
+       from_pcap_reader_to_pcap_reader_fifo.sop <= 1'b0;;
+       from_pcap_reader_to_pcap_reader_fifo.eop <= 1'b0;;
+       from_pcap_reader_to_pcap_reader_fifo.valid <= 1'b0;
+       from_pcap_reader_to_pcap_reader_fifo.channel <= '0;
+       from_pcap_reader_to_pcap_reader_fifo.data <= '0;
+       from_pcap_reader_to_pcap_reader_fifo.empty <= '0;
+    end else begin
+        if(from_pcap_reader_to_key_provider.ready) begin
+           from_pcap_reader_to_key_provider.sop <= from_pcap_reader.sop;
+           from_pcap_reader_to_key_provider.eop <= from_pcap_reader.eop;
+           from_pcap_reader_to_key_provider.valid <= from_pcap_reader.valid && from_pcap_reader.ready;
+           from_pcap_reader_to_key_provider.channel <= from_pcap_reader.channel;
+           from_pcap_reader_to_key_provider.data <= from_pcap_reader.data;
+           from_pcap_reader_to_key_provider.empty <= from_pcap_reader.empty;
+        end 
+        if(from_pcap_reader_to_pcap_reader_fifo.ready) begin
+           from_pcap_reader_to_pcap_reader_fifo.sop <= from_pcap_reader.sop;
+           from_pcap_reader_to_pcap_reader_fifo.eop <= from_pcap_reader.eop;
+           from_pcap_reader_to_pcap_reader_fifo.valid <= from_pcap_reader.valid && from_pcap_reader.ready;
+           from_pcap_reader_to_pcap_reader_fifo.data <= from_pcap_reader.data; 
+           from_pcap_reader_to_pcap_reader_fifo.channel <= from_pcap_reader.channel;
+           from_pcap_reader_to_pcap_reader_fifo.empty <= from_pcap_reader.empty;
+        end
+    end
+end
+
+assign from_pcap_reader.ready = from_pcap_reader_to_key_provider.ready && from_pcap_reader_to_pcap_reader_fifo.ready;
+
+endmodule

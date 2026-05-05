@@ -1,0 +1,69 @@
+
+// Author: Amina Tankovic
+// Description: Stage for 64x64 omega network, made of 32 switch2x2. Inputs and outputs are defined according to the rules of omega network.
+             
+
+module stage#(
+    parameter stage_order = 5 //stage order can take values from 0 to 5                                       
+) ( 
+    avalon_if.in input_to_stage,
+    avalon_if.out output_from_stage    
+);
+
+logic [14:0] inp [0:63];
+logic [14:0] outp [0:63];
+
+always_comb begin
+    for (int i = 0; i < 64; i++) begin 
+     if(stage_order==0) begin
+       if(i<int'(input_to_stage.channel[390:384])) begin
+         inp[i][14] = 1'b1;
+         inp[i][13:8] = input_to_stage.channel[383-i*6-:6];
+         inp[i][7:0] = input_to_stage.data[511-i*8-:8];
+       end else begin
+         inp[i] = '0;
+       end
+     end else begin
+        inp[i][14] = input_to_stage.channel[454-i];
+        inp[i][13:8] = input_to_stage.channel[383-i*6-:6];
+        inp[i][7:0] = input_to_stage.data[511-i*8-:8];
+     end
+    end
+
+    if(input_to_stage.valid) begin
+       if(int'(input_to_stage.channel[390:384])==0) begin
+          output_from_stage.data = '0;
+          output_from_stage.channel = '0;
+       end else begin
+           for (int i = 0; i < 64; i++) begin 
+              output_from_stage.channel[454-i] = outp[i][14];
+              output_from_stage.channel[383-i*6-:6] = outp[i][13:8];
+              output_from_stage.data[511-i*8-:8] = outp[i][7:0];               
+           end
+       end
+    end else begin 
+       output_from_stage.data = '0;
+    end
+
+    output_from_stage.channel[390:384] = input_to_stage.channel[390:384];
+    output_from_stage.valid = input_to_stage.valid;
+    output_from_stage.sop = input_to_stage.sop;
+    output_from_stage.eop = input_to_stage.eop;
+    input_to_stage.ready = output_from_stage.ready;
+
+end
+
+
+generate for (genvar i = 0; i < 32; i = i+1) begin : stage_inst
+        switch_2x2 #(
+            .stage_order(stage_order)
+        ) switch2x2(
+            .u(inp[i]),
+            .v(inp[i+32]),
+            .x(outp[2*i]),
+            .y(outp[2*i+1])
+        );
+    end
+endgenerate
+
+endmodule 

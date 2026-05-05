@@ -1,0 +1,151 @@
+`timescale 1ps / 1ps
+`define NULL 0
+
+// Author: Amina Tankovic
+// Description: Key material provider - provides 512 bits of key material based on the input from the generator of key material and the number
+//              of bytes which need to be encrypted. The obtained key material will be used in generating the final key for the encryptor.
+              
+module key_vector#(
+    parameter PACKET_LENGTH = 512,
+    parameter CHANNEL_WIDTH = 391,
+    parameter GRANULARITY = 1,        //Granularity of encryptor in bytes, default is 1B
+    parameter BIT_VECTOR_WIDTH = 64   //Dimension of bit_vector that will be applied to key, considering desired granularity; 
+                                      //Default granularity is 1B which gives length of 64 bits for data length of 512 bits
+) (
+    input logic clk,
+    input logic rst, 
+    
+    avalon_if.in    from_generator,
+    input logic [390:0] readdata,  //number of bytes that need to be encrypted
+    input logic in_ready,
+    input logic in_valid,
+    input logic in_sop, 
+    input logic in_eop, 
+    input logic in_valid_gen,
+    output logic ready_za_reader,
+    avalon_if.out key_vector_next
+);
+
+   integer cnt;
+   logic valid = 0;
+   logic valid1 = 0;
+   logic valid2 = 0;
+   logic start;
+   logic [2047:0] registar;
+   logic [2047:0] from_generator_ex_data;
+   logic pom_out_sop;
+   logic pom_out_eop;
+   logic in_valid1;
+   logic in_valid2;
+   logic in_ready1;
+   logic in_ready2;
+
+
+   always_comb begin
+     if(rst==0) begin
+         if((cnt==0 && from_generator.valid) || (cnt==512 && valid1==1 && from_generator.valid)) begin       //backpressure considering the amount of buffered key material in register and the number of bytes that need to be encrypted in the next clock cycle
+            from_generator.ready = 1;
+      	 end else if (valid && cnt-int'(readdata[390:384]) < 1024 && from_generator.valid) begin 
+            from_generator.ready = 1; 
+         end else begin
+            from_generator.ready = 0;
+         end
+      end else begin
+            from_generator.ready = 0;
+      end
+
+      if(valid && cnt>=1024) begin   
+          ready_za_reader = 1;
+      end else begin
+          ready_za_reader = 0;
+      end
+ 
+      from_generator_ex_data[2047:1536] = from_generator.data;
+      from_generator_ex_data[1535:0] = '0;
+      
+  end
+
+  always_ff @(posedge clk) begin     
+    if (rst) begin
+        cnt <= 0; // Reset to initial state
+        key_vector_next.channel <= '0;
+        key_vector_next.data <= '0;
+        key_vector_next.valid <= 0;
+        key_vector_next.sop <= 0;
+        key_vector_next.eop <= 0;
+        start <= 0;
+    end else begin
+         if (cnt==0) begin                //initial states to prepare the key material in register and wait for the first request for encryption 
+            start <= 1;
+         end
+
+         if(start==1 && from_generator.valid) begin     
+            valid1 <= 1;
+            cnt <= 512;
+            start <= 0;
+            registar[1535:0] <= '0;
+            registar[2047:1536] <= from_generator.data;   
+         end
+
+         if(valid1==1 && from_generator.valid) begin     
+            valid2 <= 1;
+            cnt <= 1024;
+            valid1 <= 0;
+            registar[1535:1024] <= from_generator.data;     
+         end
+
+          in_valid1 <= in_valid;
+          in_valid2 <= in_valid1;
+          in_ready1 <= ready_za_reader;
+          in_ready2 <= in_ready1;
+
+        
+        if(valid2 && from_generator.valid) begin
+           valid2 <= 0;
+           valid <= 1;
+         end
+
+         if((valid && in_valid1 && in_ready1)) begin       
+              if(cnt-(int'(readdata[390:384]))*8<1024 && (int'(readdata[390:384])>0)) begin
+                     if(from_generator.ready) begin
+                           registar <= (registar << (int'(readdata[390:384]))*8)^(from_generator_ex_data >> (cnt/8-(int'(readdata[390:384])))*8);
+                           cnt <= cnt-(int'(readdata[390:384]))*8+512; //512 umjesto cnt1
+                     end else begin 
+                           cnt <= cnt-(int'(readdata[390:384]))*8;
+                           registar <= registar << (int'(readdata[390:384]))*8;
+                     end
+               end else if (cnt-(int'(readdata[390:384]))*8>=1024 && (int'(readdata[390:384])>0)) begin
+                    cnt <= cnt-(int'(readdata[390:384]))*8;
+                    registar <= registar << (int'(readdata[390:384]))*8;
+ 
+              end    
+         end else if (valid && from_generator.valid && from_generator.ready) begin
+                   registar <= registar ^ (from_generator_ex_data >> cnt);
+                   cnt <= cnt+512;
+         end         
+      
+  
+         if(in_valid1) begin       //tek kad dodju validni podaci iz readera pocinjemo pravit kljuc
+            if((int'(readdata[390:384]))>0) begin           
+                 key_vector_next.data <= registar[2047:1536]; //Key vector (which should be "distributed" considering position vector to produce the final key) always consists of first 512 bits from the register  
+                 key_vector_next.channel[383:0] <= readdata[383:0];
+                 key_vector_next.channel[390:384] <= readdata[390:384];
+            end else begin 
+                 key_vector_next.data <= '0;
+                 key_vector_next.channel <= '0;
+            end
+         end
+       
+       key_vector_next.valid <= in_valid1 && in_ready1; //in_ready2
+
+   
+      pom_out_sop <= in_sop;
+      key_vector_next.sop <= pom_out_sop;
+
+      pom_out_eop <= in_eop;
+      key_vector_next.eop <= pom_out_eop;
+ 
+    end
+  end 
+
+endmodule 

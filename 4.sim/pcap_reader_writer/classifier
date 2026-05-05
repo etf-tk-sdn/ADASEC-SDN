@@ -1,0 +1,51 @@
+`timescale 1ps / 1ps
+`define NULL 0
+
+// Author: Amina Tankovic
+// Description: Key material provider - provides 512 bits of key material based on the input from the generator of key material and the number
+//              of bytes which need to be encrypted. The obtained key material will be used in generating the final key for the encryptor.
+              
+module classifier#(
+    parameter PACKET_LENGTH = 512,
+    parameter CHANNEL_WIDTH = 391,
+    parameter GRANULARITY = 1,        //Granularity of encryptor in bytes, default is 1B
+    parameter BIT_VECTOR_WIDTH = 64   //Dimension of bit_vector that will be applied to key, considering desired granularity; 
+                                      //Default granularity is 1B which gives length of 64 bits for data length of 512 bits
+) (
+    input logic clk,
+    input logic rst, 
+    
+    avalon_if.in    from_pcap_reader_to_classifier,
+    avalon_if.out   from_classifier
+);
+
+logic [7:0] protocol;
+logic [15:0] src_port;
+logic [15:0] dst_port;
+logic [31:0] src_ip_add;
+logic [31:0] dst_ip_add; 
+
+logic [7:0] protocol_mask;
+logic [15:0] src_port_mask;
+logic [15:0] dst_port_mask;
+logic [31:0] src_ip_add_mask;
+logic [31:0] dst_ip_add_mask; 
+
+ 
+always_comb begin
+
+   if(from_pcap_reader_to_classifier.sop) begin
+       protocol = from_pcap_reader_to_classifier.data[327:320]; //protocol [399: pocinje IP header)
+       src_ip_add = from_pcap_reader_to_classifier.data[303:272];
+       dst_ip_add = from_pcap_reader_to_classifier.data[271:240];
+       src_port = from_pcap_reader_to_classifier.data[239:224];
+       dst_port = from_pcap_reader_to_classifier.data[223:208]
+   end
+
+end
+
+
+endmodule
+
+
+

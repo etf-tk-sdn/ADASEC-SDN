@@ -1,0 +1,39 @@
+`timescale 1ps / 1ps
+`define NULL 0
+
+module omega_test;
+
+logic clk = 0;
+//logic rst = 1;
+//logic [63:0] bit_vector;
+avalon_if #(.DATA_WIDTH(512)) avalon_int(.clk(clk),.rst(rst));
+
+logic [13:0] inp [0:63]; 
+logic [13:0] outp [0:63];
+logic [7:0] outp_key [0:63];
+
+
+omega_network omega_test_network(
+    .inp(inp),
+    .outp(outp),
+    .outp_key(outp_key)
+);
+
+
+    integer clock_period = 2560;
+    always #(clock_period/2) clk = ~clk;
+	
+
+    integer i = 0;
+
+    initial begin
+        
+        inp[0] = 14'b00000110101010;
+        inp[1] = 14'b00001011111111;
+        inp[2] = 14'b00010000110011;
+        inp[3] = 14'b00100001010101;
+        #(1*clock_period);
+
+    end
+
+endmodule

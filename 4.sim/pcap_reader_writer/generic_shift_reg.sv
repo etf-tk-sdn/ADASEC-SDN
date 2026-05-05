@@ -1,0 +1,31 @@
+module generic_shift_reg
+    #(parameter SIZE = 11) // Parameter to define the number of stages
+    (
+        input  logic        clk,
+        input  logic        rst, // Active low reset
+        input  logic        shift_in,
+        output logic        shift_out
+    );
+
+    // Declaration of the internal register array
+    logic [SIZE-1:0] shift_register_array;
+    integer i; // Loop variable (can use int for synthesizable code)
+
+    always_ff @(posedge clk) begin
+        if (rst) begin
+            shift_register_array <= '0; // Reset all stages to 0
+        end else begin
+            // The circuit input goes into the first register
+            shift_register_array[0] <= shift_in;
+
+            // A for loop to shift the contents of the array
+            for (i = 1; i < SIZE; i = i + 1) begin
+                shift_register_array[i] <= shift_register_array[i-1];
+            end
+        end
+    end
+
+    // The output is the last stage of the shift register
+    assign shift_out = shift_register_array[SIZE-1];
+
+endmodule

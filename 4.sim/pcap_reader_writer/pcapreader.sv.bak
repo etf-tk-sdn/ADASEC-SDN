@@ -169,6 +169,12 @@ module pcapreader#
 
              $display("TIMESTAMP USEC", timestamp_usec_new);
               $display("TIMESTAMP SEC", timestamp_sec_new);
+	    //new timestamp, calculated in picoseconds
+	/*    if (toNanos ==1) begin
+                timestamp_new_ps = timestamp_sec_new*1e12+timestamp_usec_new*1e3;
+            end else begin
+    		timestamp_new_ps = timestamp_sec_new*1e12+timestamp_usec_new*1e6;
+            end*/
 
 	    if (r!=0) begin
 	        available <= 1;

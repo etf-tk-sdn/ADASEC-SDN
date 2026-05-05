@@ -1,8 +1,6 @@
 `timescale 1ps / 1ps
 `define NULL 0
 
-//Basic pcap reader-writer test;
-
 module pcap_reader_writer_test;
 
     // Inputs

@@ -2,3 +2,4 @@
 3.build/hw_build.Quartus/qdb/*
 3.build/hw_build.Quartus/synth_dumps/*
 3.build/hw_build.Quartus/tmp-clearbox/*
+4.sim/pcap_reader_writer/work/*

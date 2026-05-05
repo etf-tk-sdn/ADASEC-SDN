@@ -1,0 +1,308 @@
+`timescale 1ps / 1ps
+`define NULL 0
+
+module test;
+
+logic clk = 0;
+logic rst = 1;
+
+logic [511:0] final_key;
+logic available;
+logic [4:0] pktcount;
+logic pcapfinished;
+parameter DATA_WIDTH = 512;
+parameter SIGNAL_TYPE = "avalon";
+  
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_generator_to_fifo(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_generator_fifo_to_key_provider(.clk(clk),.rst(rst));
+axis_if #(.DATA_WIDTH(DATA_WIDTH)) axis_int(.clk(clk),.rst(rst));
+axis_if #(.DATA_WIDTH(DATA_WIDTH)) axis_int2(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader1(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH), .CHANNEL_WIDTH(455)) from_key_provider(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) to_encryptor(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) final_data(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) final_data1(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH), .CHANNEL_WIDTH(455)) from_dist(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH), .CHANNEL_WIDTH(455)) from_dist_to_encryptor(.clk(clk),.rst(rst));
+
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader_demux_to_key_provider(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader_demux_to_fifo_reader(.clk(clk),.rst(rst));
+
+
+logic [390:0] readdata;
+logic wrA;
+logic [9:0] wraddrA;
+logic [390:0] wrdataA;
+integer cntreg;
+logic [383:0] posvecreg;
+logic in_valid;
+logic [12:0] depthh;
+logic [12:0] depthh2;
+logic [12:0] depthh_fifo;
+pcapreader #(
+        .PCAP_FILENAME( "amina100.pcap" ), //amina50.pcap
+        .SIGNAL_TYPE(SIGNAL_TYPE),
+        .CLOCK_PERIOD(2560),
+        .DATA_WIDTH(DATA_WIDTH)
+    ) pcap (
+	.clk_out(clk),
+        .reset(rst),
+        .available(available),
+        .pktcount(pktcount),
+	.pcapfinished(pcapfinished),
+
+	.from_reader_avalon(from_reader),
+        .from_reader_axis(axis_int)
+    );
+
+avalon_fifo #(
+      .FRAME_FIFO(1),
+      .DROP_WHEN_FULL(1),
+      .DEPTH(1000000) //32768
+) fifo_from_reader(
+      .clk(clk),
+      .rst(rst),
+      .input_avalon(from_reader),
+      .output_avalon(from_reader1),
+      .depth_signal(depthh_fifo),
+      .depth_signal2()
+);
+
+reader_demux readdemux(
+    .clk(clk),
+    .rst(rst),
+    .from_pcap_reader(from_reader1),
+    .from_pcap_reader_to_key_provider(from_reader_demux_to_key_provider),
+    .from_pcap_reader_to_pcap_reader_fifo(from_reader_demux_to_fifo_reader)
+);
+
+
+avalon_fifo #(
+      .DEPTH(1000000),
+      .FRAME_FIFO(1),
+      .DROP_WHEN_FULL(1)
+) fifo_from_pcap_reader_to_encryptor(
+      .clk(clk),
+      .rst(rst),
+      .input_avalon(from_reader_demux_to_fifo_reader),
+      .output_avalon(to_encryptor),
+      .depth_signal(),
+      .depth_signal2()
+);
+
+
+key_generator keygen(
+    .clk(clk),
+    .rst(rst),
+    .in_valid(in_valid),
+    .to_key_provider(from_generator_to_fifo)
+);
+
+avalon_fifo #(
+      .DEPTH(1000000)               //trebalo bi da je dovoljno 2048 zbog velicine registra koji imam...? po defaultu je 32768 u avalon_ifu
+) fifo_from_generator_to_key_provider(
+      .clk(clk),
+      .rst(rst),
+      .input_avalon(from_generator_to_fifo),
+      .output_avalon(from_generator_fifo_to_key_provider),
+      .depth_signal(depthh),
+      .depth_signal2(depthh2)
+);
+
+key_provider keyprov(
+    .clkA(clk),
+    .clkB(clk),
+    .rst(rst),
+    .rdaddrA(from_reader_demux_to_key_provider.channel),
+    .rdaddrB('0),
+    .wraddrA(wraddrA),
+    .wraddrB('0),
+    .wrdataA(wrdataA),
+    .wrdataB('0),
+    .wrA(wrA),
+    .wrB(1'b0),
+    .in_ready(from_reader1.ready), //from_reader_demux_to_fifo_reader.ready
+    .in_valid(from_reader1.valid),
+     .in_valid1(from_generator_to_fifo.valid),
+    .from_pcap_reader(from_reader_demux_to_key_provider),   
+    .from_key_generator(from_generator_fifo_to_key_provider),
+    .to_key_scheduler(from_key_provider)
+);
+
+key_scheduler keyscheduler(          
+    .clk(clk),
+    .rst(rst),                           
+    .from_key_provider(from_key_provider),
+    .from_distributor(from_dist)
+
+);
+
+avalon_fifo #(
+      .USER_WIDTH(461),
+      .FRAME_FIFO(1),
+      .DROP_WHEN_FULL(1),
+      .DEPTH(1000000)
+) fifo_from_dist_to_encryptor(
+      .clk(clk),
+      .rst(rst),
+      .input_avalon(from_dist),
+      .output_avalon(from_dist_to_encryptor),
+      .depth_signal(),
+      .depth_signal2()
+);
+
+encryption_block enc(
+    .clk(clk),
+    .rst(rst),
+    .from_key_scheduler(from_dist_to_encryptor),
+    .from_reader_register(to_encryptor),
+    .encrypted(final_data1)
+);
+
+avalon_fifo #(
+      .FRAME_FIFO(1),
+      .DROP_WHEN_FULL(1),
+      .DEPTH(1000000) //32788
+) fifo_to_writer(
+      .clk(clk),
+      .rst(rst),
+      .input_avalon(final_data1),
+      .output_avalon(final_data),
+      .depth_signal(),
+      .depth_signal2()
+);
+
+
+ pcapwriter #(
+	.PCAP_FILENAME( "aminaaaa.pcap" ),
+        .SIGNAL_TYPE(SIGNAL_TYPE),
+        .CLOCK_PERIOD(2560),
+        .DATA_WIDTH(DATA_WIDTH)
+    ) pcapwr (
+	.clk_in(clk),
+	.reset(rst),
+
+	.to_writer_avalon(final_data),
+        .to_writer_axis(axis_int)
+    );
+
+    integer clock_period = 2560;
+    always #(clock_period/2) clk = ~clk;
+	
+
+    integer i = 0;
+    integer j;
+    integer k;
+    integer z;
+    integer broj_paketa = 1234; //Broj paketa se mora uvijek podesiti u zavisnosti od file-a koji se razmatra
+    integer a;
+
+    integer m;
+    integer n;
+
+
+    initial begin
+        final_data.ready = 1;
+        in_valid = 1;
+        #(1*clock_period);
+        wrA = 1;                      //Pocinje upis, dok traje reset
+        
+        //Scenarij1: Trebaju se sifrirati svi segmenti svih paketa (izuzev prvih 42 bajta svakog prvog segmenta, jer je to header paketa)
+        //Sifrirat ce se svi paketi (u zavisnosti od testnog file-a unijeti broj paketa)
+  //      for(z = 1; z <= 2; z = z+1) begin
+            wraddrA[9:5]=1;                      //Ovo je broj toka koji sam trenutno fiksno postavila u pcap readeru umjesto broja paketa 
+            for(k = 0; k < 24; k = k+1) begin   //Sifrirat ce se svi segmenti (max 24 segmenta imaju)
+                wraddrA[4:0]=k;
+                if(wraddrA[4:0]==0) begin        //Ako je prvi segment, necemo sifrirati prva 42 bajta (header); zbog toga, preostaju nam 22 bajta koja ce se sifrirati...
+                    wrdataA[390:384]=22;     
+                    for(j = 0; j < 22; j = j + 1) begin 
+                        wrdataA[383-j*6-:6] = j+42;    //...i to su pozicije 42,43,...63
+                    end
+                    for(j = 22 ; j < 64; j = j + 1) begin //svi ostali bajti su 0, pa ce key scheduler radit kako treba
+                        wrdataA[383-j*6-:6] = '0; 
+                    end
+                    #(1*clock_period);
+                end else begin                            //Za sve ostale pakete, sifriraju se svi segmenti, tj upisuju se u wrdataA sve vrijednosti pozicija (0,1,2...62,63)
+                    wrdataA[390:384]= 7'b1000000;
+                    for(m = 0; m < 64; m = m + 1) begin 
+                        wrdataA[383-m*6-:6] = m; 
+                    end
+                    #(1*clock_period);
+                end
+            end
+     //   end  
+
+        #(5*clock_period);
+
+        //NEKI STARI SCENARIJI - za primjer selektivne enkripcije
+        //Prvi paket, prvi segment, sifrirat ce se 4 bajta na pozicijama 1, 2, 4 i 8 (indeksiranje pozicija ide od 0)
+    /*    wrA <= 1;
+        wraddrA<=10'b0000100000;
+        wrdataA[390:384]<= 7'b0000100;
+        wrdataA[383:378] <= 6'b000001;
+        wrdataA[377:372] <= 6'b000010;
+        wrdataA[371:366] <= 6'b000100;
+        wrdataA[365:360] <= 6'b001000; 
+        wrdataA[359:0] <= '0;
+        #(1*clock_period);
+        //Prvi paket, drugi segment sifrirat ce se 6 bajta na pozicijama 0,10,11,14,15 i 32
+        wraddrA<=10'b0000100001;
+        wrdataA[390:384]<= 7'b0000110;
+        wrdataA[383:378] <= 6'b000000;
+        wrdataA[377:372] <= 6'b001010;
+        wrdataA[371:366] <= 6'b001011;
+        wrdataA[365:360] <= 6'b001110; 
+        wrdataA[359:354] <= 6'b001111; 
+        wrdataA[353:348] <= 6'b100000; 
+        wrdataA[347:0] <= '0;
+        #(1*clock_period);*/
+        //Drugi paket, drugi segment sifrirat ce se svi bajti
+       /* wraddrA<=10'b0001000001;
+        wrdataA[390:384]<= 7'b1000000;
+        for (j = 0; j < 64; j = j + 1) begin
+           wrdataA[383-j*6-:6] = j; 
+           $display(wrdataA[383-j*6-:6]);
+        end
+        #(1*clock_period);
+        #(1*clock_period);*/
+
+        
+       //2. scenarij: Testiranje i backpressura i valid
+       /* in_valid = 1;
+        final_data.ready = 1;
+        final_data.ready = 1; //0
+        #(6*clock_period);
+          in_valid=1;              //0
+        #(10*clock_period);
+          in_valid =1;
+        #(10*clock_period);
+        final_data.ready = 1;
+        #(1*clock_period);
+        final_data.ready = 1; //0
+         #(3*clock_period);
+        final_data.ready = 1;   
+       #(1*clock_period);
+        in_valid = 1;
+        final_data.ready = 1; //0
+        #(3*clock_period);
+        final_data.ready = 1;*/
+
+
+        //Gotov upis, gotov reset
+        wrA = 0;
+        rst=0;
+
+        //Stimanje promjene valid signala, tj intenziteta kojim dolazi kljuc
+        for (a=0; a<1000000000; a=a+1) begin  
+            
+           in_valid = 0;                
+           #(3*clock_period);   // br clock perioda odredjuje koliko sporo ce dolaziti kljuc
+           in_valid = 1; 
+           #(1*clock_period);
+        end
+        in_valid = 1;
+
+    end
+endmodule
+

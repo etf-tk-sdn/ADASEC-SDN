@@ -1,0 +1,64 @@
+`timescale 1ps / 1ps
+`define NULL 0
+
+// Author: Amina Tankovic
+// Description: Key provider uses material obtained from key generator, number of bytes that need to be encrypted and position vector (positions/addreses of bytes that need to be encrypted)
+//              to generate the final key material, which will be then distributed and used for XOR encryption. It consists of dual_port_ram and key_vector modules.                       
+
+module key_provider#(                                     
+) (
+    input logic clkA,
+    input logic clkB,
+    input logic rst,
+    input logic [9:0] rdaddrA,
+    input logic [9:0] rdaddrB,
+    input logic [9:0] wraddrA,
+    input logic [9:0] wraddrB,
+    input logic [390:0] wrdataA,
+    input logic [390:0] wrdataB,
+    input logic wrA,
+    input logic wrB,
+    input logic in_valid,
+    input logic in_valid1,
+    input logic in_ready,
+    avalon_if.in from_pcap_reader,   
+    avalon_if.in from_key_generator,
+    avalon_if.out to_key_scheduler
+);
+
+
+logic [390:0] readdataA;
+logic [390:0] readdataB;
+
+dual_port_ram dualportram(
+    .clkA(clkA),
+    .rdaddrA(rdaddrA),
+    .wraddrA(wraddrA),
+    .wrdataA(wrdataA),
+    .rddataA(readdataA),
+    .wrA(wrA),
+
+    .clkB(clkB),
+    .rdaddrB(rdaddrB),
+    .wraddrB(wraddrB),
+    .wrdataB(wrdataB),
+    .rddataB(readdataB),
+    .wrB(wrB)
+);
+
+
+key_vector keyvec(
+    .clk(clkA),
+    .rst(rst),
+    .from_generator(from_key_generator),
+    .readdata(readdataA),
+    .in_ready(in_ready),   // .in_ready(from_pcap_reader.ready),
+    .in_valid(from_pcap_reader.valid),   // .in_valid(from_pcap_reader.valid),
+    .in_valid_gen(in_valid1),
+    .in_sop(from_pcap_reader.sop), 
+    .in_eop(from_pcap_reader.eop), 
+    .ready_za_reader(from_pcap_reader.ready),
+    .key_vector_next(to_key_scheduler)
+);
+
+endmodule

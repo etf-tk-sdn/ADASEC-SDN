@@ -125,8 +125,10 @@ module pcapwriter#
                                 
 	        pktSz = 0;
                 first_sop = 0;      
-            end                
+            end 
+                        
 	end
+        
     end
 
 endmodule

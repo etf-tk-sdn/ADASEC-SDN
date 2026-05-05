@@ -1,0 +1,40 @@
+module lut (
+
+  //port A
+  input logic clkA,
+  input logic[9:0] rdaddrA,  //pckt_number/flow_id(5)+seq_number(5 bita jer je najvise 24 segmenta u 1500B paketa)
+  input logic[9:0] wraddrA,
+  input logic[390:0] wrdataA, //count_ones(7)+position_vec(384)
+  output logic[390:0] rddataA,
+  input logic wrA,
+
+  //port B
+
+  input logic clkB,
+  input logic[9:0] rdaddrB,  //pckt_number/flow_id(5)+seq_number(5 bita jer je najvise 24 segmenta u 1500B paketa)
+  input logic[9:0] wraddrB,
+  input logic[390:0] wrdataB, //count_ones(7)+position_vec(384)
+  output logic[390:0] rddataB,
+  input logic wrB
+  
+);
+
+  logic [390:0] ram_array [0:1023];   //2^10 unosa u tabeli trenutno
+
+  // Port A logic
+    always @(posedge clkA) begin
+        if (wrA) begin
+            ram_array[wraddrA] <= wrdataA;
+        end
+        rddataA <= ram_array[rdaddrA]; // Read is always active
+    end
+
+  // Port B logic
+    always @(posedge clkB) begin
+        if (wrB) begin
+            ram_array[wraddrB] <= wrdataB;
+        end
+        rddataB <= ram_array[rdaddrB]; // Read is always active
+    end
+
+endmodule
