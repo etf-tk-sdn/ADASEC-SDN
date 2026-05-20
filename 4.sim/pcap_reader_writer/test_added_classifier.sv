@@ -1,0 +1,480 @@
+`timescale 1ps / 1ps
+`define NULL 0
+
+// Author: Amina Tankovic
+// Description: Test for adaptive encryptor extended with network packet classifier;
+//              Input sample (merge_sample_filtered.pcap) include packets from 3 flows. 
+//              Only one flow should be encrypted (only payload of these packets)
+//              Obtained sample (merge_sample_filtered_encrypted.pcap) confirmed that packets are encrypted as expected.
+
+module test_added_classifier;
+
+logic clk = 0;
+logic rst = 1;
+
+logic [511:0] final_key;
+logic available;
+logic [4:0] pktcount;
+logic pcapfinished;
+parameter DATA_WIDTH = 512;
+parameter SIGNAL_TYPE = "avalon";
+
+logic csr_rst = 1;
+logic [31:0] csr_address;
+logic csr_read = 0;
+logic csr_write = 1;
+logic [31:0] csr_writedata;
+logic [31:0] csr_readdata;
+logic [3:0] csr_byteenable;
+  
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_generator_to_fifo(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_generator_fifo_to_key_provider(.clk(clk),.rst(rst));
+axis_if #(.DATA_WIDTH(DATA_WIDTH)) axis_int(.clk(clk),.rst(rst));
+axis_if #(.DATA_WIDTH(DATA_WIDTH)) axis_int2(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader1(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader2(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader3(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH), .CHANNEL_WIDTH(455)) from_key_provider(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) to_encryptor(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) final_data(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) final_data1(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH), .CHANNEL_WIDTH(455)) from_dist(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH), .CHANNEL_WIDTH(455)) from_dist_to_encryptor(.clk(clk),.rst(rst));
+
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader_demux_to_key_provider(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader_demux_to_fifo_reader(.clk(clk),.rst(rst));
+
+
+logic [390:0] readdata;
+logic wrA;
+logic [9:0] wraddrA;
+logic [390:0] wrdataA;
+integer cntreg;
+logic [383:0] posvecreg;
+logic in_valid;
+logic [12:0] depthh;
+logic [12:0] depthh2;
+logic [12:0] depthh_fifo;
+pcapreader #(
+        .PCAP_FILENAME( "merge_sample_filtered.pcap" ), //amina50.pcap
+        .SIGNAL_TYPE(SIGNAL_TYPE),
+        .CLOCK_PERIOD(2560),
+        .DATA_WIDTH(DATA_WIDTH)
+    ) pcap (
+	.clk_out(clk),
+        .reset(rst),
+        .available(available),
+        .pktcount(pktcount),
+	.pcapfinished(pcapfinished),
+
+	.from_reader_avalon(from_reader),
+        .from_reader_axis(axis_int)
+    );
+
+
+avalon_fifo #(
+      .FRAME_FIFO(1),
+      .DEPTH(32768) //32768 //1000000
+) fifo_from_reader(
+      .clk(clk),
+      .rst(rst),
+      .input_avalon(from_reader),
+      .output_avalon(from_reader1),
+      .depth_signal(depthh_fifo),
+      .depth_signal2()
+);
+
+classifier #(
+) classificator (
+    .clk(clk),
+    .rst(rst), 
+
+    //csr interface - avalon mm 
+    .csr_clk(clk),
+    .csr_reset(csr_rst),
+    .csr_address(csr_address),  //5 za bazni dio, 4 za offset kojim upravljam jel se radi o tabeli s podacima ili maskama, i kojem polju tabele se radi
+    .csr_read(csr_read),
+    .csr_readdata(csr_readdata),
+    .csr_write(csr_write),        
+    .csr_writedata(csr_writedata),
+    .csr_byteenable(csr_byteenable),
+    .csr_waitrequest(csr_waitrequest),                                      
+
+    //avalon st input and output
+    .from_pcap_reader_to_classifier(from_reader1),
+    .from_classifier(from_reader2)
+);
+
+
+
+avalon_fifo #(
+      .FRAME_FIFO(1),
+      .DROP_WHEN_FULL(1),
+      .DEPTH(32768) //32768
+) fifo_from_classificator(
+      .clk(clk),
+      .rst(rst),
+      .input_avalon(from_reader2),
+      .output_avalon(from_reader3),
+      .depth_signal(depthh_fifo),
+      .depth_signal2()
+);
+
+reader_demux readdemux(
+    .clk(clk),
+    .rst(rst),
+    .from_pcap_reader(from_reader3),
+    .from_pcap_reader_to_key_provider(from_reader_demux_to_key_provider),
+    .from_pcap_reader_to_pcap_reader_fifo(from_reader_demux_to_fifo_reader)
+);
+
+
+avalon_fifo #(
+      .DEPTH(32768),
+      .FRAME_FIFO(1),
+      .DROP_WHEN_FULL(1)
+) fifo_from_pcap_reader_to_encryptor(
+      .clk(clk),
+      .rst(rst),
+      .input_avalon(from_reader_demux_to_fifo_reader),
+      .output_avalon(to_encryptor),
+      .depth_signal(),
+      .depth_signal2()
+);
+
+
+key_generator keygen(
+    .clk(clk),
+    .rst(rst),
+    .in_valid(in_valid),
+    .to_key_provider(from_generator_to_fifo)
+);
+
+avalon_fifo #(
+      .DEPTH(32768)               //trebalo bi da je dovoljno 2048 zbog velicine registra koji imam...? po defaultu je 32768 u avalon_ifu
+) fifo_from_generator_to_key_provider(
+      .clk(clk),
+      .rst(rst),
+      .input_avalon(from_generator_to_fifo),
+      .output_avalon(from_generator_fifo_to_key_provider),
+      .depth_signal(depthh),
+      .depth_signal2(depthh2)
+);
+
+key_provider keyprov(
+    .clkA(clk),
+    .clkB(clk),
+    .rst(rst),
+    .rdaddrA(from_reader_demux_to_key_provider.channel[9:0]),
+    .rdaddrB('0),
+    .wraddrA(wraddrA),
+    .wraddrB('0),
+    .wrdataA(wrdataA),
+    .wrdataB('0),
+    .wrA(wrA),
+    .wrB(1'b0),
+    .in_ready(from_reader1.ready), //from_reader_demux_to_fifo_reader.ready
+    .in_valid(from_reader1.valid),
+     .in_valid1(from_generator_to_fifo.valid),
+    .from_pcap_reader(from_reader_demux_to_key_provider),   
+    .from_key_generator(from_generator_fifo_to_key_provider),
+    .to_key_scheduler(from_key_provider)
+);
+
+key_scheduler keyscheduler(          
+    .clk(clk),
+    .rst(rst),                           
+    .from_key_provider(from_key_provider),
+    .from_distributor(from_dist)
+
+);
+
+avalon_fifo #(
+      .USER_WIDTH(461),
+      .FRAME_FIFO(1),
+      .DROP_WHEN_FULL(1),
+      .DEPTH(32768)
+) fifo_from_dist_to_encryptor(
+      .clk(clk),
+      .rst(rst),
+      .input_avalon(from_dist),
+      .output_avalon(from_dist_to_encryptor),
+      .depth_signal(),
+      .depth_signal2()
+);
+
+encryption_block enc(
+    .clk(clk),
+    .rst(rst),
+    .from_key_scheduler(from_dist_to_encryptor),
+    .from_reader_register(to_encryptor),
+    .encrypted(final_data1)
+);
+
+avalon_fifo #(
+      .FRAME_FIFO(1),
+      .DROP_WHEN_FULL(1),
+      .DEPTH(32768) //32788
+) fifo_to_writer(
+      .clk(clk),
+      .rst(rst),
+      .input_avalon(final_data1),
+      .output_avalon(final_data),
+      .depth_signal(),
+      .depth_signal2()
+);
+
+
+ pcapwriter #(
+	.PCAP_FILENAME( "merge_sample_filtered_encrypted_2.pcap" ),
+        .SIGNAL_TYPE(SIGNAL_TYPE),
+        .CLOCK_PERIOD(2560),
+        .DATA_WIDTH(DATA_WIDTH)
+    ) pcapwr (
+	.clk_in(clk),
+	.reset(rst),
+
+	.to_writer_avalon(final_data),
+        .to_writer_axis(axis_int)
+    );
+
+    integer clock_period = 2560;
+    always #(clock_period/2) clk = ~clk;
+	
+
+    integer i = 0;
+    integer j;
+    integer k;
+    integer z;
+    integer broj_paketa = 1234; //Broj paketa se mora uvijek podesiti u zavisnosti od file-a koji se razmatra
+    integer a;
+
+    integer m;
+    integer n;
+
+
+    initial begin
+        final_data.ready = 1;
+
+        #(3*clock_period);
+        csr_rst = 0;
+
+        #clock_period;
+
+//Prvi unos u tabeli - za 1.1.1.11 i 1.1.1.14 tok iz file-a merge_sample_filtered.pcap
+//Flow ID: 0
+
+        csr_address[31:10] = '0;
+        csr_address[9:0] = 10'b0000000000;
+        csr_byteenable = 4'b0110;
+        csr_writedata[23:16] = 8'(2);   //kofol prosljedjuje se na drugi ulaz - routing tag
+        csr_writedata[15:8] = 8'(17);  //Protocol Data - 17, udp
+        //csr_writedata[7:0] = 8'(1);    //egzaktno podudaranje sa portom 
+
+        #clock_period;
+
+        csr_address[31:10] = '0;
+        csr_address[9:0] = 10'b0000001000;
+        csr_byteenable = 4'b1100;
+        csr_writedata[31:16] = 16'(80);   //egzaktno podduaranje za src port - 80
+
+
+        #clock_period;
+
+        csr_address[31:10] = '0;
+        csr_address[9:0] = 10'b0000000100;
+        csr_byteenable = 4'b1100;
+        csr_writedata[31:16] = 16'(1050);   //egzaktno podduaranje za dst port 
+
+        #clock_period;
+
+        csr_address[31:10] = '0;                //src adresa - u datim primjerima 1.1.1.1 pa sma stavila mrezu kao 1.1.1.0
+        csr_address[9:0] = 10'b0000010100;
+        csr_byteenable = 4'b1111;
+        csr_writedata[31:24] = 8'(1);  
+        csr_writedata[23:16] = 8'(1);  
+        csr_writedata[15:8] = 8'(1);  
+        csr_writedata[7:0] = '0; 
+
+        #clock_period;
+
+        csr_address[31:10] = '0;                //maska 255.255.255.0
+        csr_address[9:0] = 10'b0000010000;
+        csr_byteenable = 4'b1111;
+        csr_writedata[31:8] = '1;  
+        csr_writedata[7:0] = '0; 
+
+        #clock_period;
+
+        csr_address[31:10] = '0;               //dst adresa - u datim primjerima 1.1.1.4 pa sam i ovdje stavila mrezu 1.1.1.0
+        csr_address[9:0] = 10'b0000001100;
+        csr_byteenable = 4'b1111;
+        csr_writedata[31:24] = 8'(1);  
+        csr_writedata[23:16] = 8'(1);  
+        csr_writedata[15:8] = 8'(1);   
+        csr_writedata[7:0] = '0; 
+
+        #clock_period;
+
+        csr_address[31:10] = '0;             //maska 255.255.255.0 
+        csr_address[9:0] = 10'b0000011000;
+        csr_byteenable = 4'b1111;
+        csr_writedata[31:8] = '1;  
+        csr_writedata[7:0] = '0; 
+//        csr_writedata[7:0] = '1;           
+        #clock_period;
+
+        
+//Drugi unos u tabeli - za 10.10.10.1 i 192.168.1.10, stavicu da moze bilo koji port src, al potpuno poklapanje po adresama
+//Flow ID: 1 (00001 prvi dio u csr_address[9:0])
+
+        csr_address[31:10] = '0;
+        csr_address[9:0] = 10'b0000100000;
+        csr_byteenable = 4'b0110;
+        csr_writedata[23:16] = 8'(1);   //Routing tag na prvi ulaz - 001
+        csr_writedata[15:8] = 8'(17);  //Protocol Data - 17, udp
+        csr_writedata[7:0] = '1;    //egzaktno podudaranje sa protokolom
+
+        #clock_period;
+
+        csr_address[31:10] = '0;
+        csr_address[9:0] = 10'b0000100100;
+        csr_byteenable = 4'b0011;
+        csr_writedata[15:0] = '0;   // Bilo koji src port 
+
+
+        #clock_period;
+
+        csr_address[31:10] = '0;
+        csr_address[9:0] = 10'b0000101000;
+        csr_byteenable = 4'b0011;
+        csr_writedata[15:0] = '0;   //bilo koji dst port 
+
+        #clock_period;
+
+        csr_address[31:10] = '0;               //src adresa 
+        csr_address[9:0] = 10'b0000101100;
+        csr_byteenable = 4'b1111;
+        csr_writedata[31:24] = 8'(192);  
+        csr_writedata[23:16] = 8'(168);  
+        csr_writedata[15:8] = 8'(1);   
+        csr_writedata[7:0] = 8'(12); 
+
+         #clock_period;
+
+        csr_address[31:10] = '0;                //maska 255.255.255.255
+        csr_address[9:0] = 10'b0000110000;
+        csr_byteenable = 4'b1111;
+        csr_writedata[31:0] = '1;   
+
+        #clock_period;
+
+        csr_address[31:10] = '0;               //dst adresa 
+        csr_address[9:0] = 10'b0000110100;
+        csr_byteenable = 4'b1111;
+        csr_writedata[31:24] = 8'(192);  
+        csr_writedata[23:16] = 8'(168);  
+        csr_writedata[15:8] = 8'(1);   
+        csr_writedata[7:0] = 8'(10); 
+
+         #clock_period;
+
+        csr_address[31:10] = '0;                //maska 255.255.255.255
+        csr_address[9:0] = 10'b0000111000;
+        csr_byteenable = 4'b1111;
+        csr_writedata[31:0] = '1; 
+
+///////////////////////////////////////////////////
+        #clock_period;
+        csr_write = 0;
+
+        #(5*clock_period);
+
+        in_valid = 1;
+        #(1*clock_period);
+        wrA = 1;                      //Pocinje upis, dok traje reset
+        
+        //Scenarij: Iz flow-id-a sa tokom 0 svim segmentima se treba sifrirati payload, a ostati nesifriran header
+  //      for(z = 1; z <= 2; z = z+1) begin
+           // wraddrA[12:10] = 8'(2);
+            wraddrA[9:5]='0;                      //Ovo je broj toka koji sam trenutno fiksno postavila u pcap readeru umjesto broja paketa 
+            for(k = 0; k < 24; k = k+1) begin   //Sifrirat ce se svi segmenti (max 24 segmenta imaju)
+                wraddrA[4:0]=k;
+                if(wraddrA[4:0]==0) begin        //Ako je prvi segment, necemo sifrirati prva 42 bajta (header); zbog toga, preostaju nam 22 bajta koja ce se sifrirati...
+                    wrdataA[390:384]=22;     
+                    for(j = 0; j < 22; j = j + 1) begin 
+                        wrdataA[383-j*6-:6] = j+42;    //...i to su pozicije 42,43,...63
+                    end
+                    for(j = 22 ; j < 64; j = j + 1) begin //svi ostali bajti su 0, pa ce key scheduler radit kako treba
+                        wrdataA[383-j*6-:6] = '0; 
+                    end
+                    #(1*clock_period);
+                end else begin                            //Za sve ostale pakete, sifriraju se svi segmenti, tj upisuju se u wrdataA sve vrijednosti pozicija (0,1,2...62,63)
+                    wrdataA[390:384]= 7'b1000000;
+                    for(m = 0; m < 64; m = m + 1) begin 
+                        wrdataA[383-m*6-:6] = m; 
+                    end
+                    #(1*clock_period);
+                end
+            end
+     //   end  
+
+         #(1*clock_period);
+// ZA DRUGI TOK STA HOCU DA SIFRIRAM
+
+        /*    wraddrA[9:5]=5'b00001;                      //Ovo je broj toka koji sam trenutno fiksno postavila u pcap readeru umjesto broja paketa 
+            for(k = 0; k < 1; k = k+1) begin   //Sifrirat ce se svi segmenti (max 24 segmenta imaju)
+                wraddrA[4:0]=k;
+                if(wraddrA[4:0]==0) begin        //Ako je prvi segment, necemo sifrirati prva 42 bajta (header); zbog toga, preostaju nam 22 bajta koja ce se sifrirati...
+                    wrdataA[390:384]=22;     
+                    for(j = 0; j < 22; j = j + 1) begin 
+                        wrdataA[383-j*6-:6] = j+42;    //...i to su pozicije 42,43,...63
+                    end
+                    for(j = 22 ; j < 64; j = j + 1) begin //svi ostali bajti su 0, pa ce key scheduler radit kako treba
+                        wrdataA[383-j*6-:6] = '0; 
+                    end
+                    #(1*clock_period);
+                end else begin                            //Za sve ostale pakete, sifriraju se svi segmenti, tj upisuju se u wrdataA sve vrijednosti pozicija (0,1,2...62,63)
+                    wrdataA[390:384]= 7'b1000000;
+                    for(m = 0; m < 64; m = m + 1) begin 
+                        wrdataA[383-m*6-:6] = m; 
+                    end
+                    #(1*clock_period);
+                end
+            end*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+        #(5*clock_period);
+
+        
+
+
+        //Gotov upis, gotov reset
+        wrA = 0;
+        rst=0;
+
+        //Stimanje promjene valid signala, tj intenziteta kojim dolazi kljuc
+        for (a=0; a<1000000000; a=a+1) begin  
+            
+           in_valid = 0;                
+           #(3*clock_period);   // br clock perioda odredjuje koliko sporo ce dolaziti kljuc
+           in_valid = 1; 
+           #(1*clock_period);
+        end
+        in_valid = 1;
+
+    end
+endmodule
+

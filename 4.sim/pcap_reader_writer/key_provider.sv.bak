@@ -10,10 +10,10 @@ module key_provider#(
     input logic clkA,
     input logic clkB,
     input logic rst,
-    input logic [9:0] rdaddrA,
-    input logic [9:0] rdaddrB,
-    input logic [9:0] wraddrA,
-    input logic [9:0] wraddrB,
+    input logic [12:0] rdaddrA,
+    input logic [12:0] rdaddrB,
+    input logic [12:0] wraddrA,
+    input logic [12:0] wraddrB,
     input logic [390:0] wrdataA,
     input logic [390:0] wrdataB,
     input logic wrA,
@@ -60,8 +60,5 @@ key_vector keyvec(
     .ready_za_reader(from_pcap_reader.ready),
     .key_vector_next(to_key_scheduler)
 );
-
-
-//assign from_pcap_reader.ready = from_pcap_reader.valid && from_key_generator.valid;
 
 endmodule

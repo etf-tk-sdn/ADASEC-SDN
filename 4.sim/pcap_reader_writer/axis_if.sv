@@ -1,4 +1,3 @@
-
 // Author: Amina Tankovic
 // Description: AXI Stream interface with arbitrarily defined width of data signal.
 

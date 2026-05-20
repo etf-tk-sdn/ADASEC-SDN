@@ -6,7 +6,7 @@ module dual_port_ram (
 
   //port A
   input logic clkA,
-  input logic[9:0] rdaddrA,  //pckt_number/flow_id(5 bits - arbitrarily chosen) + seq_number(5 bits, because there can be max 24 segments in MTU (1500B))
+  input logic[9:0] rdaddrA,  //routing_tag(3)+ pckt_number/flow_id(5 bits - arbitrarily chosen) + seq_number(5 bits, because there can be max 24 segments in MTU (1500B))
   input logic[9:0] wraddrA,
   input logic[390:0] wrdataA, //count_ones(7 bits, because there can be max 64 bytes that need to be encrypted) + position_vec(384 bits, 64x6 bits for each address)
   output logic[390:0] rddataA,

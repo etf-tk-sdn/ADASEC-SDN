@@ -2,7 +2,10 @@
 `define NULL 0
 
 // Author: Amina Tankovic
-// Description: 
+// Description: Network packet classifier: consists of header parser (first stage), lookup table (secnond stage)
+//              and match-action table (writing result into channel signal - third stage).
+//              Csr used for writing and reading processes
+// 
               
 module classifier#(
 ) (
@@ -26,11 +29,11 @@ module classifier#(
 );
 
 
-logic [7:0]  protocol;
-logic [15:0] src_port;
-logic [15:0] dst_port;
-logic [31:0] src_ip_add;
-logic [31:0] dst_ip_add; 
+//logic [7:0]  protocol;
+//logic [15:0] src_port;
+//logic [15:0] dst_port;
+//logic [31:0] src_ip_add;
+//logic [31:0] dst_ip_add; 
 
 logic [2:0]  routing_tag_extracted;  //5 mogucih smjerova rutiranja
 logic [4:0]  flow_id_extracted;
@@ -42,11 +45,22 @@ logic [223:0] mat_table [0:31];   //2^5 redova max jer flow_id ima 5 bita; svaki
                                   //    + 2x32(src ip add data+mask) + 2x32(dst ip add data+mask)
 
 
-logic [103:0]  data_test;
-logic [103:0]  mask_test;
+logic [103:0]  data_test [0:31];
+logic [103:0]  mask_test [0:31];
 logic [103:0]  entry;
 logic [4:0]    csr_address_base;
 logic [4:0]    csr_address_offset;
+logic [4:0]    seq_numb = 0;
+
+avalon_if #(.DATA_WIDTH(512)) first_reg(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(512)) second_reg(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(512)) third_reg(.clk(clk),.rst(rst));
+
+always_comb begin
+        csr_address_base = csr_address[9:5];
+        csr_address_offset = csr_address[4:0];
+end
+
 
 always_ff @(posedge csr_clk) begin 
    if(csr_reset) begin
@@ -158,7 +172,7 @@ always_ff @(posedge csr_clk) begin
                      mat_table[int'(csr_address_base)][7:0] <= csr_writedata[7:0];         // Dst IP add (Mask - fourth byte)
                  end
             end else begin
-                 //nista se ne desava? 
+                 
             end
        end else if(csr_read) begin
             if(csr_address_offset == 5'b00000) begin
@@ -260,37 +274,106 @@ always_ff @(posedge csr_clk) begin
 
 end
 
-always_comb begin
+//Classifier
 
-    csr_address_base = csr_address[9:5];
-    csr_address_offset = csr_address[4:0];
+always_ff @(posedge clk) begin
+    if (rst) begin
+      first_reg.sop <= 1'b0;
+      first_reg.eop <= 1'b0;
+      first_reg.valid <= 1'b0;
+      first_reg.data <= '0;
+      first_reg.channel <= '0;
+      first_reg.empty <= '0;
 
-   //header parser
-   if(from_pcap_reader_to_classifier.sop && from_pcap_reader_to_classifier.valid) begin                                   //PROVJERENO, DOBRO PARSIRA
-       protocol = from_pcap_reader_to_classifier.data[327:320]; 
-       src_ip_add = from_pcap_reader_to_classifier.data[303:272];
-       dst_ip_add = from_pcap_reader_to_classifier.data[271:240];
-       src_port = from_pcap_reader_to_classifier.data[239:224];
-       dst_port = from_pcap_reader_to_classifier.data[223:208];
-       entry = {protocol, src_port, dst_port, src_ip_add, dst_ip_add};
+      second_reg.sop <= 1'b0;
+      second_reg.eop <= 1'b0;
+      second_reg.valid <= 1'b0;
+      second_reg.data <= '0;
+      second_reg.channel <= '0;
+      second_reg.empty <= '0;
 
-       foreach (mat_table[i]) begin
-         data_test = {mat_table[i][207:200], mat_table[i][191:176], mat_table[i][159:144], mat_table[i][127:96], mat_table[i][63:32]};
-         mask_test = {mat_table[i][199:192], mat_table[i][175:160], mat_table[i][143:128], mat_table[i][95:64], mat_table[i][31:0]};
- 
-         if ((entry & mask_test) == (data_test & mask_test)) begin
-             routing_tag_extracted = mat_table[i][210:208];  // kada pronadje podudaranje, uzme zadnja 2 bita iz drugog bajta (Routing Tag-a) cijelog zapisa
-             flow_id_extracted = 5'(i);                      // pretvori pronadjeni indeks iz tabele u binarni zapis (5 bita) 
-             break;        
-         end else begin
-             routing_tag_extracted = 3'(4);                   // ako nema zapisa u tabeli, proslijedi ga na izlaz 4 (4 - CPU)
-         end
+      third_reg.sop <= 1'b0;
+      third_reg.eop <= 1'b0;
+      third_reg.valid <= 1'b0;
+      third_reg.data <= '0;
+      third_reg.channel <= '0;
+      third_reg.empty <= '0;
+      
+    end else begin
+
+
+      if(from_classifier.ready==1) begin
+        if(from_pcap_reader_to_classifier.valid) begin
+            if(from_pcap_reader_to_classifier.sop) begin
+                seq_numb <= 1;
+            end else if (from_pcap_reader_to_classifier.eop) begin
+                seq_numb <= 0;
+            end else begin
+                seq_numb <= seq_numb + 1;
+            end
+        end else begin 
+                seq_numb <= 0;
+        end
+      end
+
+      //first stage
+      if (from_pcap_reader_to_classifier.valid && from_pcap_reader_to_classifier.sop) begin
+            //entry <= {protocol, src_port, dst_port, src_ip_add, dst_ip_add};
+            entry <= {from_pcap_reader_to_classifier.data[327:320], from_pcap_reader_to_classifier.data[239:224], from_pcap_reader_to_classifier.data[223:208], from_pcap_reader_to_classifier.data[303:272], from_pcap_reader_to_classifier.data[271:240]};
+      end
+
+      first_reg.sop <= from_pcap_reader_to_classifier.sop;
+      first_reg.eop <= from_pcap_reader_to_classifier.eop;
+      first_reg.valid <= from_pcap_reader_to_classifier.valid;
+      first_reg.data <= from_pcap_reader_to_classifier.data;
+      first_reg.channel[4:0] <= seq_numb;
+      first_reg.empty <= from_pcap_reader_to_classifier.empty;
+      from_pcap_reader_to_classifier.ready <= first_reg.ready;
+
+      //second stage
+
+      if(first_reg.valid && first_reg.sop) begin
+           foreach (mat_table[i]) begin
+                        //if (entry & mask) == (data & mask)
+                        if ((entry & {mat_table[i][199:192], mat_table[i][175:160], mat_table[i][143:128], mat_table[i][95:64], mat_table[i][31:0]}) == ({mat_table[i][207:200], mat_table[i][191:176], mat_table[i][159:144], mat_table[i][127:96], mat_table[i][63:32]} & {mat_table[i][199:192], mat_table[i][175:160], mat_table[i][143:128], mat_table[i][95:64], mat_table[i][31:0]})) begin
+                               routing_tag_extracted <= mat_table[i][210:208];  // kada pronadje podudaranje, uzme zadnja 2 bita iz drugog bajta (Routing Tag-a) cijelog zapisa
+                               flow_id_extracted <= 5'(i);                      // pretvori pronadjeni indeks iz tabele u binarni zapis (5 bita) 
+                               break;        
+                        end else begin
+                               routing_tag_extracted <= 3'(4);  // ako nema zapisa u tabeli, proslijedi ga na izlaz 4 (4 - CPU)
+                               flow_id_extracted <= '1;         //privremeno 
+                        end
+           end
        end
-   end
 
+      second_reg.sop <= first_reg.sop;
+      second_reg.eop <= first_reg.eop;
+      second_reg.valid <= first_reg.valid;
+      second_reg.data <= first_reg.data;
+      second_reg.channel <= first_reg.channel;
+      second_reg.empty <= first_reg.empty;
+      first_reg.ready <= second_reg.ready;
+
+      //third stage
+
+      if(second_reg.valid && second_reg.sop) begin
+         from_classifier.channel[12:10] <= routing_tag_extracted;
+         from_classifier.channel[9:5] <= flow_id_extracted;
+      end
+      from_classifier.channel[4:0] <= second_reg.channel[4:0];   //zadrzi isti sekvencni broj
+
+      //output
+
+      from_classifier.sop <= second_reg.sop;
+      from_classifier.eop <= second_reg.eop;
+      from_classifier.valid <= second_reg.valid;
+      from_classifier.data <= second_reg.data;
+      from_classifier.empty <= second_reg.empty;
+      second_reg.ready <= from_classifier.ready;
+      
+    end
 end
-
-
+   
 endmodule
 
 

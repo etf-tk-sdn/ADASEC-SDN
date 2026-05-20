@@ -15,8 +15,8 @@ module pcapreader#
     parameter CLOCK_PERIOD = 2560,                         //in picoseconds
     parameter EMPTY_WIDTH = DATA_WIDTH>8 ? $clog2(DATA_WIDTH/8) : 1,     
     parameter KEEP_WIDTH = DATA_WIDTH/8,
-    parameter CHANNEL_WIDTH = 10,
-    parameter MAX_PACKET_NUMBER_WIDTH = 5                 //depends on expected number of flow_ids in dual_port_ram; default is 5 bits width;
+    parameter CHANNEL_WIDTH = 13,
+    parameter MAX_PACKET_NUMBER_WIDTH = 5      //depends on expected number of flow_ids in dual_port_ram; default is 5 bits width;
 ) (
     input logic           clk_out,          
     input logic           reset,
@@ -96,7 +96,6 @@ module pcapreader#
     longint timestamp_usec_new = 64'd0;
     longint timestamp_sec_new = 64'd0;
     longint timestamp_new_ps = 64'd0;
-    logic [4:0] seq_numb = 0;
 
     //timer in picoseconds
     always_ff @(posedge clk_out)
@@ -117,7 +116,7 @@ module pcapreader#
     always @(posedge clk_out)
     begin
      if(from_reader_avalon.ready==1 || from_reader_axis.ready==1) begin
-        if(from_reader_avalon.valid) begin
+        /*if(from_reader_avalon.valid) begin
             if(from_reader_avalon.sop) begin
                 seq_numb <= 1;
             end else if (from_reader_avalon.eop) begin
@@ -127,7 +126,7 @@ module pcapreader#
             end
         end else begin 
                  seq_numb <= 0;
-        end
+        end*/
 
         if (eof != 0 || pcapfinished == 1) begin
             pcapfinished <= 1;
@@ -347,8 +346,9 @@ module pcapreader#
     always_comb begin
        if(from_reader_avalon.valid) begin
        //   from_reader_avalon.channel [CHANNEL_WIDTH:CHANNEL_WIDTH-MAX_PACKET_NUMBER_WIDTH] <= pktcount;
-          from_reader_avalon.channel [CHANNEL_WIDTH:CHANNEL_WIDTH-MAX_PACKET_NUMBER_WIDTH] <= 1;
-          from_reader_avalon.channel [CHANNEL_WIDTH-MAX_PACKET_NUMBER_WIDTH-1:0]<= seq_numb;
+          from_reader_avalon.channel[12:10] <= '1;     // routing tag - default 111, which does not represent any of actual interfaces: eth1(000), eth2(001), eth3(010), eth4(011), cpu(100) 
+          from_reader_avalon.channel[9:5] <= '1;       // flow id 
+          from_reader_avalon.channel[4:0]<= '0;
        end else begin
           from_reader_avalon.channel <= '0;
        end

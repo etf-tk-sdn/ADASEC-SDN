@@ -1,11 +1,10 @@
-
 // Author: Amina Tankovic
 // Description: AXI4-Stream FIFO by Alex Forencich wrapped with Avalon-ST interface
 
 module avalon_fifo#(
     parameter DEPTH = 32768,
     parameter DATA_WIDTH = 512,
-    parameter USER_WIDTH = 17,
+    parameter USER_WIDTH = 20,   //1(sop) + 6(empty) + 13(channel)
     parameter FRAME_FIFO = 0,
     parameter DROP_OVERSIZE_FRAME = FRAME_FIFO,
     parameter DROP_WHEN_FULL = 0,

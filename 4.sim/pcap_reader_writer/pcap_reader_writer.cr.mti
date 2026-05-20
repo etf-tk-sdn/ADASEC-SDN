@@ -26,6 +26,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	key_vector
 
+} {} {}} C:/Users/atank/ADASEC-SDN/4.sim/pcap_reader_writer/avalon_fifo.sv {1 {vlog -work work -sv -stats=none C:/Users/atank/ADASEC-SDN/4.sim/pcap_reader_writer/avalon_fifo.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module avalon_fifo
+
+Top level modules:
+	avalon_fifo
+
 } {} {}} C:/Users/atank/ADASEC-SDN/4.sim/pcap_reader_writer/classifier_test.sv {1 {vlog -work work -sv -stats=none C:/Users/atank/ADASEC-SDN/4.sim/pcap_reader_writer/classifier_test.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module classifier_test
@@ -33,12 +40,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	classifier_test
 
-} {} {}} C:/Users/atank/ADASEC-SDN/4.sim/pcap_reader_writer/avalon_fifo.sv {1 {vlog -work work -sv -stats=none C:/Users/atank/ADASEC-SDN/4.sim/pcap_reader_writer/avalon_fifo.sv
+} {} {}} C:/Users/atank/ADASEC-SDN/4.sim/pcap_reader_writer/classifier_test_basic.sv {1 {vlog -work work -sv -stats=none C:/Users/atank/ADASEC-SDN/4.sim/pcap_reader_writer/classifier_test_basic.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module avalon_fifo
+-- Compiling module classifier_test_basic
 
 Top level modules:
-	avalon_fifo
+	classifier_test_basic
 
 } {} {}} C:/Users/atank/ADASEC-SDN/4.sim/pcap_reader_writer/reader_demux.sv {1 {vlog -work work -sv -stats=none C:/Users/atank/ADASEC-SDN/4.sim/pcap_reader_writer/reader_demux.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -117,6 +124,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	classifier
 
+} {} {}} C:/Users/atank/ADASEC-SDN/4.sim/pcap_reader_writer/test_added_classifier.sv {1 {vlog -work work -sv -stats=none C:/Users/atank/ADASEC-SDN/4.sim/pcap_reader_writer/test_added_classifier.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module test_added_classifier
+
+Top level modules:
+	test_added_classifier
+
 } {} {}} C:/Users/atank/ADASEC-SDN/4.sim/pcap_reader_writer/encryption_block.sv {1 {vlog -work work -sv -stats=none C:/Users/atank/ADASEC-SDN/4.sim/pcap_reader_writer/encryption_block.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module encryption_block
@@ -124,19 +138,19 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	encryption_block
 
-} {} {}} C:/Users/atank/ADASEC-SDN/4.sim/pcap_reader_writer/axis_register.v {1 {vlog -work work -stats=none C:/Users/atank/ADASEC-SDN/4.sim/pcap_reader_writer/axis_register.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module axis_register
-
-Top level modules:
-	axis_register
-
 } {} {}} C:/Users/atank/ADASEC-SDN/4.sim/pcap_reader_writer/axis_pipeline_register.sv {1 {vlog -work work -sv -stats=none C:/Users/atank/ADASEC-SDN/4.sim/pcap_reader_writer/axis_pipeline_register.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module axis_pipeline_register
 
 Top level modules:
 	axis_pipeline_register
+
+} {} {}} C:/Users/atank/ADASEC-SDN/4.sim/pcap_reader_writer/axis_register.v {1 {vlog -work work -stats=none C:/Users/atank/ADASEC-SDN/4.sim/pcap_reader_writer/axis_register.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module axis_register
+
+Top level modules:
+	axis_register
 
 } {} {}} C:/Users/atank/ADASEC-SDN/4.sim/pcap_reader_writer/avalon_if.sv {1 {vlog -work work -sv -stats=none C:/Users/atank/ADASEC-SDN/4.sim/pcap_reader_writer/avalon_if.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016

@@ -1,7 +1,17 @@
+
 `timescale 1ps / 1ps
 `define NULL 0
 
 module classifier_test;
+
+//Prosireni test za klasifikator (header parser + lookup table + action) - izolovan od enkriptora
+//Pcap reader + fifo_buffer + classifier + fifo_buffer + pcap_writer
+//Testirani sample (merge_sample_filtered.pcap) sadrzi pakete iz tri toka; Dva toka unesena u lookup tabeli - razlicite pretrage, razliciti routing tagovi
+//Treceg toka nema u tabeli, pa se za njeg odredi routing tag kao 100 (CPU, da vidi sta ce s njim)
+//U ModelSim-u potvrdjeno da su channel signali dobro odredjeni - ispravno nadje routing tag i flow id u skladu sa zadanom tabelom, i proslijedi sequence id iz pcap readera
+//U pcap fileovima (pcap writeru, i koristenjem skripte compare.py iz pcap analizatora) potvrdjeno da nema promjene u odnosu na izvorni pcap file (sto je i ocekivano, nemamo enkriptora ovdje
+//a channel signal se ne prenosi u sklopu samih paketa)
+
 
 logic clk = 0;
 logic rst = 1;
@@ -14,7 +24,9 @@ parameter DATA_WIDTH = 512;
 parameter SIGNAL_TYPE = "avalon";
   
 avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader_to_class(.clk(clk),.rst(rst));
-avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_classifier(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader_to_class1(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader_to_class2(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader_to_class3(.clk(clk),.rst(rst));
 axis_if #(.DATA_WIDTH(DATA_WIDTH)) axis_int(.clk(clk),.rst(rst));
 
 logic csr_rst = 1;
@@ -26,7 +38,7 @@ logic [31:0] csr_readdata;
 logic [3:0] csr_byteenable;
 
 pcapreader #(
-        .PCAP_FILENAME( "testic.pcap" ), //amina50.pcap
+        .PCAP_FILENAME( "merge_sample_filtered.pcap" ), //testic.pcap
         .SIGNAL_TYPE(SIGNAL_TYPE),
         .CLOCK_PERIOD(2560),
         .DATA_WIDTH(DATA_WIDTH)
@@ -40,6 +52,18 @@ pcapreader #(
 	.from_reader_avalon(from_reader_to_class),
         .from_reader_axis(axis_int)
     );
+
+avalon_fifo #(
+      .FRAME_FIFO(1),
+      .DEPTH(1000000) //32768
+) fifo_from_reader(
+      .clk(clk),
+      .rst(rst),
+      .input_avalon(from_reader_to_class),
+      .output_avalon(from_reader_to_class1),
+      .depth_signal(depthh_fifo),
+      .depth_signal2()
+);
 
 classifier #(
 ) classificator (
@@ -56,30 +80,54 @@ classifier #(
       .csr_writedata(csr_writedata),
       .csr_waitrequest(),  
 
-      .from_pcap_reader_to_classifier(from_reader_to_class),
-      .from_classifier(from_classifier)
+      .from_pcap_reader_to_classifier(from_reader_to_class1),
+      .from_classifier(from_reader_to_class2)
 );
 
+avalon_fifo #(
+      .FRAME_FIFO(1),
+      .DEPTH(1000000), //32768
+      .DROP_WHEN_FULL(1)
+) fifo_from_reader2(
+      .clk(clk),
+      .rst(rst),
+      .input_avalon(from_reader_to_class2),
+      .output_avalon(from_reader_to_class3),
+      .depth_signal(depthh_fifo),
+      .depth_signal2()
+);
+
+pcapwriter #(
+	.PCAP_FILENAME( "merge_sample_filtered_written.pcap" ),
+        .SIGNAL_TYPE(SIGNAL_TYPE),
+        .CLOCK_PERIOD(2560),
+        .DATA_WIDTH(DATA_WIDTH)
+    ) pcapwr (
+	.clk_in(clk),
+	.reset(rst),
+
+	.to_writer_avalon(from_reader_to_class3),
+        .to_writer_axis(axis_int)
+    );
 
 
     integer clock_period = 2560;
     always #(clock_period/2) clk = ~clk;
-	
-
-
     integer i = 0;
 
     initial begin
 
         $dumpfile("novi1.txt");
         $dumpvars(0);
-        from_classifier.ready = 1;
-        from_reader_to_class.ready = 1;
+        from_reader_to_class3.ready = 1;
   
         #(3*clock_period);
         csr_rst = 0;
 
         #clock_period;
+
+//Prvi unos u tabeli - za 1.1.1.11 i 1.1.1.14 tok iz file-a merge_sample_filtered.pcap
+//Flow ID: 0
 
         csr_address[31:10] = '0;
         csr_address[9:0] = 10'b0000000000;
@@ -91,7 +139,7 @@ classifier #(
         #clock_period;
 
         csr_address[31:10] = '0;
-        csr_address[9:0] = 10'b0000000100;
+        csr_address[9:0] = 10'b0000001000;
         csr_byteenable = 4'b1100;
         csr_writedata[31:16] = 16'(80);   //egzaktno podduaranje za src port - 80
 
@@ -99,14 +147,14 @@ classifier #(
         #clock_period;
 
         csr_address[31:10] = '0;
-        csr_address[9:0] = 10'b0000001000;
+        csr_address[9:0] = 10'b0000000100;
         csr_byteenable = 4'b1100;
         csr_writedata[31:16] = 16'(1050);   //egzaktno podduaranje za dst port 
 
         #clock_period;
 
-        csr_address[31:10] = '0;
-        csr_address[9:0] = 10'b0000001100;
+        csr_address[31:10] = '0;                //src adresa - u datim primjerima 1.1.1.1 pa sma stavila mrezu kao 1.1.1.0
+        csr_address[9:0] = 10'b0000010100;
         csr_byteenable = 4'b1111;
         csr_writedata[31:24] = 8'(1);  
         csr_writedata[23:16] = 8'(1);  
@@ -115,7 +163,7 @@ classifier #(
 
         #clock_period;
 
-        csr_address[31:10] = '0;
+        csr_address[31:10] = '0;                //maska 255.255.255.0
         csr_address[9:0] = 10'b0000010000;
         csr_byteenable = 4'b1111;
         csr_writedata[31:8] = '1;  
@@ -123,8 +171,8 @@ classifier #(
 
         #clock_period;
 
-        csr_address[31:10] = '0;
-        csr_address[9:0] = 10'b0000010100;
+        csr_address[31:10] = '0;               //dst adresa - u datim primjerima 1.1.1.4 pa sam i ovdje stavila mrezu 1.1.1.0
+        csr_address[9:0] = 10'b0000001100;
         csr_byteenable = 4'b1111;
         csr_writedata[31:24] = 8'(1);  
         csr_writedata[23:16] = 8'(1);  
@@ -133,37 +181,97 @@ classifier #(
 
         #clock_period;
 
-        csr_address[31:10] = '0;
+        csr_address[31:10] = '0;             //maska 255.255.255.0 
         csr_address[9:0] = 10'b0000011000;
         csr_byteenable = 4'b1111;
         csr_writedata[31:8] = '1;  
         csr_writedata[7:0] = '0; 
+//        csr_writedata[7:0] = '1;           //Za testiranje kad nema podudaranja medju trenutnim unosima u tabeli tokova - da se proslijedi na CPU (100 routing tag)
 
         #clock_period;
 
-       
+        
+//Drugi unos u tabeli - za 10.10.10.1 i 192.168.1.10, stavicu da moze bilo koji port src, al potpuno poklapanje po adresama
+//Flow ID: 1 (00001 prvi dio u csr_address[9:0])
+
+        csr_address[31:10] = '0;
+        csr_address[9:0] = 10'b0000100000;
+        csr_byteenable = 4'b0110;
+        csr_writedata[23:16] = 8'(1);   //Routing tag na prvi ulaz - 001
+        csr_writedata[15:8] = 8'(17);  //Protocol Data - 17, udp
+        csr_writedata[7:0] = '1;    //egzaktno podudaranje sa protokolom
+
+        #clock_period;
+
+        csr_address[31:10] = '0;
+        csr_address[9:0] = 10'b0000100100;
+        csr_byteenable = 4'b0011;
+        csr_writedata[15:0] = '0;   // Bilo koji src port 
+
+
+        #clock_period;
+
+        csr_address[31:10] = '0;
+        csr_address[9:0] = 10'b0000101000;
+        csr_byteenable = 4'b0011;
+        csr_writedata[15:0] = '0;   //bilo koji dst port 
+
+        #clock_period;
+
+        csr_address[31:10] = '0;               //src adresa 
+        csr_address[9:0] = 10'b0000101100;
+        csr_byteenable = 4'b1111;
+        csr_writedata[31:24] = 8'(192);  
+        csr_writedata[23:16] = 8'(168);  
+        csr_writedata[15:8] = 8'(1);   
+        csr_writedata[7:0] = 8'(12); 
+
+         #clock_period;
+
+        csr_address[31:10] = '0;                //maska 255.255.255.255
+        csr_address[9:0] = 10'b0000110000;
+        csr_byteenable = 4'b1111;
+        csr_writedata[31:0] = '1;   
+
+        #clock_period;
+
+        csr_address[31:10] = '0;               //dst adresa 
+        csr_address[9:0] = 10'b0000110100;
+        csr_byteenable = 4'b1111;
+        csr_writedata[31:24] = 8'(192);  
+        csr_writedata[23:16] = 8'(168);  
+        csr_writedata[15:8] = 8'(1);   
+        csr_writedata[7:0] = 8'(10); 
+
+         #clock_period;
+
+        csr_address[31:10] = '0;                //maska 255.255.255.255
+        csr_address[9:0] = 10'b0000111000;
+        csr_byteenable = 4'b1111;
+        csr_writedata[31:0] = '1; 
+
+///////////////////////////////////////////////////
+        #clock_period;
         csr_write = 0;
 
         #(5*clock_period);
 
         rst <= 0;
         #(2*clock_period);
-        //avalon_int.ready <= 0;
         #(3*clock_period);
-        //avalon_int.ready <= 1;
+   
 		
-        while (~pcapfinished) begin
-	    #20
-	    i = i+1;
-	end
+       // while (~pcapfinished) begin
+//	    #20
+//	    i = i+1;
+//	end
 
-	#(2*clock_period);
+//	#(2*clock_period);
 
-	$finish;
+//	$finish;
 
     end
 
 
 
 endmodule
-

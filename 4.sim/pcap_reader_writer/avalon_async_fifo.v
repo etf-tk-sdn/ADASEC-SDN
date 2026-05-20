@@ -1,4 +1,3 @@
-
 // Author: Amina Tankovic
 // Description: AXI4-Stream async FIFO by Alex Forencich wrapped with Avalon-ST interface
 

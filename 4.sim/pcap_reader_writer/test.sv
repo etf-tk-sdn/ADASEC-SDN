@@ -12,6 +12,14 @@ logic [4:0] pktcount;
 logic pcapfinished;
 parameter DATA_WIDTH = 512;
 parameter SIGNAL_TYPE = "avalon";
+
+logic csr_rst = 1;
+logic [31:0] csr_address;
+logic csr_read = 0;
+logic csr_write = 1;
+logic [31:0] csr_writedata;
+logic [31:0] csr_readdata;
+logic [3:0] csr_byteenable;
   
 avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_generator_to_fifo(.clk(clk),.rst(rst));
 avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_generator_fifo_to_key_provider(.clk(clk),.rst(rst));
@@ -19,6 +27,8 @@ axis_if #(.DATA_WIDTH(DATA_WIDTH)) axis_int(.clk(clk),.rst(rst));
 axis_if #(.DATA_WIDTH(DATA_WIDTH)) axis_int2(.clk(clk),.rst(rst));
 avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader(.clk(clk),.rst(rst));
 avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader1(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader2(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader3(.clk(clk),.rst(rst));
 avalon_if #(.DATA_WIDTH(DATA_WIDTH), .CHANNEL_WIDTH(455)) from_key_provider(.clk(clk),.rst(rst));
 avalon_if #(.DATA_WIDTH(DATA_WIDTH)) to_encryptor(.clk(clk),.rst(rst));
 avalon_if #(.DATA_WIDTH(DATA_WIDTH)) final_data(.clk(clk),.rst(rst));
@@ -41,7 +51,7 @@ logic [12:0] depthh;
 logic [12:0] depthh2;
 logic [12:0] depthh_fifo;
 pcapreader #(
-        .PCAP_FILENAME( "amina100.pcap" ), //amina50.pcap
+        .PCAP_FILENAME( "merge_sample_filtered.pcap" ), //amina50.pcap
         .SIGNAL_TYPE(SIGNAL_TYPE),
         .CLOCK_PERIOD(2560),
         .DATA_WIDTH(DATA_WIDTH)
@@ -56,15 +66,17 @@ pcapreader #(
         .from_reader_axis(axis_int)
     );
 
+
+
 avalon_fifo #(
       .FRAME_FIFO(1),
       .DROP_WHEN_FULL(1),
       .DEPTH(1000000) //32768
-) fifo_from_reader(
+) fifo_from_classificator(
       .clk(clk),
       .rst(rst),
       .input_avalon(from_reader),
-      .output_avalon(from_reader1),
+      .output_avalon(from_reader3),
       .depth_signal(depthh_fifo),
       .depth_signal2()
 );
@@ -72,7 +84,7 @@ avalon_fifo #(
 reader_demux readdemux(
     .clk(clk),
     .rst(rst),
-    .from_pcap_reader(from_reader1),
+    .from_pcap_reader(from_reader3),
     .from_pcap_reader_to_key_provider(from_reader_demux_to_key_provider),
     .from_pcap_reader_to_pcap_reader_fifo(from_reader_demux_to_fifo_reader)
 );

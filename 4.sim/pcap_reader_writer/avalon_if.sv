@@ -5,7 +5,7 @@ interface avalon_if #
 (
     parameter DATA_WIDTH = 512,
     parameter EMPTY_WIDTH = $clog2(DATA_WIDTH/8),
-    parameter CHANNEL_WIDTH = 10
+    parameter CHANNEL_WIDTH = 13  //Routing tag(3) + Flow ID(5) + Segment ID(5)
 )
 (
    input logic   clk,
