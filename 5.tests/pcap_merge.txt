@@ -1,0 +1,4 @@
+#!/bin/sh
+
+#rm -rf *.pcap
+mergecap *.pcap -w novi.pcap
