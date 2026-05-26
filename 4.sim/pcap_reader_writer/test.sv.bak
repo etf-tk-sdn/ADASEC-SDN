@@ -1,6 +1,7 @@
 `timescale 1ps / 1ps
 `define NULL 0
 
+
 module test;
 
 logic clk = 0;
@@ -126,7 +127,7 @@ key_provider keyprov(
     .clkA(clk),
     .clkB(clk),
     .rst(rst),
-    .rdaddrA(from_reader_demux_to_key_provider.channel[9:0]),
+    .rdaddrA(from_reader_demux_to_key_provider.channel),
     .rdaddrB('0),
     .wraddrA(wraddrA),
     .wraddrB('0),

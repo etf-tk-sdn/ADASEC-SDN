@@ -1,0 +1,133 @@
+`timescale 1ps / 1ps
+`define NULL 0
+
+// Author: Amina Tankovic
+// Description: Test for pcap reader + rr_mux
+
+module test_rrmux;
+
+logic clk = 0;
+logic rst = 1;
+
+logic pause = 0;
+logic is_idle = 0;
+
+logic [511:0] final_key;
+logic available;
+logic [4:0] pktcount;
+logic pcapfinished;
+parameter DATA_WIDTH = 512;
+parameter SIGNAL_TYPE = "avalon";
+  
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader1(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader2(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader3(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader4(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader_next(.clk(clk),.rst(rst));
+
+pcapreader #(
+        .PCAP_FILENAME( "merge_sample_filtered.pcap" ), //amina50.pcap
+        .SIGNAL_TYPE(SIGNAL_TYPE),
+        .CLOCK_PERIOD(2560),
+        .DATA_WIDTH(DATA_WIDTH)
+    ) pcap (
+	.clk_out(clk),
+        .reset(rst),
+        .available(available),
+        .pktcount(pktcount),
+	.pcapfinished(pcapfinished),
+
+	.from_reader_avalon(from_reader),
+        .from_reader_axis(axis_int)
+    );
+
+pcapreader #(
+        .PCAP_FILENAME( "merge_sample_filtered.pcap" ), //amina50.pcap
+        .SIGNAL_TYPE(SIGNAL_TYPE),
+        .CLOCK_PERIOD(2560),
+        .DATA_WIDTH(DATA_WIDTH)
+    ) pcap1 (
+	.clk_out(clk),
+        .reset(rst),
+        .available(available),
+        .pktcount(pktcount),
+	.pcapfinished(pcapfinished),
+
+	.from_reader_avalon(from_reader1),
+        .from_reader_axis(axis_int)
+    );
+
+pcapreader #(
+        .PCAP_FILENAME( "merge_sample_filtered.pcap" ), //amina50.pcap
+        .SIGNAL_TYPE(SIGNAL_TYPE),
+        .CLOCK_PERIOD(2560),
+        .DATA_WIDTH(DATA_WIDTH)
+    ) pcap2 (
+	.clk_out(clk),
+        .reset(rst),
+        .available(available),
+        .pktcount(pktcount),
+	.pcapfinished(pcapfinished),
+
+	.from_reader_avalon(from_reader2),
+        .from_reader_axis(axis_int)
+    );
+
+pcapreader #(
+        .PCAP_FILENAME( "merge_sample_filtered.pcap" ), //amina50.pcap
+        .SIGNAL_TYPE(SIGNAL_TYPE),
+        .CLOCK_PERIOD(2560),
+        .DATA_WIDTH(DATA_WIDTH)
+    ) pcap3 (
+	.clk_out(clk),
+        .reset(rst),
+        .available(available),
+        .pktcount(pktcount),
+	.pcapfinished(pcapfinished),
+
+	.from_reader_avalon(from_reader3),
+        .from_reader_axis(axis_int)
+    );
+
+pcapreader #(
+        .PCAP_FILENAME( "merge_sample_filtered.pcap" ), //amina50.pcap
+        .SIGNAL_TYPE(SIGNAL_TYPE),
+        .CLOCK_PERIOD(2560),
+        .DATA_WIDTH(DATA_WIDTH)
+    ) pcap4 (
+	.clk_out(clk),
+        .reset(rst),
+        .available(available),
+        .pktcount(pktcount),
+	.pcapfinished(pcapfinished),
+
+	.from_reader_avalon(from_reader4),
+        .from_reader_axis(axis_int)
+    );
+
+
+rr_mux #(
+) multiplexer (
+   .pause(pause),
+   .is_idle(is_idle),
+
+   .from_cpu(from_reader),
+   .from_eth_1(from_reader1),
+   .from_eth_2(from_reader2),
+   .from_eth_3(from_reader3),
+   .from_eth_4(from_reader4),
+   .to_sw(from_reader_next)
+);
+
+
+    integer clock_period = 2560;
+    always #(clock_period/2) clk = ~clk;
+	
+    initial begin
+         from_reader_next.ready = 1;
+        #(3*clock_period);
+         rst = 0;
+       
+    end
+endmodule

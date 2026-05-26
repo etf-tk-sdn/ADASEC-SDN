@@ -1,0 +1,33 @@
+module avalon_if_skid_buffer (
+   avalon_if.in inp,
+   avalon_if.out outp
+);
+   axis_register #(
+      .DATA_WIDTH(512),
+      .USER_WIDTH(19)
+		//.ID_WIDTH(8)
+   ) sbuff (
+      .clk(inp.clk),
+      .rst(inp.rst),
+      .s_axis_tvalid(inp.valid),
+      .s_axis_tready(inp.ready),
+      .s_axis_tdata(inp.data),
+      .s_axis_tkeep('1), /////
+      .s_axis_tlast(inp.eop),
+      .s_axis_tuser({inp.sop,
+	             inp.empty,
+		     inp.channel}),
+      .s_axis_tid('0),
+      .s_axis_tdest('0),
+      .m_axis_tvalid(outp.valid),
+      .m_axis_tready(outp.ready),
+      .m_axis_tdata(outp.data),
+      .m_axis_tkeep(),  ////////////
+      .m_axis_tlast(outp.eop),
+      .m_axis_tuser({outp.sop,
+		     outp.empty,
+		     outp.channel}),
+      .m_axis_tid(),
+      .m_axis_tdest()
+   );
+endmodule

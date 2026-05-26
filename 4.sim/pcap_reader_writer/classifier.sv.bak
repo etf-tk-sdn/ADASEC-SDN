@@ -172,7 +172,7 @@ always_ff @(posedge csr_clk) begin
                      mat_table[int'(csr_address_base)][7:0] <= csr_writedata[7:0];         // Dst IP add (Mask - fourth byte)
                  end
             end else begin
-                 //nista se ne desava? 
+                 
             end
        end else if(csr_read) begin
             if(csr_address_offset == 5'b00000) begin
@@ -341,7 +341,7 @@ always_ff @(posedge clk) begin
                                break;        
                         end else begin
                                routing_tag_extracted <= 3'(4);  // ako nema zapisa u tabeli, proslijedi ga na izlaz 4 (4 - CPU)
-                               flow_id_extracted <= '1;         //ovo cu samo privremeno stavit da su sve jedinice, kao necu imat taj posljednji zapis, dok vidim sta cu stvarno s tim
+                               flow_id_extracted <= '1;         //privremeno 
                         end
            end
        end

@@ -1,0 +1,113 @@
+`timescale 1ps / 1ps
+`define NULL 0
+
+// Author: Amina Tankovic
+// Description: Test for adaptive encryptor extended with network packet classifier;
+//              Input sample (merge_sample_filtered.pcap) include packets from 3 flows. 
+//              Only one flow should be encrypted (only payload of these packets)
+//              Obtained sample (merge_sample_filtered_encrypted.pcap) confirmed that packets are encrypted as expected.
+
+module test_rrmux;
+
+logic clk = 0;
+logic rst = 1;
+
+logic pause = 0;
+logic is_idle = 0;
+
+logic [511:0] final_key;
+logic available;
+logic [4:0] pktcount;
+logic pcapfinished;
+parameter DATA_WIDTH = 512;
+parameter SIGNAL_TYPE = "avalon";
+
+logic csr_rst = 1;
+logic [31:0] csr_address;
+logic csr_read = 0;
+logic csr_write = 1;
+logic [31:0] csr_writedata;
+logic [31:0] csr_readdata;
+logic [3:0] csr_byteenable;
+  
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_generator_to_fifo(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_generator_fifo_to_key_provider(.clk(clk),.rst(rst));
+axis_if #(.DATA_WIDTH(DATA_WIDTH)) axis_int(.clk(clk),.rst(rst));
+axis_if #(.DATA_WIDTH(DATA_WIDTH)) axis_int2(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader1(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader2(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader3(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH), .CHANNEL_WIDTH(455)) from_key_provider(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) to_encryptor(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) final_data(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) final_data1(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH), .CHANNEL_WIDTH(455)) from_dist(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH), .CHANNEL_WIDTH(455)) from_dist_to_encryptor(.clk(clk),.rst(rst));
+
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader_demux_to_key_provider(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_reader_demux_to_fifo_reader(.clk(clk),.rst(rst));
+
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_cpu(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_readera(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_readerb(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) from_readerc(.clk(clk),.rst(rst));
+
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) final_data_a(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) final_data_b(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) final_data_c(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) final_data_d(.clk(clk),.rst(rst));
+avalon_if #(.DATA_WIDTH(DATA_WIDTH)) final_data_e(.clk(clk),.rst(rst));
+
+
+logic [390:0] readdata;
+logic wrA;
+logic [9:0] wraddrA;
+logic [390:0] wrdataA;
+integer cntreg;
+logic [383:0] posvecreg;
+logic in_valid;
+logic [12:0] depthh;
+logic [12:0] depthh2;
+logic [12:0] depthh_fifo;
+pcapreader #(
+        .PCAP_FILENAME( "merge_sample_filtered.pcap" ), //amina50.pcap
+        .SIGNAL_TYPE(SIGNAL_TYPE),
+        .CLOCK_PERIOD(2560),
+        .DATA_WIDTH(DATA_WIDTH)
+    ) pcap (
+	.clk_out(clk),
+        .reset(rst),
+        .available(available),
+        .pktcount(pktcount),
+	.pcapfinished(pcapfinished),
+
+	.from_reader_avalon(from_reader),
+        .from_reader_axis(axis_int)
+    );
+
+rr_mux #(
+) multiplexer (
+   .pause(pause),
+   .is_idle(is_idle),
+
+   .from_cpu(from_cpu),
+   .from_eth_1(from_readera),
+   .from_eth_2(from_reader),
+   .from_eth_3(from_readerb),
+   .from_eth_4(from_readerc),
+   .to_sw(from_reader1)
+);
+
+
+    integer clock_period = 2560;
+    always #(clock_period/2) clk = ~clk;
+	
+    initial begin
+         from_reader1 = 1;
+
+        #(3*clock_period);
+        
+
+    end
+endmodule

@@ -1,6 +1,7 @@
 `timescale 1ps / 1ps
 `define NULL 0
 
+
 module test;
 
 logic clk = 0;
@@ -65,8 +66,6 @@ pcapreader #(
 	.from_reader_avalon(from_reader),
         .from_reader_axis(axis_int)
     );
-
-
 
 avalon_fifo #(
       .FRAME_FIFO(1),

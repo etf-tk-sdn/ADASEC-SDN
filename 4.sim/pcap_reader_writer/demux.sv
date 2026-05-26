@@ -1,0 +1,136 @@
+//Adjusted version of demultiplexer from wireguard-fpga project 
+
+module demux (
+   avalon_if.in from_sw,
+   avalon_if.out to_cpu,
+   avalon_if.out to_eth_1,
+   avalon_if.out to_eth_2,
+   avalon_if.out to_eth_3,
+   avalon_if.out to_eth_4
+);
+ 
+
+   avalon_if from_sw_sbuff (.clk(from_sw.clk), .rst(from_sw.rst));
+   avalon_if to_cpu_sbuff   (.clk(from_sw.clk), .rst(from_sw.rst));
+   avalon_if to_eth_1_sbuff (.clk(from_sw.clk), .rst(from_sw.rst));
+   avalon_if to_eth_2_sbuff (.clk(from_sw.clk), .rst(from_sw.rst));
+   avalon_if to_eth_3_sbuff (.clk(from_sw.clk), .rst(from_sw.rst));
+   avalon_if to_eth_4_sbuff (.clk(from_sw.clk), .rst(from_sw.rst));
+
+// Backpressure
+   assign from_sw_sbuff.ready = ((from_sw_sbuff.channel[12:10] != 3'b100 && from_sw_sbuff.channel[12:10] != 3'b111) | to_cpu_sbuff.ready) &
+                                  ((from_sw_sbuff.channel[12:10] != 3'b000 && from_sw_sbuff.channel[12:10] != 3'b111) | to_eth_1_sbuff.ready) &
+                                  ((from_sw_sbuff.channel[12:10] != 3'b001 && from_sw_sbuff.channel[12:10] != 3'b111) | to_eth_2_sbuff.ready) &
+                                  ((from_sw_sbuff.channel[12:10] != 3'b010 && from_sw_sbuff.channel[12:10] != 3'b111) | to_eth_3_sbuff.ready) &
+                                  ((from_sw_sbuff.channel[12:10] != 3'b011 && from_sw_sbuff.channel[12:10] != 3'b111) | to_eth_4_sbuff.ready);
+
+// Demultiplexer
+   always_comb begin
+      if (from_sw_sbuff.channel[12:10] == 3'b100 || from_sw_sbuff.channel[12:10] == 3'b111) begin
+         to_cpu_sbuff.valid = from_sw_sbuff.valid;
+         to_cpu_sbuff.data = from_sw_sbuff.data;
+         to_cpu_sbuff.sop = from_sw_sbuff.sop;
+         to_cpu_sbuff.eop = from_sw_sbuff.eop;
+	 to_cpu_sbuff.empty = from_sw_sbuff.empty;
+         to_cpu_sbuff.channel = from_sw_sbuff.channel;
+      end else begin
+         to_cpu_sbuff.valid = 1'b0;
+         to_cpu_sbuff.data = '0;
+         to_cpu_sbuff.sop = 1'b0;
+         to_cpu_sbuff.eop = 1'b0;
+	 to_cpu_sbuff.empty = '0;
+         to_cpu_sbuff.channel = '0;
+      end
+      if (from_sw_sbuff.channel[12:10] == 3'b000 || from_sw_sbuff.channel[12:10] == 3'b111) begin
+         to_eth_1_sbuff.valid = from_sw_sbuff.valid;
+	 to_eth_1_sbuff.data = from_sw_sbuff.data;
+         to_eth_1_sbuff.sop = from_sw_sbuff.sop;
+         to_eth_1_sbuff.eop = from_sw_sbuff.eop;
+	 to_eth_1_sbuff.empty = from_sw_sbuff.empty;
+         to_eth_1_sbuff.channel = from_sw_sbuff.channel;
+      end else begin
+         to_eth_1_sbuff.valid = 1'b0;
+         to_eth_1_sbuff.data = '0;
+         to_eth_1_sbuff.sop = 1'b0;
+         to_eth_1_sbuff.eop = 1'b0;
+	 to_eth_1_sbuff.empty = '0;
+         to_eth_1_sbuff.channel = '0;
+      end
+      if (from_sw_sbuff.channel[12:10] == 3'b001 || from_sw_sbuff.channel[12:10] == 3'b111) begin
+         to_eth_2_sbuff.valid = from_sw_sbuff.valid;
+	 to_eth_2_sbuff.data = from_sw_sbuff.data;
+         to_eth_2_sbuff.sop = from_sw_sbuff.sop;
+         to_eth_2_sbuff.eop = from_sw_sbuff.eop;
+	 to_eth_2_sbuff.empty = from_sw_sbuff.empty;
+         to_eth_2_sbuff.channel = from_sw_sbuff.channel;
+      end else begin
+         to_eth_2_sbuff.valid = 1'b0;
+         to_eth_2_sbuff.data = '0;
+         to_eth_2_sbuff.sop = 1'b0;
+         to_eth_2_sbuff.eop = 1'b0;
+	 to_eth_2_sbuff.empty = '0;
+         to_eth_2_sbuff.channel = '0;
+      end
+      if (from_sw_sbuff.channel[12:10] == 3'b010 || from_sw_sbuff.channel[12:10] == 3'b111) begin
+         to_eth_3_sbuff.valid = from_sw_sbuff.valid;
+	 to_eth_3_sbuff.data = from_sw_sbuff.data;
+         to_eth_3_sbuff.sop = from_sw_sbuff.sop;
+         to_eth_3_sbuff.eop = from_sw_sbuff.eop;
+	 to_eth_3_sbuff.empty = from_sw_sbuff.empty;
+         to_eth_3_sbuff.channel = from_sw_sbuff.channel;
+      end else begin
+         to_eth_3_sbuff.valid = 1'b0;
+         to_eth_3_sbuff.data = '0;
+         to_eth_3_sbuff.sop = 1'b0;
+         to_eth_3_sbuff.eop = 1'b0;
+	 to_eth_3_sbuff.empty = '0;
+         to_eth_3_sbuff.channel = '0;
+      end
+      if (from_sw_sbuff.channel[12:10] == 3'b011 || from_sw_sbuff.channel[12:10] == 3'b111) begin
+         to_eth_4_sbuff.valid = from_sw_sbuff.valid;
+	 to_eth_4_sbuff.data = from_sw_sbuff.data;
+         to_eth_4_sbuff.sop = from_sw_sbuff.sop;
+         to_eth_4_sbuff.eop = from_sw_sbuff.eop;
+	 to_eth_4_sbuff.empty = from_sw_sbuff.empty;
+         to_eth_4_sbuff.channel = from_sw_sbuff.channel;
+      end else begin
+         to_eth_4_sbuff.valid = 1'b0;
+         to_eth_4_sbuff.data = '0;
+         to_eth_4_sbuff.sop = 1'b0;
+         to_eth_4_sbuff.eop = 1'b0;
+	 to_eth_4_sbuff.empty = '0;
+         to_eth_4_sbuff.channel = '0;
+      end
+   end
+
+// Skid buffers
+   avalon_if_skid_buffer skid_buffer_from_sw (
+      .inp(from_sw),
+      .outp(from_sw_sbuff)
+   );
+
+   avalon_if_skid_buffer skid_buffer_to_cpu (
+      .inp(to_cpu_sbuff),
+      .outp(to_cpu)
+   );
+
+   avalon_if_skid_buffer skid_buffer_to_eth_1 (
+      .inp(to_eth_1_sbuff),
+      .outp(to_eth_1)
+   );
+
+   avalon_if_skid_buffer skid_buffer_to_eth_2 (
+      .inp(to_eth_2_sbuff),
+      .outp(to_eth_2)
+   );
+
+   avalon_if_skid_buffer skid_buffer_to_eth_3 (
+      .inp(to_eth_3_sbuff),
+      .outp(to_eth_3)
+   );
+
+   avalon_if_skid_buffer skid_buffer_to_eth_4 (
+      .inp(to_eth_4_sbuff),
+      .outp(to_eth_4)
+   );
+endmodule

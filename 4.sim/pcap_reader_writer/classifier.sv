@@ -29,12 +29,6 @@ module classifier#(
 );
 
 
-//logic [7:0]  protocol;
-//logic [15:0] src_port;
-//logic [15:0] dst_port;
-//logic [31:0] src_ip_add;
-//logic [31:0] dst_ip_add; 
-
 logic [2:0]  routing_tag_extracted;  //5 mogucih smjerova rutiranja
 logic [4:0]  flow_id_extracted;
 
