@@ -6,6 +6,7 @@
 **/incremental_db/
 **/output_files/
 **/bitfiles/*
+**/reuse/
 !**/bitfiles/.gitkeep
 
 # Quartus user-interface and temporary state

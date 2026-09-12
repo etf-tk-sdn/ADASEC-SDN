@@ -1,0 +1,133 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2026  Altera Corporation. All rights reserved.
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and any partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, the Altera Quartus Prime License Agreement,
+# the Altera IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Altera and sold by Altera or its authorized distributors.  Please
+# refer to the Altera Software License Subscription Agreements 
+# on the Quartus Prime software download page.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 26.1.1 Build 130 08/06/2026 SC Pro Edition
+# Date created = 22:00:02  September 12, 2026
+#
+# -------------------------------------------------------------------------- #
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 26.1.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "22:00:02  SEPTEMBER 12, 2026"
+set_global_assignment -name LAST_QUARTUS_VERSION "26.1.1 Pro Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MESSAGE_DISABLE 332158
+set_global_assignment -name MESSAGE_DISABLE 18291
+set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
+set_global_assignment -name TOP_LEVEL_ENTITY de10_pro_top
+set_global_assignment -name FAMILY "Stratix 10"
+set_global_assignment -name REMOVE_DUPLICATE_REGISTERS OFF
+set_global_assignment -name SEARCH_PATH rtl
+set_global_assignment -name DEVICE 1SX280HU2F50E1VG
+set_global_assignment -name PRESERVE_UNUSED_XCVR_CHANNEL ON
+set_global_assignment -name BLOCK_RAM_TO_MLAB_CELL_CONVERSION OFF
+set_global_assignment -name ENABLE_ED_CRC_CHECK ON
+set_global_assignment -name MINIMUM_SEU_INTERVAL 2
+set_instance_assignment -name MESSAGE_DISABLE 13410 -to user_io[2] -entity de10_pro_top
+set_instance_assignment -name MESSAGE_DISABLE 13410 -to user_io[3] -entity de10_pro_top
+set_instance_assignment -name MESSAGE_DISABLE 13410 -to user_io[8] -entity de10_pro_top
+set_instance_assignment -name MESSAGE_DISABLE 13410 -to user_io[9] -entity de10_pro_top
+set_instance_assignment -name MESSAGE_DISABLE 13410 -to user_led[*] -entity de10_pro_top
+set_instance_assignment -name CLOCK_REGION AUTO -to de10_pro_top_inst|u_eth_1|u_altera_ethernet_100g|altera_ethernet_100g_inst|xcvr|caui4_xcvr_644|g_xcvr_native_insts[1].ct2_xcvr_native_inst|inst_ct2_xcvr_channel_multi|gen_rev.ct2_xcvr_channel_inst|out_pld_pcs_rx_clk_out2_dcm -entity de10_pro_top
+set_instance_assignment -name CLOCK_REGION AUTO -to de10_pro_top_inst|u_eth_1|u_altera_ethernet_100g|altera_ethernet_100g_inst|xcvr|caui4_xcvr_644|g_xcvr_native_insts[1].ct2_xcvr_native_inst|inst_ct2_xcvr_channel_multi|gen_rev.ct2_xcvr_channel_inst|out_pld_pcs_tx_clk_out2_dcm -entity de10_pro_top
+set_instance_assignment -name CLOCK_REGION AUTO -to u_eth_1|u_altera_ethernet_100g|altera_ethernet_100g_inst|xcvr|caui4_xcvr_644|g_xcvr_native_insts[1].ct2_xcvr_native_inst|inst_ct2_xcvr_channel_multi|gen_rev.ct2_xcvr_channel_inst|out_pld_pcs_rx_clk_out2_dcm -entity de10_pro_top
+set_instance_assignment -name CLOCK_REGION AUTO -to u_eth_1|u_altera_ethernet_100g|altera_ethernet_100g_inst|xcvr|caui4_xcvr_644|g_xcvr_native_insts[1].ct2_xcvr_native_inst|inst_ct2_xcvr_channel_multi|gen_rev.ct2_xcvr_channel_inst|out_pld_pcs_tx_clk_out2_dcm -entity de10_pro_top
+set_instance_assignment -name CLOCK_REGION AUTO -to de10_pro_top_inst|u_eth_2|u_altera_ethernet_100g|altera_ethernet_100g_inst|xcvr|caui4_xcvr_644|g_xcvr_native_insts[1].ct2_xcvr_native_inst|inst_ct2_xcvr_channel_multi|gen_rev.ct2_xcvr_channel_inst|out_pld_pcs_rx_clk_out2_dcm -entity de10_pro_top
+set_instance_assignment -name CLOCK_REGION AUTO -to de10_pro_top_inst|u_eth_2|u_altera_ethernet_100g|altera_ethernet_100g_inst|xcvr|caui4_xcvr_644|g_xcvr_native_insts[1].ct2_xcvr_native_inst|inst_ct2_xcvr_channel_multi|gen_rev.ct2_xcvr_channel_inst|out_pld_pcs_tx_clk_out2_dcm -entity de10_pro_top
+set_instance_assignment -name CLOCK_REGION AUTO -to u_eth_2|u_altera_ethernet_100g|altera_ethernet_100g_inst|xcvr|caui4_xcvr_644|g_xcvr_native_insts[1].ct2_xcvr_native_inst|inst_ct2_xcvr_channel_multi|gen_rev.ct2_xcvr_channel_inst|out_pld_pcs_rx_clk_out2_dcm -entity de10_pro_top
+set_instance_assignment -name CLOCK_REGION AUTO -to u_eth_2|u_altera_ethernet_100g|altera_ethernet_100g_inst|xcvr|caui4_xcvr_644|g_xcvr_native_insts[1].ct2_xcvr_native_inst|inst_ct2_xcvr_channel_multi|gen_rev.ct2_xcvr_channel_inst|out_pld_pcs_tx_clk_out2_dcm -entity de10_pro_top
+set_instance_assignment -name CLOCK_REGION AUTO -to de10_pro_top_inst|u_eth_3|u_altera_ethernet_100g|altera_ethernet_100g_inst|xcvr|caui4_xcvr_644|g_xcvr_native_insts[1].ct2_xcvr_native_inst|inst_ct2_xcvr_channel_multi|gen_rev.ct2_xcvr_channel_inst|out_pld_pcs_rx_clk_out2_dcm -entity de10_pro_top
+set_instance_assignment -name CLOCK_REGION AUTO -to de10_pro_top_inst|u_eth_3|u_altera_ethernet_100g|altera_ethernet_100g_inst|xcvr|caui4_xcvr_644|g_xcvr_native_insts[1].ct2_xcvr_native_inst|inst_ct2_xcvr_channel_multi|gen_rev.ct2_xcvr_channel_inst|out_pld_pcs_tx_clk_out2_dcm -entity de10_pro_top
+set_instance_assignment -name CLOCK_REGION AUTO -to u_eth_3|u_altera_ethernet_100g|altera_ethernet_100g_inst|xcvr|caui4_xcvr_644|g_xcvr_native_insts[1].ct2_xcvr_native_inst|inst_ct2_xcvr_channel_multi|gen_rev.ct2_xcvr_channel_inst|out_pld_pcs_rx_clk_out2_dcm -entity de10_pro_top
+set_instance_assignment -name CLOCK_REGION AUTO -to u_eth_3|u_altera_ethernet_100g|altera_ethernet_100g_inst|xcvr|caui4_xcvr_644|g_xcvr_native_insts[1].ct2_xcvr_native_inst|inst_ct2_xcvr_channel_multi|gen_rev.ct2_xcvr_channel_inst|out_pld_pcs_tx_clk_out2_dcm -entity de10_pro_top
+set_instance_assignment -name CLOCK_REGION AUTO -to de10_pro_top_inst|u_eth_4|u_altera_ethernet_100g|altera_ethernet_100g_inst|xcvr|caui4_xcvr_644|g_xcvr_native_insts[1].ct2_xcvr_native_inst|inst_ct2_xcvr_channel_multi|gen_rev.ct2_xcvr_channel_inst|out_pld_pcs_rx_clk_out2_dcm -entity de10_pro_top
+set_instance_assignment -name CLOCK_REGION AUTO -to de10_pro_top_inst|u_eth_4|u_altera_ethernet_100g|altera_ethernet_100g_inst|xcvr|caui4_xcvr_644|g_xcvr_native_insts[1].ct2_xcvr_native_inst|inst_ct2_xcvr_channel_multi|gen_rev.ct2_xcvr_channel_inst|out_pld_pcs_tx_clk_out2_dcm -entity de10_pro_top
+set_instance_assignment -name CLOCK_REGION AUTO -to u_eth_4|u_altera_ethernet_100g|altera_ethernet_100g_inst|xcvr|caui4_xcvr_644|g_xcvr_native_insts[1].ct2_xcvr_native_inst|inst_ct2_xcvr_channel_multi|gen_rev.ct2_xcvr_channel_inst|out_pld_pcs_rx_clk_out2_dcm -entity de10_pro_top
+set_instance_assignment -name CLOCK_REGION AUTO -to u_eth_4|u_altera_ethernet_100g|altera_ethernet_100g_inst|xcvr|caui4_xcvr_644|g_xcvr_native_insts[1].ct2_xcvr_native_inst|inst_ct2_xcvr_channel_multi|gen_rev.ct2_xcvr_channel_inst|out_pld_pcs_tx_clk_out2_dcm -entity de10_pro_top
+set_global_assignment -name USE_CONFIGURATION_DEVICE ON
+set_global_assignment -name GENERATE_PR_RBF_FILE ON
+set_global_assignment -name ACTIVE_SERIAL_CLOCK AS_FREQ_100MHZ
+set_global_assignment -name ENABLE_SIGNALTAP OFF
+set_global_assignment -name USE_SIGNALTAP_FILE "stp-AB-CD.stp"
+set_instance_assignment -name PARTITION_COLOUR 4289462077 -to de10_pro_top -entity de10_pro_top
+set_instance_assignment -name PARTITION_COLOUR 4294964140 -to auto_fab_0 -entity de10_pro_top
+set_global_assignment -name PROJECT_IP_REGENERATION_POLICY ALWAYS_REGENERATE_IP
+set_global_assignment -name SDC_ENTITY_FILE constraints/DE10_Pro_clocks.sdc -entity de10_pro_top
+set_global_assignment -name SOURCE_TCL_SCRIPT_FILE constraints/DE10_Pro_constraints.tcl
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/axis_async_fifo.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/avalon_async_fifo.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/de10_pro_top.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/alt_aeuex_user_mode_det.sv
+set_global_assignment -name QSYS_FILE ip/altera_jtag_avalon_master.ip
+set_global_assignment -name QSYS_FILE ip/altera_system_pll.ip
+set_global_assignment -name IP_FILE ip/altera_ethernet_100g.ip
+set_global_assignment -name SDC_ENTITY_FILE constraints/DE10_Pro.sdc -entity de10_pro_top
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/eth_100g.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/reset_synchronizer.sv
+set_global_assignment -name SIGNALTAP_FILE "stp-AB-CD.stp"
+set_global_assignment -name NUM_PARALLEL_PROCESSORS 2
+set_global_assignment -name BOARD default
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/adasec_top.sv
+set_instance_assignment -name PARTITION adasec_top -to u_adasec_top -entity de10_pro_top
+set_instance_assignment -name PARTITION_COLOUR 4294926650 -to u_adasec_top -entity de10_pro_top
+set_global_assignment -name IP_FILE ip/altera_reset_release.ip
+set_global_assignment -name FLOW_ENABLE_POWER_ANALYZER OFF
+set_global_assignment -name POWER_USE_INPUT_FILES OFF
+set_global_assignment -name POWER_USE_PVA ON
+set_global_assignment -name POWER_DEFAULT_INPUT_IO_TOGGLE_RATE 0%
+set_global_assignment -name POWER_USE_DEVICE_CHARACTERISTICS MAXIMUM
+set_global_assignment -name POWER_AUTO_COMPUTE_TJ OFF
+set_global_assignment -name POWER_TJ_VALUE 100
+set_global_assignment -name POWER_MAX_TJ_VALUE 100
+set_global_assignment -name POWER_APPLY_THERMAL_MARGIN ADDITIONAL
+set_global_assignment -name POWER_ADDITIONAL_MARGIN_PERCENTAGE 25
+set_global_assignment -name POWER_REPORT_POWER_DISSIPATION ON
+set_instance_assignment -name POWER_STATIC_PROBABILITY 0.5 -to u_adasec_top|asi_eth_1_data[*]
+set_instance_assignment -name POWER_STATIC_PROBABILITY 0.5 -to u_adasec_top|aso_eth_1_data[*]
+set_instance_assignment -name POWER_STATIC_PROBABILITY 0.5 -to u_adasec_top|asi_eth_2_data[*]
+set_instance_assignment -name POWER_STATIC_PROBABILITY 0.5 -to u_adasec_top|aso_eth_2_data[*]
+set_instance_assignment -name POWER_STATIC_PROBABILITY 0.5 -to u_adasec_top|asi_eth_3_data[*]
+set_instance_assignment -name POWER_STATIC_PROBABILITY 0.5 -to u_adasec_top|aso_eth_3_data[*]
+set_instance_assignment -name POWER_STATIC_PROBABILITY 0.5 -to u_adasec_top|asi_eth_4_data[*]
+set_instance_assignment -name POWER_STATIC_PROBABILITY 0.5 -to u_adasec_top|aso_eth_4_data[*]
+set_instance_assignment -name POWER_TOGGLE_RATE_PERCENTAGE 50% -to u_adasec_top|asi_eth_1_data[*]
+set_instance_assignment -name POWER_TOGGLE_RATE_PERCENTAGE 50% -to u_adasec_top|aso_eth_1_data[*]
+set_instance_assignment -name POWER_TOGGLE_RATE_PERCENTAGE 50% -to u_adasec_top|asi_eth_2_data[*]
+set_instance_assignment -name POWER_TOGGLE_RATE_PERCENTAGE 50% -to u_adasec_top|aso_eth_2_data[*]
+set_instance_assignment -name POWER_TOGGLE_RATE_PERCENTAGE 50% -to u_adasec_top|asi_eth_3_data[*]
+set_instance_assignment -name POWER_TOGGLE_RATE_PERCENTAGE 50% -to u_adasec_top|aso_eth_3_data[*]
+set_instance_assignment -name POWER_TOGGLE_RATE_PERCENTAGE 50% -to u_adasec_top|asi_eth_4_data[*]
+set_instance_assignment -name POWER_TOGGLE_RATE_PERCENTAGE 50% -to u_adasec_top|aso_eth_4_data[*]
+set_instance_assignment -name POWER_STATIC_PROBABILITY 0.65 -to u_adasec_top|asi_eth_1_valid
+set_instance_assignment -name POWER_STATIC_PROBABILITY 0.65 -to u_adasec_top|aso_eth_1_valid
+set_instance_assignment -name POWER_STATIC_PROBABILITY 0.65 -to u_adasec_top|asi_eth_2_valid
+set_instance_assignment -name POWER_STATIC_PROBABILITY 0.65 -to u_adasec_top|aso_eth_2_valid
+set_instance_assignment -name POWER_STATIC_PROBABILITY 0.65 -to u_adasec_top|asi_eth_3_valid
+set_instance_assignment -name POWER_STATIC_PROBABILITY 0.65 -to u_adasec_top|aso_eth_3_valid
+set_instance_assignment -name POWER_STATIC_PROBABILITY 0.65 -to u_adasec_top|asi_eth_4_valid
+set_instance_assignment -name POWER_STATIC_PROBABILITY 0.65 -to u_adasec_top|aso_eth_4_valid
+set_instance_assignment -name RESERVED_CORE ON -to u_adasec_top -entity de10_pro_top
+set_instance_assignment -name PLACE_REGION "X77 Y164 X216 Y269" -to u_adasec_top
+set_instance_assignment -name RESERVE_PLACE_REGION ON -to u_adasec_top
+set_instance_assignment -name CORE_ONLY_PLACE_REGION ON -to u_adasec_top
+set_instance_assignment -name REGION_NAME u_adasec_top -to u_adasec_top
+set_instance_assignment -name ROUTE_REGION "X62 Y158 X232 Y280" -to u_adasec_top
+set_instance_assignment -name RESERVE_ROUTE_REGION OFF -to u_adasec_top
+set_global_assignment -name FLOW_DISABLE_ASSEMBLER OFF
+set_instance_assignment -name QDB_FILE_PARTITION reuse/root_partition.qdb -to | -entity de10_pro_top
+set_global_assignment -name FAST_PRESERVE AUTO -entity de10_pro_top
