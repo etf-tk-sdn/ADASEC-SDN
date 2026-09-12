@@ -1,5 +1,44 @@
-3.build/hw_build.Quartus/output_files/*
-3.build/hw_build.Quartus/qdb/*
-3.build/hw_build.Quartus/synth_dumps/*
-3.build/hw_build.Quartus/tmp-clearbox/*
-4.sim/pcap_reader_writer/work/*
+# SPDX-FileCopyrightText: NONE
+# SPDX-License-Identifier: CERN-OHL-S-2.0
+
+# Quartus compilation databases and generated output in each example
+**/db/
+**/incremental_db/
+**/output_files/
+**/bitfiles/*
+!**/bitfiles/.gitkeep
+
+# Quartus user-interface and temporary state
+*.qws
+*.qdf
+**/.qsys_edit/
+**/greybox_tmp/
+tmp-clearbox/
+dni/
+qdb/
+*.qpta
+*.history
+
+# Questa/ModelSim generated files
+**/simulation/questa/
+transcript
+*.wlf
+*.ucdb
+**/work/
+**/questa_lib/
+**/modelsim_lib/
+
+# Python bytecode caches
+**/__pycache__/
+
+# Local backups and editor temporary files
+*.bak
+*.orig
+*.swp
+*.swo
+*~
+
+# Operating-system metadata
+.DS_Store
+Thumbs.db
+

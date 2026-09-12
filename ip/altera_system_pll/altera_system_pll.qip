@@ -1,0 +1,58 @@
+set_global_assignment -entity "altera_system_pll" -library "altera_system_pll" -name IP_TOOL_NAME "QsysPrimePro"
+set_global_assignment -entity "altera_system_pll" -library "altera_system_pll" -name IP_TOOL_VERSION "26.1.1"
+set_global_assignment -entity "altera_system_pll" -library "altera_system_pll" -name IP_TOOL_ENV "QsysPrimePro"
+set_global_assignment -entity "altera_system_pll" -library "altera_system_pll" -name IP_TOOL_VENDOR_NAME "Altera"
+set_global_assignment -entity "altera_system_pll" -library "altera_system_pll" -name IP_TOP_LEVEL_COMPONENT_NAME "altera_iopll"
+set_global_assignment -entity "altera_system_pll" -library "altera_system_pll" -name PRE_COMPILED_MODULE "ON"
+set_global_assignment -entity "altera_system_pll" -library "altera_system_pll" -name OCS_IP_FILE [file join $::quartus(qip_path) "../altera_system_pll.ip"]
+set_global_assignment -entity "altera_system_pll" -library "altera_system_pll" -name OCS_IP_TYPE "altera_iopll"
+set_global_assignment -entity "altera_system_pll" -library "altera_system_pll" -name OCS_IP_VERSION "21.1.0"
+set_global_assignment -entity "altera_system_pll" -library "altera_system_pll" -name OCS_IP_HASH "bxl246q"
+set_global_assignment -library "altera_system_pll" -name SOPCINFO_FILE [file join $::quartus(qip_path) "altera_system_pll.sopcinfo"]
+set_global_assignment -entity "altera_system_pll" -library "altera_system_pll" -name SLD_INFO "QSYS_NAME altera_system_pll HAS_SOPCINFO 1 GENERATION_ID 0"
+set_global_assignment -library "altera_system_pll" -name MISC_FILE [file join $::quartus(qip_path) "altera_system_pll.cmp"]
+set_global_assignment -entity "altera_system_pll" -library "altera_system_pll" -name IP_TARGETED_DEVICE_FAMILY "Stratix 10"
+set_global_assignment -entity "altera_system_pll" -library "altera_system_pll" -name IP_TARGETED_PART_TRAIT "DEVICE_SPEEDGRADE::1"
+set_global_assignment -entity "altera_system_pll" -library "altera_system_pll" -name IP_TARGETED_PART_TRAIT "part.DEVICE_IOBANK_REVISION::"
+set_global_assignment -entity "altera_system_pll" -library "altera_system_pll" -name IP_GENERATED_DEVICE_FAMILY "{Stratix 10}"
+set_global_assignment -entity "altera_system_pll" -library "altera_system_pll" -name IP_QSYS_MODE "STANDALONE"
+set_global_assignment -name SYNTHESIS_ONLY_QIP ON
+set_global_assignment -library "altera_system_pll" -name MISC_FILE [file join $::quartus(qip_path) "../altera_system_pll.ip"]
+
+set_global_assignment -entity "altera_system_pll_altera_iopll_2110_bxl246q" -library "altera_iopll_2110" -name IP_COMPONENT_NAME "YWx0ZXJhX3N5c3RlbV9wbGxfYWx0ZXJhX2lvcGxsXzIxMTBfYnhsMjQ2cQ=="
+set_global_assignment -entity "altera_system_pll_altera_iopll_2110_bxl246q" -library "altera_iopll_2110" -name IP_COMPONENT_DISPLAY_NAME "SU9QTEwgSVA="
+set_global_assignment -entity "altera_system_pll_altera_iopll_2110_bxl246q" -library "altera_iopll_2110" -name IP_COMPONENT_REPORT_HIERARCHY "Off"
+set_global_assignment -entity "altera_system_pll_altera_iopll_2110_bxl246q" -library "altera_iopll_2110" -name IP_COMPONENT_INTERNAL "Off"
+set_global_assignment -entity "altera_system_pll_altera_iopll_2110_bxl246q" -library "altera_iopll_2110" -name IP_COMPONENT_AUTHOR "QWx0ZXJh"
+set_global_assignment -entity "altera_system_pll_altera_iopll_2110_bxl246q" -library "altera_iopll_2110" -name IP_COMPONENT_VERSION "MjEuMS4w"
+set_global_assignment -entity "altera_system_pll_altera_iopll_2110_bxl246q" -library "altera_iopll_2110" -name IP_COMPONENT_DESCRIPTION "QWx0ZXJhIEZQR0EgUGhhc2UtTG9ja2VkIExvb3AgKElPUExMIElQKSBjb3JlIGFsbG93cyB5b3UgdG8gY29uZmlndXJlIHRoZSBzZXR0aW5ncyBvZiB0aGUgIEkvTyBQTEwu"
+set_global_assignment -entity "altera_system_pll_altera_iopll_2110_bxl246q" -library "altera_iopll_2110" -name IP_COMPONENT_GROUP "QmFzaWMgRnVuY3Rpb25zL0Nsb2NrczsgUExMcyBhbmQgUmVzZXRzL1BMTA=="
+set_global_assignment -entity "altera_system_pll_altera_iopll_2110_bxl246q" -library "altera_iopll_2110" -name IP_COMPONENT_DOCUMENTATION_LINK "aHR0cHM6Ly9kb2NzLmFsdGVyYS5jb20vci9kb2NzLzY4MzI4NS9jdXJyZW50"
+set_global_assignment -entity "altera_system_pll_altera_iopll_2110_bxl246q" -library "altera_iopll_2110" -name IP_COMPONENT_DOCUMENTATION_LINK "aHR0cHM6Ly9kb2NzLmFsdGVyYS5jb20vci9kb2NzLzY4MzE5NS9jdXJyZW50"
+set_global_assignment -entity "altera_system_pll_altera_iopll_2110_bxl246q" -library "altera_iopll_2110" -name IP_COMPONENT_DOCUMENTATION_LINK "aHR0cHM6Ly9kb2NzLmFsdGVyYS5jb20vci9kb2NzLzY4Mzc2MS9jdXJyZW50"
+set_global_assignment -entity "altera_system_pll_altera_iopll_2110_bxl246q" -library "altera_iopll_2110" -name IP_COMPONENT_DOCUMENTATION_LINK "aHR0cHM6Ly9kb2NzLmFsdGVyYS5jb20vci9kb2NzLzc2OTAwMS9jdXJyZW50"
+set_global_assignment -entity "altera_system_pll_altera_iopll_2110_bxl246q" -library "altera_iopll_2110" -name IP_COMPONENT_DOCUMENTATION_LINK "aHR0cHM6Ly9kb2NzLmFsdGVyYS5jb20vci9kb2NzLzgxMzY3MS9jdXJyZW50"
+set_global_assignment -entity "altera_system_pll_altera_iopll_2110_bxl246q" -library "altera_iopll_2110" -name IP_COMPONENT_DOCUMENTATION_LINK "aHR0cHM6Ly9kb2NzLmFsdGVyYS5jb20vci9kb2NzLzg0NzkyMS9jdXJyZW50"
+set_global_assignment -entity "altera_system_pll_altera_iopll_2110_bxl246q" -library "altera_iopll_2110" -name IP_COMPONENT_DOCUMENTATION_LINK "aHR0cHM6Ly9kb2NzLmFsdGVyYS5jb20vci9kb2NzLzY4MzE2Ni9jdXJyZW50L2lvcGxsLWZwZ2EtaXAtcmVsZWFzZS1ub3Rlcy8="
+set_global_assignment -entity "altera_system_pll" -library "altera_system_pll" -name IP_COMPONENT_NAME "YWx0ZXJhX3N5c3RlbV9wbGw="
+set_global_assignment -entity "altera_system_pll" -library "altera_system_pll" -name IP_COMPONENT_DISPLAY_NAME "c3lzdGVt"
+set_global_assignment -entity "altera_system_pll" -library "altera_system_pll" -name IP_COMPONENT_REPORT_HIERARCHY "On"
+set_global_assignment -entity "altera_system_pll" -library "altera_system_pll" -name IP_COMPONENT_INTERNAL "Off"
+set_global_assignment -entity "altera_system_pll" -library "altera_system_pll" -name IP_COMPONENT_AUTHOR "QWx0ZXJh"
+set_global_assignment -entity "altera_system_pll" -library "altera_system_pll" -name IP_COMPONENT_VERSION "MS4w"
+
+
+set_global_assignment -library "altera_iopll_2110" -name VERILOG_FILE [file join $::quartus(qip_path) "altera_iopll_2110/synth/altera_system_pll_altera_iopll_2110_bxl246q.v"]
+set_instance_assignment -entity "altera_system_pll_altera_iopll_2110_bxl246q" -library "altera_iopll_2110" -name TCL_ENTITY_FILE [file join $::quartus(qip_path) "altera_iopll_2110/synth/altera_system_pll_altera_iopll_2110_bxl246q_all_ip_params.tcl"]
+set_instance_assignment -entity "altera_system_pll_altera_iopll_2110_bxl246q" -library "altera_iopll_2110" -name TCL_ENTITY_FILE [file join $::quartus(qip_path) "altera_iopll_2110/synth/altera_system_pll_altera_iopll_2110_bxl246q_parameters.tcl"]
+set_instance_assignment -entity "altera_system_pll_altera_iopll_2110_bxl246q" -library "altera_iopll_2110" -name SDC_ENTITY_FILE [file join $::quartus(qip_path) "altera_iopll_2110/synth/altera_system_pll_altera_iopll_2110_bxl246q.sdc"] -no_sdc_promotion  -no_auto_inst_discovery  -read_during_post_syn_and_post_fit_timing_analysis 
+set_instance_assignment -entity "altera_system_pll_altera_iopll_2110_bxl246q" -library "altera_iopll_2110" -name TCL_ENTITY_FILE [file join $::quartus(qip_path) "altera_iopll_2110/synth/altera_system_pll_altera_iopll_2110_bxl246q_pin_map.tcl"]
+set_global_assignment -library "altera_iopll_2110" -name VERILOG_FILE [file join $::quartus(qip_path) "altera_iopll_2110/synth/stratix10_altera_iopll.v"]
+set_global_assignment -library "altera_iopll_2110" -name SOURCE_FILE [file join $::quartus(qip_path) "altera_iopll_2110/synth/s10_iobank_pll.ipxact"]
+set_global_assignment -library "altera_system_pll" -name VERILOG_FILE [file join $::quartus(qip_path) "synth/altera_system_pll.v"]
+
+
+set_global_assignment -entity "altera_system_pll_altera_iopll_2110_bxl246q" -library "altera_iopll_2110" -name IP_TOOL_NAME "altera_iopll"
+set_global_assignment -entity "altera_system_pll_altera_iopll_2110_bxl246q" -library "altera_iopll_2110" -name IP_TOOL_VERSION "21.1.0"
+set_global_assignment -entity "altera_system_pll_altera_iopll_2110_bxl246q" -library "altera_iopll_2110" -name IP_TOOL_ENV "QsysPrimePro"
+

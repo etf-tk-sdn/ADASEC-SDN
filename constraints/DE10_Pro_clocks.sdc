@@ -1,0 +1,8 @@
+create_clock -name {eth_1_clk_ref_r} -period 1.551 [get_ports {QSFP28A_REFCLK_p}]
+create_clock -name {eth_2_clk_ref_r} -period 1.551 [get_ports {QSFP28B_REFCLK_p}]
+create_clock -name {eth_3_clk_ref_r} -period 1.551 [get_ports {QSFP28C_REFCLK_p}]
+create_clock -name {eth_4_clk_ref_r} -period 1.551 [get_ports {QSFP28D_REFCLK_p}]
+create_clock -name {altera_reserved_tck} -period 40 [get_ports {altera_reserved_tck}]
+set_input_delay -clock altera_reserved_tck -clock_fall 3 [get_ports altera_reserved_tdi]
+set_input_delay -clock altera_reserved_tck -clock_fall 3 [get_ports altera_reserved_tms]
+set_output_delay -clock altera_reserved_tck 3 [get_ports altera_reserved_tdo]

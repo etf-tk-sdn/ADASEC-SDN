@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ip name="IOPLL IP">
+ <timestamp>2026-09-07T22:04:40.183622516</timestamp>
+ <file></file>
+ <old_version>19.1</old_version>
+ <new_version>21.1.0</new_version>
+ <changes>
+  <change>21.1.0</change>
+  <change>Remove "Force full PLL simulation model" option to select whether to use the simple simulation model or full simulation model. All Stratix 10 PLLs will use the full simulation model for simulation.</change>
+  <change>Add "Use clock names as ports in instantiation" option which when selected will use the "Clock Name" specified for each outclk as top-level ports of the PLL IP instead of outclk_# </change>
+  <change>Add option to set locked interface as reset interface to connect to reset inputs in Platform Designer/Visual Designer Studio</change>
+ </changes>
+</ip>
+
+<ip name="Low Latency 100G Ethernet IP">
+ <timestamp>2026-09-07T22:05:46.432837144</timestamp>
+ <file></file>
+ <old_version>19.1.0</old_version>
+ <new_version>20.1.0</new_version>
+ <changes>
+  <change>20.1.0</change>
+  <change> No parameter change </change>
+  <change> No parameter change </change>
+  <change> No parameter change </change>
+  <change> No parameter change </change>
+  <change> No parameter change </change>
+  <change> No parameter change </change>
+  <change> No parameter change </change>
+  <change> No parameter change </change>
+  <change>  No port change  </change>
+  <change>  No port change  </change>
+  <change>  No port change  </change>
+  <change>  No port change  </change>
+  <change>  No port change  </change>
+  <change>  No port change  </change>
+  <change>  No port change  </change>
+  <change>  No port change  </change>
+  <change>  Migration of Quartus Pro IPs to single file encryption scheme </change>
+  <change>  ODIP File Changes </change>
+  <change> The Nios&#174; II processor is discontinued for use in Quartus Prime Pro version 24.1. As a result, a snapshot of NIOS II RTL files are integrated into the IP. Please refer to the PDN document: https://docs.altera.com/v/u/docs/781327/is-discontinuing-ip-ordering-codes-listed-in-pdn2312-for-nios-ii-ip </change>
+  <change> Fixed the inconsistent serial loopback hardware test issue by adding a bit of existing PHY register in the RTL and provided access to Transceiver toolkit using that bit </change>
+  <change> Internal IP version change </change>
+  <change> IP Upgrade is required to get updated internal IP and internal bug fixes </change>
+  <change> IP Upgrade is optional due to Altera rebranding changes </change>
+  <change> Internal IP changes </change>
+ </changes>
+</ip>
