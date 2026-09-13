@@ -82,6 +82,17 @@ set_global_assignment -name SYSTEMVERILOG_FILE rtl/reset_synchronizer.sv
 set_global_assignment -name SIGNALTAP_FILE "stp-AB-CD.stp"
 set_global_assignment -name NUM_PARALLEL_PROCESSORS 2
 set_global_assignment -name BOARD default
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/avalon_if.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/dual_port_ram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/key_vector.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/key_provider.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/switch2x2.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/stage.sv
+set_global_assignment -name VERILOG_FILE rtl/axis_register.v
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/axis_pipeline_register.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/avalon_pipeline_register.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/key_scheduler.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/encryption_block.sv
 set_global_assignment -name SYSTEMVERILOG_FILE rtl/adasec_top.sv
 set_instance_assignment -name PARTITION adasec_top -to u_adasec_top -entity de10_pro_top
 set_instance_assignment -name PARTITION_COLOUR 4294926650 -to u_adasec_top -entity de10_pro_top

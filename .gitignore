@@ -28,6 +28,8 @@ transcript
 **/work/
 **/questa_lib/
 **/modelsim_lib/
+dv/sim-report.md
+dv/syn-report.md
 
 # Python bytecode caches
 **/__pycache__/
