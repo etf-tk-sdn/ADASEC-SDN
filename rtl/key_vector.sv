@@ -57,7 +57,7 @@ module key_vector #(
     assign from_pcap_reader.ready = !rst && !request_pending_reg &&
         output_available && (key_bits_reg >= KEY_WORD_WIDTH);
 
-    // Four words fit in the key buffer. Backpressure Ethernet channel 3 when
+    // Four words fit in the key buffer. Backpressure source when
     // accepting another complete word could overflow it.
     assign from_generator.ready = !rst &&
         (key_bits_reg <= KEY_BUFFER_WIDTH-KEY_WORD_WIDTH);

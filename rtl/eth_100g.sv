@@ -131,15 +131,6 @@ module eth_100g (
         .tx_pll_locked(pll_locked)
     );
 
-    /*
-    wire [511:0] data_fifo;
-    wire valid_fifo;
-    wire sop_fifo;
-    wire eop_fifo;
-    wire [5:0] empty_fifo;
-    wire ready_fifo;
-    */
-
     avalon_async_fifo u_rx_fifo (
         .asi_clk(clk_rx_mac),
         .asi_rst(1'b0),
