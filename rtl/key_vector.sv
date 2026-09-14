@@ -1,7 +1,11 @@
+// SPDX-FileCopyrightText: 2026 Amina Tankovic
+// SPDX-FileCopyrightText: 2026 Enio Kaljic
+// SPDX-License-Identifier: CERN-OHL-S-2.0
+
 `timescale 1ps / 1ps
 
-// Key material provider.  Incoming 512-bit words are buffered and consumed
-// according to the byte count stored in the instruction RAM.  The selected
+// Key material provider. Incoming 512-bit words are buffered and consumed
+// according to the byte count stored in the instruction RAM. The selected
 // key bytes and their destination positions are passed to the Omega network.
 module key_vector #(
     parameter PACKET_LENGTH = 512,
@@ -53,7 +57,7 @@ module key_vector #(
     assign from_pcap_reader.ready = !rst && !request_pending_reg &&
         output_available && (key_bits_reg >= KEY_WORD_WIDTH);
 
-    // Four words fit in the key buffer.  Backpressure Ethernet channel 3 when
+    // Four words fit in the key buffer. Backpressure Ethernet channel 3 when
     // accepting another complete word could overflow it.
     assign from_generator.ready = !rst &&
         (key_bits_reg <= KEY_BUFFER_WIDTH-KEY_WORD_WIDTH);
@@ -83,7 +87,7 @@ module key_vector #(
             key_vector_next.empty <= '0;
             key_vector_next.channel <= '0;
         end else begin
-            // Defaults preserve the key pool.  Consumption is applied first,
+            // Defaults preserve the key pool. Consumption is applied first,
             // then a simultaneously accepted word is appended behind it.
             shifted_buffer = key_buffer_reg;
             shifted_count = key_bits_reg;
@@ -114,7 +118,7 @@ module key_vector #(
             end
 
             // The RAM output now belongs to the request captured one cycle
-            // earlier.  Hold this output until the scheduler accepts it.
+            // earlier. Hold this output until the scheduler accepts it.
             if (request_pending_reg && output_available) begin
                 request_pending_reg <= 1'b0;
                 key_vector_next.valid <= 1'b1;

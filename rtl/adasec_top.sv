@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 Amina Tankovic
+// SPDX-FileCopyrightText: 2026 Enio Kaljic
+// SPDX-License-Identifier: CERN-OHL-S-2.0
+
 `resetall
 `timescale 1ns / 1ps
 `default_nettype none
@@ -93,9 +97,9 @@ module adasec_top #(
     //   0x0000_0000          test/status register
     //   0x0001_0000-0001_FFFF encryption instruction RAM
     //
-    // Each of the 1024 instruction rows occupies a 64-byte stride.  Words
-    // 0-11 contain position_vector[383:0].  Word 12 contains count[6:0] in
-    // bits [6:0].  Words 13-15 are reserved and read as zero.
+    // Each of the 1024 instruction rows occupies a 64-byte stride. Words
+    // 0-11 contain position_vector[383:0]. Word 12 contains count[6:0] in
+    // bits [6:0]. Words 13-15 are reserved and read as zero.
     localparam logic [15:0] INSTRUCTION_WINDOW = 16'h0001;
     localparam logic [3:0] INSTRUCTION_LAST_WORD = 4'd12;
 
@@ -288,32 +292,50 @@ module adasec_top #(
     avalon_if #(
         .DATA_WIDTH(512),
         .CHANNEL_WIDTH(13)
-    ) key_material_if (.clk(clk), .rst(rst));
+    ) key_material_if (
+        .clk(clk),
+        .rst(rst)
+    );
 
     avalon_if #(
         .DATA_WIDTH(512),
         .CHANNEL_WIDTH(13)
-    ) payload_request_if (.clk(clk), .rst(rst));
+    ) payload_request_if (
+        .clk(clk),
+        .rst(rst)
+    );
 
     avalon_if #(
         .DATA_WIDTH(512),
         .CHANNEL_WIDTH(455)
-    ) key_vector_if (.clk(clk), .rst(rst));
+    ) key_vector_if (
+        .clk(clk),
+        .rst(rst)
+    );
 
     avalon_if #(
         .DATA_WIDTH(512),
         .CHANNEL_WIDTH(455)
-    ) scheduled_key_if (.clk(clk), .rst(rst));
+    ) scheduled_key_if (
+        .clk(clk),
+        .rst(rst)
+    );
 
     avalon_if #(
         .DATA_WIDTH(512),
         .CHANNEL_WIDTH(13)
-    ) payload_to_encryptor_if (.clk(clk), .rst(rst));
+    ) payload_to_encryptor_if (
+        .clk(clk),
+        .rst(rst)
+    );
 
     avalon_if #(
         .DATA_WIDTH(512),
         .CHANNEL_WIDTH(13)
-    ) encrypted_if (.clk(clk), .rst(rst));
+    ) encrypted_if (
+        .clk(clk),
+        .rst(rst)
+    );
 
     logic [4:0] payload_packet_index_reg;
     logic [4:0] payload_segment_index_reg;
@@ -354,7 +376,7 @@ module adasec_top #(
     end
 
     // Fork eth1 atomically: one branch requests a key while the other enters
-    // an elastic delay line.  Both branches advance on the same input beat.
+    // an elastic delay line. Both branches advance on the same input beat.
     assign payload_request_if.data = asi_eth_1_data;
     assign payload_request_if.valid = asi_eth_1_valid &&
         payload_pipeline_ready;
@@ -402,7 +424,7 @@ module adasec_top #(
     assign payload_to_encryptor_if.empty = payload_pipeline_empty;
     assign payload_to_encryptor_if.channel = '0;
 
-    // Channel 3 remains directly cross-connected to channel 4.  Accepted
+    // Channel 3 remains directly cross-connected to channel 4. Accepted
     // eth3 words are also sampled as key material whenever the key buffer has
     // room; this tap never adds backpressure to the eth3<->eth4 path.
     assign key_material_if.data = asi_eth_3_data;

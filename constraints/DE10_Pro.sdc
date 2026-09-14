@@ -1,15 +1,3 @@
-# (C) 2001-2018 Intel Corporation. All rights reserved.
-# Your use of Intel Corporation's design tools, logic functions and other
-# software and tools, and its AMPP partner logic functions, and any output
-# files from any of the foregoing (including device programming or simulation
-# files), and any associated documentation or information are expressly subject
-# to the terms and conditions of the Intel Program License Subscription
-# Agreement, Intel FPGA IP License Agreement, or other applicable
-# license agreement, including, without limitation, that your use is for the
-# sole purpose of programming logic devices manufactured by Intel and sold by
-# Intel or its authorized distributors.  Please refer to the applicable
-# agreement for further details.
-
 # Timing exceptions
 set added_uncertainty_312mhz 0.48ns
 set added_uncertainty_390mhz 0.424ns
@@ -43,21 +31,15 @@ set_clock_groups -asynchronous -group $clk_300 -group $eth_4_rx_core_clk
 set_clock_groups -asynchronous -group $clk_300 -group $eth_4_tx_core_clk
 
 set_clock_groups -exclusive -group $eth_1_tx_core_clk -group $eth_1_rx_core_clk -group $trs_divided_osc_clk -group $clk_100 -group eth_1_clk_ref_r
-
 set_clock_groups -exclusive -group $eth_2_tx_core_clk -group $eth_2_rx_core_clk -group $trs_divided_osc_clk -group $clk_100 -group eth_2_clk_ref_r
-
 set_clock_groups -exclusive -group $eth_3_tx_core_clk -group $eth_3_rx_core_clk -group $trs_divided_osc_clk -group $clk_100 -group eth_3_clk_ref_r
-
 set_clock_groups -exclusive -group $eth_4_tx_core_clk -group $eth_4_rx_core_clk -group $trs_divided_osc_clk -group $clk_100 -group eth_4_clk_ref_r
 
 set_clock_groups -exclusive -group [get_clocks altera_reserved_tck]
 
-# set_false_path -from [get_keepers {cpu_reset_n}]
 set_false_path -from [get_keepers {CPU_RESET_n}]
 set_false_path -from [get_ports {SW[*]}]
 set_false_path -from [get_ports {BUTTON[*]}]
-# set_clock_groups -exclusive -group clk_50 -group  clk_ref_r
-# set_false_path -to   [get_ports {user_led[*]}]
 set_false_path -to [get_ports {LED[*]}]
 
 # set false path from PMA fifo flags' clock to clk_status (altera_ethernet_100g_inst|altera_ethernet_100g_inst|alt_s100|csr|eio_flags_csr[*])

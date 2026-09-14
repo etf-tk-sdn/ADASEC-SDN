@@ -1,26 +1,5 @@
-/*
-
-Copyright (c) 2014-2023 Alex Forencich
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-*/
+// SPDX-FileCopyrightText: 2023 Alex Forencich
+// SPDX-License-Identifier: MIT
 
 // Language: SystemVerilog
 
@@ -31,8 +10,7 @@ THE SOFTWARE.
 /*
  * AXI4-Stream asynchronous FIFO
  */
-module axis_async_fifo #
-(
+module axis_async_fifo #(
     // FIFO depth in words
     // KEEP_WIDTH words per cycle if KEEP_ENABLE set
     // Rounded up to nearest power of 2 cycles
@@ -89,8 +67,7 @@ module axis_async_fifo #
     parameter PAUSE_ENABLE = 0,
     // Pause between frames
     parameter FRAME_PAUSE = FRAME_FIFO
-)
-(
+) (
     /*
      * AXI input
      */
@@ -730,179 +707,179 @@ module axis_async_fifo #
 
     generate
 
-    if (!OUTPUT_FIFO_ENABLE) begin
+        if (!OUTPUT_FIFO_ENABLE) begin
 
-        assign pipe_ready = 1'b1;
+            assign pipe_ready = 1'b1;
 
-        assign m_axis_tready_pipe = m_axis_tready_out;
-        assign m_axis_tvalid_out = m_axis_tvalid_pipe;
+            assign m_axis_tready_pipe = m_axis_tready_out;
+            assign m_axis_tvalid_out = m_axis_tvalid_pipe;
 
-        assign m_axis_tdata_out = m_axis_tdata_pipe;
-        assign m_axis_tkeep_out = m_axis_tkeep_pipe;
-        assign m_axis_tlast_out = m_axis_tlast_pipe;
-        assign m_axis_tid_out   = m_axis_tid_pipe;
-        assign m_axis_tdest_out = m_axis_tdest_pipe;
-        assign m_axis_tuser_out = m_axis_tuser_pipe;
+            assign m_axis_tdata_out = m_axis_tdata_pipe;
+            assign m_axis_tkeep_out = m_axis_tkeep_pipe;
+            assign m_axis_tlast_out = m_axis_tlast_pipe;
+            assign m_axis_tid_out   = m_axis_tid_pipe;
+            assign m_axis_tdest_out = m_axis_tdest_pipe;
+            assign m_axis_tuser_out = m_axis_tuser_pipe;
 
-    end else begin : output_fifo
+        end else begin : output_fifo
 
-        // output datapath logic
-        reg [DATA_WIDTH-1:0] m_axis_tdata_reg  = {DATA_WIDTH{1'b0}};
-        reg [KEEP_WIDTH-1:0] m_axis_tkeep_reg  = {KEEP_WIDTH{1'b0}};
-        reg                  m_axis_tvalid_reg = 1'b0;
-        reg                  m_axis_tlast_reg  = 1'b0;
-        reg [ID_WIDTH-1:0]   m_axis_tid_reg    = {ID_WIDTH{1'b0}};
-        reg [DEST_WIDTH-1:0] m_axis_tdest_reg  = {DEST_WIDTH{1'b0}};
-        reg [USER_WIDTH-1:0] m_axis_tuser_reg  = {USER_WIDTH{1'b0}};
+            // output datapath logic
+            reg [DATA_WIDTH-1:0] m_axis_tdata_reg  = {DATA_WIDTH{1'b0}};
+            reg [KEEP_WIDTH-1:0] m_axis_tkeep_reg  = {KEEP_WIDTH{1'b0}};
+            reg                  m_axis_tvalid_reg = 1'b0;
+            reg                  m_axis_tlast_reg  = 1'b0;
+            reg [ID_WIDTH-1:0]   m_axis_tid_reg    = {ID_WIDTH{1'b0}};
+            reg [DEST_WIDTH-1:0] m_axis_tdest_reg  = {DEST_WIDTH{1'b0}};
+            reg [USER_WIDTH-1:0] m_axis_tuser_reg  = {USER_WIDTH{1'b0}};
 
-        reg [OUTPUT_FIFO_ADDR_WIDTH+1-1:0] out_fifo_wr_ptr_reg = 0;
-        reg [OUTPUT_FIFO_ADDR_WIDTH+1-1:0] out_fifo_rd_ptr_reg = 0;
-        reg out_fifo_half_full_reg = 1'b0;
+            reg [OUTPUT_FIFO_ADDR_WIDTH+1-1:0] out_fifo_wr_ptr_reg = 0;
+            reg [OUTPUT_FIFO_ADDR_WIDTH+1-1:0] out_fifo_rd_ptr_reg = 0;
+            reg out_fifo_half_full_reg = 1'b0;
 
-        wire out_fifo_full = out_fifo_wr_ptr_reg == (out_fifo_rd_ptr_reg ^ {1'b1, {OUTPUT_FIFO_ADDR_WIDTH{1'b0}}});
-        wire out_fifo_empty = out_fifo_wr_ptr_reg == out_fifo_rd_ptr_reg;
+            wire out_fifo_full = out_fifo_wr_ptr_reg == (out_fifo_rd_ptr_reg ^ {1'b1, {OUTPUT_FIFO_ADDR_WIDTH{1'b0}}});
+            wire out_fifo_empty = out_fifo_wr_ptr_reg == out_fifo_rd_ptr_reg;
 
-        (* ram_style = "distributed", ramstyle = "no_rw_check, mlab" *)
-        reg [DATA_WIDTH-1:0] out_fifo_tdata[2**OUTPUT_FIFO_ADDR_WIDTH-1:0];
-        (* ram_style = "distributed", ramstyle = "no_rw_check, mlab" *)
-        reg [KEEP_WIDTH-1:0] out_fifo_tkeep[2**OUTPUT_FIFO_ADDR_WIDTH-1:0];
-        (* ram_style = "distributed", ramstyle = "no_rw_check, mlab" *)
-        reg                  out_fifo_tlast[2**OUTPUT_FIFO_ADDR_WIDTH-1:0];
-        (* ram_style = "distributed", ramstyle = "no_rw_check, mlab" *)
-        reg [ID_WIDTH-1:0]   out_fifo_tid[2**OUTPUT_FIFO_ADDR_WIDTH-1:0];
-        (* ram_style = "distributed", ramstyle = "no_rw_check, mlab" *)
-        reg [DEST_WIDTH-1:0] out_fifo_tdest[2**OUTPUT_FIFO_ADDR_WIDTH-1:0];
-        (* ram_style = "distributed", ramstyle = "no_rw_check, mlab" *)
-        reg [USER_WIDTH-1:0] out_fifo_tuser[2**OUTPUT_FIFO_ADDR_WIDTH-1:0];
+            (* ram_style = "distributed", ramstyle = "no_rw_check, mlab" *)
+            reg [DATA_WIDTH-1:0] out_fifo_tdata[2**OUTPUT_FIFO_ADDR_WIDTH-1:0];
+            (* ram_style = "distributed", ramstyle = "no_rw_check, mlab" *)
+            reg [KEEP_WIDTH-1:0] out_fifo_tkeep[2**OUTPUT_FIFO_ADDR_WIDTH-1:0];
+            (* ram_style = "distributed", ramstyle = "no_rw_check, mlab" *)
+            reg                  out_fifo_tlast[2**OUTPUT_FIFO_ADDR_WIDTH-1:0];
+            (* ram_style = "distributed", ramstyle = "no_rw_check, mlab" *)
+            reg [ID_WIDTH-1:0]   out_fifo_tid[2**OUTPUT_FIFO_ADDR_WIDTH-1:0];
+            (* ram_style = "distributed", ramstyle = "no_rw_check, mlab" *)
+            reg [DEST_WIDTH-1:0] out_fifo_tdest[2**OUTPUT_FIFO_ADDR_WIDTH-1:0];
+            (* ram_style = "distributed", ramstyle = "no_rw_check, mlab" *)
+            reg [USER_WIDTH-1:0] out_fifo_tuser[2**OUTPUT_FIFO_ADDR_WIDTH-1:0];
 
-        assign pipe_ready = !out_fifo_half_full_reg;
+            assign pipe_ready = !out_fifo_half_full_reg;
 
-        assign m_axis_tready_pipe = 1'b1;
+            assign m_axis_tready_pipe = 1'b1;
 
-        assign m_axis_tdata_out  = m_axis_tdata_reg;
-        assign m_axis_tkeep_out  = KEEP_ENABLE ? m_axis_tkeep_reg : {KEEP_WIDTH{1'b1}};
-        assign m_axis_tvalid_out = m_axis_tvalid_reg;
-        assign m_axis_tlast_out  = LAST_ENABLE ? m_axis_tlast_reg : 1'b1;
-        assign m_axis_tid_out    = ID_ENABLE   ? m_axis_tid_reg   : {ID_WIDTH{1'b0}};
-        assign m_axis_tdest_out  = DEST_ENABLE ? m_axis_tdest_reg : {DEST_WIDTH{1'b0}};
-        assign m_axis_tuser_out  = USER_ENABLE ? m_axis_tuser_reg : {USER_WIDTH{1'b0}};
+            assign m_axis_tdata_out  = m_axis_tdata_reg;
+            assign m_axis_tkeep_out  = KEEP_ENABLE ? m_axis_tkeep_reg : {KEEP_WIDTH{1'b1}};
+            assign m_axis_tvalid_out = m_axis_tvalid_reg;
+            assign m_axis_tlast_out  = LAST_ENABLE ? m_axis_tlast_reg : 1'b1;
+            assign m_axis_tid_out    = ID_ENABLE   ? m_axis_tid_reg   : {ID_WIDTH{1'b0}};
+            assign m_axis_tdest_out  = DEST_ENABLE ? m_axis_tdest_reg : {DEST_WIDTH{1'b0}};
+            assign m_axis_tuser_out  = USER_ENABLE ? m_axis_tuser_reg : {USER_WIDTH{1'b0}};
 
-        always @(posedge m_clk) begin
-            m_axis_tvalid_reg <= m_axis_tvalid_reg && !m_axis_tready_out;
+            always @(posedge m_clk) begin
+                m_axis_tvalid_reg <= m_axis_tvalid_reg && !m_axis_tready_out;
 
-            out_fifo_half_full_reg <= $unsigned(out_fifo_wr_ptr_reg - out_fifo_rd_ptr_reg) >= 2**(OUTPUT_FIFO_ADDR_WIDTH-1);
+                out_fifo_half_full_reg <= $unsigned(out_fifo_wr_ptr_reg - out_fifo_rd_ptr_reg) >= 2**(OUTPUT_FIFO_ADDR_WIDTH-1);
 
-            if (!out_fifo_full && m_axis_tvalid_pipe) begin
-                out_fifo_tdata[out_fifo_wr_ptr_reg[OUTPUT_FIFO_ADDR_WIDTH-1:0]] <= m_axis_tdata_pipe;
-                out_fifo_tkeep[out_fifo_wr_ptr_reg[OUTPUT_FIFO_ADDR_WIDTH-1:0]] <= m_axis_tkeep_pipe;
-                out_fifo_tlast[out_fifo_wr_ptr_reg[OUTPUT_FIFO_ADDR_WIDTH-1:0]] <= m_axis_tlast_pipe;
-                out_fifo_tid[out_fifo_wr_ptr_reg[OUTPUT_FIFO_ADDR_WIDTH-1:0]] <= m_axis_tid_pipe;
-                out_fifo_tdest[out_fifo_wr_ptr_reg[OUTPUT_FIFO_ADDR_WIDTH-1:0]] <= m_axis_tdest_pipe;
-                out_fifo_tuser[out_fifo_wr_ptr_reg[OUTPUT_FIFO_ADDR_WIDTH-1:0]] <= m_axis_tuser_pipe;
-                out_fifo_wr_ptr_reg <= out_fifo_wr_ptr_reg + 1;
+                if (!out_fifo_full && m_axis_tvalid_pipe) begin
+                    out_fifo_tdata[out_fifo_wr_ptr_reg[OUTPUT_FIFO_ADDR_WIDTH-1:0]] <= m_axis_tdata_pipe;
+                    out_fifo_tkeep[out_fifo_wr_ptr_reg[OUTPUT_FIFO_ADDR_WIDTH-1:0]] <= m_axis_tkeep_pipe;
+                    out_fifo_tlast[out_fifo_wr_ptr_reg[OUTPUT_FIFO_ADDR_WIDTH-1:0]] <= m_axis_tlast_pipe;
+                    out_fifo_tid[out_fifo_wr_ptr_reg[OUTPUT_FIFO_ADDR_WIDTH-1:0]] <= m_axis_tid_pipe;
+                    out_fifo_tdest[out_fifo_wr_ptr_reg[OUTPUT_FIFO_ADDR_WIDTH-1:0]] <= m_axis_tdest_pipe;
+                    out_fifo_tuser[out_fifo_wr_ptr_reg[OUTPUT_FIFO_ADDR_WIDTH-1:0]] <= m_axis_tuser_pipe;
+                    out_fifo_wr_ptr_reg <= out_fifo_wr_ptr_reg + 1;
+                end
+
+                if (!out_fifo_empty && (!m_axis_tvalid_reg || m_axis_tready_out)) begin
+                    m_axis_tdata_reg <= out_fifo_tdata[out_fifo_rd_ptr_reg[OUTPUT_FIFO_ADDR_WIDTH-1:0]];
+                    m_axis_tkeep_reg <= out_fifo_tkeep[out_fifo_rd_ptr_reg[OUTPUT_FIFO_ADDR_WIDTH-1:0]];
+                    m_axis_tvalid_reg <= 1'b1;
+                    m_axis_tlast_reg <= out_fifo_tlast[out_fifo_rd_ptr_reg[OUTPUT_FIFO_ADDR_WIDTH-1:0]];
+                    m_axis_tid_reg <= out_fifo_tid[out_fifo_rd_ptr_reg[OUTPUT_FIFO_ADDR_WIDTH-1:0]];
+                    m_axis_tdest_reg <= out_fifo_tdest[out_fifo_rd_ptr_reg[OUTPUT_FIFO_ADDR_WIDTH-1:0]];
+                    m_axis_tuser_reg <= out_fifo_tuser[out_fifo_rd_ptr_reg[OUTPUT_FIFO_ADDR_WIDTH-1:0]];
+                    out_fifo_rd_ptr_reg <= out_fifo_rd_ptr_reg + 1;
+                end
+
+                if (m_rst) begin
+                    out_fifo_wr_ptr_reg <= 0;
+                    out_fifo_rd_ptr_reg <= 0;
+                    m_axis_tvalid_reg <= 1'b0;
+                end
             end
 
-            if (!out_fifo_empty && (!m_axis_tvalid_reg || m_axis_tready_out)) begin
-                m_axis_tdata_reg <= out_fifo_tdata[out_fifo_rd_ptr_reg[OUTPUT_FIFO_ADDR_WIDTH-1:0]];
-                m_axis_tkeep_reg <= out_fifo_tkeep[out_fifo_rd_ptr_reg[OUTPUT_FIFO_ADDR_WIDTH-1:0]];
-                m_axis_tvalid_reg <= 1'b1;
-                m_axis_tlast_reg <= out_fifo_tlast[out_fifo_rd_ptr_reg[OUTPUT_FIFO_ADDR_WIDTH-1:0]];
-                m_axis_tid_reg <= out_fifo_tid[out_fifo_rd_ptr_reg[OUTPUT_FIFO_ADDR_WIDTH-1:0]];
-                m_axis_tdest_reg <= out_fifo_tdest[out_fifo_rd_ptr_reg[OUTPUT_FIFO_ADDR_WIDTH-1:0]];
-                m_axis_tuser_reg <= out_fifo_tuser[out_fifo_rd_ptr_reg[OUTPUT_FIFO_ADDR_WIDTH-1:0]];
-                out_fifo_rd_ptr_reg <= out_fifo_rd_ptr_reg + 1;
+        end
+
+        if (PAUSE_ENABLE) begin : pause
+
+            // Pause logic
+            reg pause_reg = 1'b0;
+            reg pause_frame_reg = 1'b0;
+
+            reg s_pause_req_sync1_reg;
+            reg s_pause_req_sync2_reg;
+            reg s_pause_req_sync3_reg;
+            reg s_pause_ack_sync1_reg;
+            reg s_pause_ack_sync2_reg;
+            reg s_pause_ack_sync3_reg;
+
+            always @(posedge s_clk) begin
+                s_pause_req_sync1_reg <= s_pause_req;
+                s_pause_ack_sync2_reg <= s_pause_ack_sync1_reg;
+                s_pause_ack_sync3_reg <= s_pause_ack_sync2_reg;
             end
 
-            if (m_rst) begin
-                out_fifo_wr_ptr_reg <= 0;
-                out_fifo_rd_ptr_reg <= 0;
-                m_axis_tvalid_reg <= 1'b0;
+            always @(posedge m_clk) begin
+                s_pause_req_sync2_reg <= s_pause_req_sync1_reg;
+                s_pause_req_sync3_reg <= s_pause_req_sync2_reg;
+                s_pause_ack_sync1_reg <= pause_reg;
             end
-        end
 
-    end
+            assign m_axis_tready_out = m_axis_tready && !pause_reg;
+            assign m_axis_tvalid = m_axis_tvalid_out && !pause_reg;
 
-    if (PAUSE_ENABLE) begin : pause
+            assign m_axis_tdata = m_axis_tdata_out;
+            assign m_axis_tkeep = m_axis_tkeep_out;
+            assign m_axis_tlast = m_axis_tlast_out;
+            assign m_axis_tid   = m_axis_tid_out;
+            assign m_axis_tdest = m_axis_tdest_out;
+            assign m_axis_tuser = m_axis_tuser_out;
 
-        // Pause logic
-        reg pause_reg = 1'b0;
-        reg pause_frame_reg = 1'b0;
+            assign s_pause_ack = s_pause_ack_sync3_reg;
+            assign m_pause_ack = pause_reg;
 
-        reg s_pause_req_sync1_reg;
-        reg s_pause_req_sync2_reg;
-        reg s_pause_req_sync3_reg;
-        reg s_pause_ack_sync1_reg;
-        reg s_pause_ack_sync2_reg;
-        reg s_pause_ack_sync3_reg;
-
-        always @(posedge s_clk) begin
-            s_pause_req_sync1_reg <= s_pause_req;
-            s_pause_ack_sync2_reg <= s_pause_ack_sync1_reg;
-            s_pause_ack_sync3_reg <= s_pause_ack_sync2_reg;
-        end
-
-        always @(posedge m_clk) begin
-            s_pause_req_sync2_reg <= s_pause_req_sync1_reg;
-            s_pause_req_sync3_reg <= s_pause_req_sync2_reg;
-            s_pause_ack_sync1_reg <= pause_reg;
-        end
-
-        assign m_axis_tready_out = m_axis_tready && !pause_reg;
-        assign m_axis_tvalid = m_axis_tvalid_out && !pause_reg;
-
-        assign m_axis_tdata = m_axis_tdata_out;
-        assign m_axis_tkeep = m_axis_tkeep_out;
-        assign m_axis_tlast = m_axis_tlast_out;
-        assign m_axis_tid   = m_axis_tid_out;
-        assign m_axis_tdest = m_axis_tdest_out;
-        assign m_axis_tuser = m_axis_tuser_out;
-
-        assign s_pause_ack = s_pause_ack_sync3_reg;
-        assign m_pause_ack = pause_reg;
-
-        always @(posedge m_clk) begin
-            if (FRAME_PAUSE) begin
-                if (pause_reg) begin
-                    // paused; update pause status
-                    pause_reg <= m_pause_req || s_pause_req_sync3_reg;
-                end else if (m_axis_tvalid_out) begin
-                    // frame transfer; set frame bit
-                    pause_frame_reg <= 1'b1;
-                    if (m_axis_tready && m_axis_tlast) begin
-                        // end of frame; clear frame bit and update pause status
-                        pause_frame_reg <= 1'b0;
+            always @(posedge m_clk) begin
+                if (FRAME_PAUSE) begin
+                    if (pause_reg) begin
+                        // paused; update pause status
+                        pause_reg <= m_pause_req || s_pause_req_sync3_reg;
+                    end else if (m_axis_tvalid_out) begin
+                        // frame transfer; set frame bit
+                        pause_frame_reg <= 1'b1;
+                        if (m_axis_tready && m_axis_tlast) begin
+                            // end of frame; clear frame bit and update pause status
+                            pause_frame_reg <= 1'b0;
+                            pause_reg <= m_pause_req || s_pause_req_sync3_reg;
+                        end
+                    end else if (!pause_frame_reg) begin
+                        // idle; update pause status
                         pause_reg <= m_pause_req || s_pause_req_sync3_reg;
                     end
-                end else if (!pause_frame_reg) begin
-                    // idle; update pause status
+                end else begin
                     pause_reg <= m_pause_req || s_pause_req_sync3_reg;
                 end
-            end else begin
-                pause_reg <= m_pause_req || s_pause_req_sync3_reg;
+
+                if (m_rst) begin
+                    pause_frame_reg <= 1'b0;
+                    pause_reg <= 1'b0;
+                end
             end
 
-            if (m_rst) begin
-                pause_frame_reg <= 1'b0;
-                pause_reg <= 1'b0;
-            end
+        end else begin
+
+            assign m_axis_tready_out = m_axis_tready;
+            assign m_axis_tvalid = m_axis_tvalid_out;
+
+            assign m_axis_tdata = m_axis_tdata_out;
+            assign m_axis_tkeep = m_axis_tkeep_out;
+            assign m_axis_tlast = m_axis_tlast_out;
+            assign m_axis_tid   = m_axis_tid_out;
+            assign m_axis_tdest = m_axis_tdest_out;
+            assign m_axis_tuser = m_axis_tuser_out;
+
+            assign s_pause_ack = 1'b0;
+            assign m_pause_ack = 1'b0;
+
         end
-
-    end else begin
-
-        assign m_axis_tready_out = m_axis_tready;
-        assign m_axis_tvalid = m_axis_tvalid_out;
-
-        assign m_axis_tdata = m_axis_tdata_out;
-        assign m_axis_tkeep = m_axis_tkeep_out;
-        assign m_axis_tlast = m_axis_tlast_out;
-        assign m_axis_tid   = m_axis_tid_out;
-        assign m_axis_tdest = m_axis_tdest_out;
-        assign m_axis_tuser = m_axis_tuser_out;
-
-        assign s_pause_ack = 1'b0;
-        assign m_pause_ack = 1'b0;
-
-    end
 
     endgenerate
 

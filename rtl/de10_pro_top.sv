@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 Amina Tankovic
+// SPDX-FileCopyrightText: 2026 Enio Kaljic
+// SPDX-License-Identifier: CERN-OHL-S-2.0
+
 `resetall
 `timescale 1ns / 1ps
 
@@ -355,11 +359,11 @@ module de10_pro_top (
     localparam SIM_NO_TEMP_SENSE = 1'b0;
 
     wire ninit_done, arst, io_pll_locked, clk_100, clk_300;
-	 wire [5:0] rst_300;
+    wire [5:0] rst_300;
 
-	 altera_reset_release u_reset_release (
-	     .ninit_done(ninit_done)
-	 );
+    altera_reset_release u_reset_release (
+        .ninit_done(ninit_done)
+    );
 
     altera_system_pll u_system_pll (
         .rst(~cpu_reset_n | ninit_done), // reset.reset
@@ -372,7 +376,7 @@ module de10_pro_top (
     assign arst = ninit_done | ~cpu_reset_n | ~io_pll_locked;
 
     reset_synchronizer #(
-	     .NUM_OUTPUTS(6)
+        .NUM_OUTPUTS(6)
     ) u_reset_sync_clk_300 (
         .clk(clk_300),
         .reset(arst),
@@ -532,8 +536,8 @@ module de10_pro_top (
         .asi_ready(aso_eth_4_ready)
     );
 
-	 // ADASEC dataplane
-	 wire [31:0] avalon_address;       // Address output of Avalon Memory Mapped Host
+    // ADASEC dataplane
+    wire [31:0] avalon_address;       // Address output of Avalon Memory Mapped Host
     wire [31:0] avalon_readdata;      // Read Data input to Avalon Memory Mapped Host
     wire        avalon_read;          // Read command from Avalon Memory Mapped Host
     wire        avalon_write;         // Write command from Avalon Memory Mapped Host
@@ -541,11 +545,11 @@ module de10_pro_top (
     wire        avalon_waitrequest;   // Wait request from Avalon Memory Mapped Agent, indicates agent is not ready
     wire        avalon_readdatavalid; // Valid read data indication from Avalon Memory Mapped Agent
     wire [3:0]  avalon_byteenable;    // Indicates valid write data/read data location
-	 
-	 wire [31:0] test_input;
-	 wire [31:0] test_output;
-	 
-	 adasec_top #(
+
+    wire [31:0] test_input;
+    wire [31:0] test_output;
+
+    adasec_top #(
         .DATA_W(512),
         .EMPTY_W(6)
     ) u_adasec_top (
@@ -618,9 +622,9 @@ module de10_pro_top (
         .test_input(test_input),
         .test_output(test_output)
     );
-	 
-	 assign test_input = {BUTTON, SW, test_output[27:0]};
-	 assign LED = ~test_output[3:0];
+
+    assign test_input = {BUTTON, SW, test_output[27:0]};
+    assign LED = ~test_output[3:0];
 
     altera_jtag_avalon_master u_jtag_avalon_master (
         .clk_clk(clk_300),

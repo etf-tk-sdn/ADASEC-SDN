@@ -1,46 +1,46 @@
-// Author: Amina Tankovic
+// SPDX-FileCopyrightText: 2026 Amina Tankovic
+// SPDX-License-Identifier: CERN-OHL-S-2.0
+
 // Description: Avalon-ST interface with arbitrarily defined widths of data and channel signals.
 
-interface avalon_if #
-(
+interface avalon_if #(
     parameter DATA_WIDTH = 512,
     parameter EMPTY_WIDTH = $clog2(DATA_WIDTH/8),
-    parameter CHANNEL_WIDTH = 13  //Routing tag(3) + Flow ID(5) + Segment ID(5)
-)
-(
-   input logic   clk,
-   input logic   rst
+    parameter CHANNEL_WIDTH = 13 // Routing tag(3) + Flow ID(5) + Segment ID(5)
+) (
+    input logic clk,
+    input logic rst
 );
 
-   logic                   ready;
-   logic                   valid;
-   logic [DATA_WIDTH-1:0]  data;
-   logic                   sop;
-   logic                   eop;
-   logic [EMPTY_WIDTH-1:0] empty;
-   logic [CHANNEL_WIDTH-1:0] channel;
+    logic                     ready;
+    logic                     valid;
+    logic [DATA_WIDTH-1:0]    data;
+    logic                     sop;
+    logic                     eop;
+    logic [EMPTY_WIDTH-1:0]   empty;
+    logic [CHANNEL_WIDTH-1:0] channel;
 
-   modport out (
-       input    clk,
-       input    rst,
-       input    ready,
-       output   valid,
-       output   data,
-       output   sop,
-       output   eop,
-       output   empty,
-       output   channel
-   );
+    modport out (
+        input  clk,
+        input  rst,
+        input  ready,
+        output valid,
+        output data,
+        output sop,
+        output eop,
+        output empty,
+        output channel
+    );
 
-   modport in (
-       input    clk,
-       input    rst,
-       output   ready,
-       input    valid,
-       input    data,
-       input    sop,
-       input    eop,
-       input    empty,
-       input    channel
-   );
+    modport in (
+        input  clk,
+        input  rst,
+        output ready,
+        input  valid,
+        input  data,
+        input  sop,
+        input  eop,
+        input  empty,
+        input  channel
+    );
 endinterface

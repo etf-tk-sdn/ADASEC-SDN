@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Amina Tankovic
+// SPDX-License-Identifier: CERN-OHL-S-2.0
+
 `resetall
 `timescale 1ns / 1ps
 `default_nettype none

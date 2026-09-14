@@ -1,7 +1,11 @@
+// SPDX-FileCopyrightText: 2026 Amina Tankovic
+// SPDX-FileCopyrightText: 2026 Enio Kaljic
+// SPDX-License-Identifier: CERN-OHL-S-2.0
+
 // Encryption-instruction RAM.
 //
-// Port A is the datapath lookup port.  Port B is the Avalon-MM
-// read/modify/write port.  Both ports use the dataplane clock; sharing one
+// Port A is the datapath lookup port. Port B is the Avalon-MM
+// read/modify/write port. Both ports use the dataplane clock; sharing one
 // address for read and write on port B matches the native bidirectional
 // dual-port M20K template.
 module dual_port_ram (

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 Amina Tankovic
+// SPDX-FileCopyrightText: 2026 Enio Kaljic
+// SPDX-License-Identifier: CERN-OHL-S-2.0
+
 `timescale 1ns/1ps
 
 module adasec_top_tb;

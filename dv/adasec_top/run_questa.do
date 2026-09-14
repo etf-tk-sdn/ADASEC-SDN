@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 Amina Tankovic
+# SPDX-FileCopyrightText: 2026 Enio Kaljic
+# SPDX-License-Identifier: CERN-OHL-S-2.0
+
 set project_dir [file normalize [pwd]]
 set script_dir [file join $project_dir dv adasec_top]
 set work_dir [file join /tmp adasec_top_questa_work]
