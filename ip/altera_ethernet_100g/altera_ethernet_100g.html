@@ -1,0 +1,4169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>datasheet for altera_ethernet_100g</title>
+  <style type="text/css">
+body { font-family:arial ;}
+a { text-decoration:underline ; color:#003000 ;}
+a:hover { text-decoration:underline ; color:0030f0 ;}
+td { padding : 5px ;}
+table.topTitle { width:100% ;}
+table.topTitle td.l { text-align:left ; font-weight: bold ; font-size:30px ;}
+table.topTitle td.r { text-align:right ; font-weight: bold ; font-size:16px ;}
+table.blueBar { width : 100% ; border-spacing : 0px ;}
+table.blueBar td { background:#0036ff ; font-size:12px ; color : white ; text-align : left ; font-weight : bold ;}
+table.blueBar td.l { text-align : left ;}
+table.blueBar td.r { text-align : right ;}
+table.items { width:100% ; border-collapse:collapse ;}
+table.items td.label { font-weight:bold ; font-size:16px ; vertical-align:top ;}
+table.items td.mono { font-family:courier ; font-size:12px ; white-space:pre ;}
+div.label { font-weight:bold ; font-size:16px ; vertical-align:top ; text-align:center ;}
+table.grid { border-collapse:collapse ;}
+table.grid td { border:1px solid #bbb ; font-size:12px ;}
+body { font-family:arial ;}
+table.x { font-family:courier ; border-collapse:collapse ; padding:2px ;}
+table.x td { border:1px solid #bbb ;}
+td.tableTitle { font-weight:bold ; text-align:center ;}
+table.grid { border-collapse:collapse ;}
+table.grid td { border:1px solid #bbb ;}
+table.grid td.tableTitle { font-weight:bold ; text-align:center ;}
+table.mmap { border-collapse:collapse ; text-size:11px ; border:1px solid #d8d8d8 ;}
+table.mmap td { border-color:#d8d8d8 ; border-width:1px ; border-style:solid ;}
+table.mmap td.empty { border-style:none ; background-color:#f0f0f0 ;}
+table.mmap td.slavemodule { text-align:left ; font-size:11px ; border-style:solid solid none solid ;}
+table.mmap td.slavem { text-align:right ; font-size:9px ; font-style:italic ; border-style:none solid none solid ;}
+table.mmap td.slaveb { text-align:right ; font-size:9px ; font-style:italic ; border-style:none solid solid solid ;}
+table.mmap td.mastermodule { text-align:center ; font-size:11px ; border-style:solid solid none solid ;}
+table.mmap td.masterlr { text-align:center ; font-size:9px ; font-style:italic ; border-style:none solid solid solid ;}
+table.mmap td.masterl { text-align:center ; font-size:9px ; font-style:italic ; border-style:none none solid solid ;}
+table.mmap td.masterm { text-align:center ; font-size:9px ; font-style:italic ; border-style:none none solid none ;}
+table.mmap td.masterr { text-align:center ; font-size:9px ; font-style:italic ; border-style:none solid solid none ;}
+table.mmap td.addr { font-family:courier ; font-size:9px ; text-align:right ;}
+table.connectionboxes { border-collapse:separate ; border-spacing:0px ; font-family:arial ;}
+table.connectionboxes td.from { border-bottom:1px solid black ; font-size:9px ; font-style:italic ; vertical-align:bottom ; text-align:left ;}
+table.connectionboxes td.to { font-size:9px ; font-style:italic ; vertical-align:top ; text-align:right ;}
+table.connectionboxes td.lefthandwire { border-bottom:1px solid black ; font-size:9px ; font-style:italic ; vertical-align:bottom ; text-align:right ;}
+table.connectionboxes td.righthandwire { border-bottom:1px solid black ; font-size:9px ; font-style:italic ; vertical-align:bottom ; text-align:left ;}
+table.connectionboxes td.righthandlabel { font-size:11px ; vertical-align:bottom ; text-align:left ;}
+table.connectionboxes td.neighbor { padding:3px ; border:1px solid black ; font-size: 11px ; background:#e8e8e8 ; vertical-align:center ; text-align:center ;}
+table.connectionboxes td.main { padding:8px ; border:1px solid black ; font-size: 14px ; font-weight:bold ; background:#ffffff ; vertical-align:center ; text-align:center ;}
+.parametersbox { border:1px solid #d0d0d0 ; display:inline-block ; max-height:160px ; overflow:auto ; width:360px ; font-size:10px ;}
+.flowbox { display:inline-block ;}
+.parametersbox table { font-size:10px ;}
+td.parametername { font-style:italic ;}
+td.parametervalue { font-weight:bold ;}
+div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; border-top:1px solid #707070 ; border-bottom:1px solid #707070 ; padding:20px ; margin:20px ; width:auto ;}</style>
+ </head>
+ <body>
+  <table class="topTitle">
+   <tr>
+    <td class="l">altera_ethernet_100g</td>
+    <td class="r">
+     <br/>
+     <br/>
+    </td>
+   </tr>
+  </table>
+  <table class="blueBar">
+   <tr>
+    <td class="l">2026.09.12.22:04:55</td>
+    <td class="r">Datasheet</td>
+   </tr>
+  </table>
+  <div style="width:100% ;  height:10px"> </div>
+  <div class="label">Overview</div>
+  <div class="greydiv">
+   <div style="display:inline-block ; text-align:left">
+    <table class="connectionboxes">
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+    </table>
+   </div><span style="display:inline-block ; width:28px"> </span>
+   <div style="display:inline-block ; text-align:left"><span>
+     <br/></span>
+   </div>
+  </div>
+  <div style="width:100% ;  height:10px"> </div>
+  <div class="label">Memory Map</div>
+  <table class="mmap">
+   <tr>
+    <td class="empty" rowspan="2"></td>
+    <td class="mastermodule" colspan="1">
+     <a href="#module_altera_ethernet_100g_inst_alt_e100s10_jtag_int"><b>altera_ethernet_100g_inst_alt_e100s10_jtag_int</b>
+     </a>
+    </td>
+    <td class="mastermodule" colspan="1">
+     <a
+           href="#module_altera_ethernet_100g_inst_alt_e100s10_jtag_int_alt_e100s10_jtag_int"><b>altera_ethernet_100g_inst_alt_e100s10_jtag_int_alt_e100s10_jtag_int</b>
+     </a>
+    </td>
+   </tr>
+   <tr>
+    <td class="masterlr">&#160;master</td>
+    <td class="masterlr">&#160;master</td>
+   </tr>
+  </table>
+  <a name="module_altera_ethernet_100g_inst"> </a>
+  <div>
+   <hr/>
+   <h2>altera_ethernet_100g_inst</h2>alt_e100s10 v20.1.0
+   <br/>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">ENABLE_ANLT</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">SYNTH_LT</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">TRNWTWIDTH_gui</td>
+        <td class="parametervalue">127</td>
+       </tr>
+       <tr>
+        <td class="parametername">CL72_PRBS</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">DEVICE_FAMILY</td>
+        <td class="parametervalue">Stratix 10</td>
+       </tr>
+       <tr>
+        <td class="parametername">DEVICE_TILE</td>
+        <td class="parametervalue">H/L Tile</td>
+       </tr>
+       <tr>
+        <td class="parametername">OVERRIDE_PART_NUM</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">SYNOPT_C4_RSFEC</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">SYNOPT_C4_RSFEC_DYN</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">PHY_REFCLK</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">ADME_ENABLE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ELI_ENABLE</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">SYNOPT_FLOW_CONTROL</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">SYNOPT_NUMPRIORITY</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">SYNOPT_LINK_FAULT</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">SYNOPT_TXCRC_INS</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">SYNOPT_PREAMBLE_PASS</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">SYNOPT_MAC_STATS_COUNTERS</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">SYNOPT_STRICT_SOP</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">STATUS_CLK_MHZ</td>
+        <td class="parametervalue">100.0</td>
+       </tr>
+       <tr>
+        <td class="parametername">SYNTH_AN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">LINK_TIMER_KR</td>
+        <td class="parametervalue">504</td>
+       </tr>
+       <tr>
+        <td class="parametername">EXAMPLE_DESIGN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">GEN_SIMULATION</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">GEN_SYNTH</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">DEV_BOARD</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">HDL_FORMAT</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">VMAXRULE</td>
+        <td class="parametervalue">30</td>
+       </tr>
+       <tr>
+        <td class="parametername">VMINRULE</td>
+        <td class="parametervalue">6</td>
+       </tr>
+       <tr>
+        <td class="parametername">VODMINRULE</td>
+        <td class="parametervalue">14</td>
+       </tr>
+       <tr>
+        <td class="parametername">VPOSTRULE</td>
+        <td class="parametervalue">25</td>
+       </tr>
+       <tr>
+        <td class="parametername">VPRERULE</td>
+        <td class="parametervalue">16</td>
+       </tr>
+       <tr>
+        <td class="parametername">PREMAINVAL</td>
+        <td class="parametervalue">30</td>
+       </tr>
+       <tr>
+        <td class="parametername">PREPOSTVAL</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">PREPREVAL</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">INITMAINVAL</td>
+        <td class="parametervalue">25</td>
+       </tr>
+       <tr>
+        <td class="parametername">INITPOSTVAL</td>
+        <td class="parametervalue">13</td>
+       </tr>
+       <tr>
+        <td class="parametername">INITPREVAL</td>
+        <td class="parametervalue">3</td>
+       </tr>
+       <tr>
+        <td class="parametername">AN_CR</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">AN_CHAN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">AN_PAUSE_C0</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">AN_PAUSE_C1</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">UNKNOWN</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
+  <a name="module_altera_ethernet_100g_inst_atx_pll_s100_master"> </a>
+  <div>
+   <hr/>
+   <h2>altera_ethernet_100g_inst_atx_pll_s100_master</h2>alt_e100s10_altera_xcvr_atx_pll_s10_htile v20.1.0
+   <br/>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">rcfg_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_jtag_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_separate_avmm_busy</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_capability_reg_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_user_identifier</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_csr_soft_logic_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_file_prefix</td>
+        <td class="parametervalue">altera_xcvr_atx_pll_s10</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_sv_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_h_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_mif_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_multi_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_rcfg_emb_strm_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_reduced_files_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_cnt</td>
+        <td class="parametervalue">2</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_select</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data0</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data1</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data2</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data3</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data4</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data5</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data6</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data7</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">message_level</td>
+        <td class="parametervalue">error</td>
+       </tr>
+       <tr>
+        <td class="parametername">prot_mode</td>
+        <td class="parametervalue">Basic</td>
+       </tr>
+       <tr>
+        <td class="parametername">bw_sel</td>
+        <td class="parametervalue">high</td>
+       </tr>
+       <tr>
+        <td class="parametername">refclk_cnt</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">refclk_index</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">primary_pll_buffer</td>
+        <td class="parametervalue">GXT clock output buffer</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_8G_path</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_output_frm_abv_atx</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_output_frm_blw_atx</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_local_atx_path</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_input_frm_abv_atx</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_input_frm_blw_atx</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_GXT_out_buffer_abv</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_GXT_out_buffer_blw</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_GXT_clock_source</td>
+        <td class="parametervalue">atx_lcl</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_pcie_clk</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_atx_to_fpll_cascade_out</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_output_clock_frequency</td>
+        <td class="parametervalue">12890.625</td>
+       </tr>
+       <tr>
+        <td class="parametername">output_clock_datarate</td>
+        <td class="parametervalue">25781.25</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_auto_reference_clock_frequency</td>
+        <td class="parametervalue">644.53125</td>
+       </tr>
+       <tr>
+        <td class="parametername">select_manual_config</td>
+        <td class="parametervalue">false</td>
+       </tr>
+       <tr>
+        <td class="parametername">m_counter</td>
+        <td class="parametervalue">10</td>
+       </tr>
+       <tr>
+        <td class="parametername">ref_clk_div</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">l_counter</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">usr_analog_voltage</td>
+        <td class="parametervalue">1_1V</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_mcgb</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_div</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_hfreq_clk</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_mcgb_pcie_clksw</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_mcgb_reset</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_aux_clkin_cnt</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_in_clk_freq</td>
+        <td class="parametervalue">12890.625</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_out_datarate</td>
+        <td class="parametervalue">25781.25</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_bonding_clks</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">pma_width</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">gui_parameter_list</td>
+        <td class="parametervalue">L cascade predivider/VCO divider(valid in cascade mode) ,L counter (valid in non-cascade mode),L cascade counter (valid in cascade mode),M counter,K counter (valid in fractional mode),N counter,PLL output frequency,vco_freq,datarate</td>
+       </tr>
+       <tr>
+        <td class="parametername">gui_parameter_values</td>
+        <td class="parametervalue">select_div_by_2,1,1,8,0,1,2500 MHz,0 MHz,0 Mbps</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">UNKNOWN</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
+  <a
+     name="module_altera_ethernet_100g_inst_atx_pll_s100_master_atx_pll_s100_master"> </a>
+  <div>
+   <hr/>
+   <h2>altera_ethernet_100g_inst_atx_pll_s100_master_atx_pll_s100_master</h2>altera_xcvr_atx_pll_s10_htile v19.1.2
+   <br/>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">rcfg_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_jtag_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_separate_avmm_busy</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_capability_reg_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_user_identifier</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_csr_soft_logic_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_file_prefix</td>
+        <td class="parametervalue">altera_xcvr_atx_pll_s10</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_sv_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_h_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_mif_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_multi_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_rcfg_emb_strm_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_reduced_files_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_cnt</td>
+        <td class="parametervalue">2</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_select</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data0</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data1</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data2</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data3</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data4</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data5</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data6</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data7</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">message_level</td>
+        <td class="parametervalue">error</td>
+       </tr>
+       <tr>
+        <td class="parametername">prot_mode</td>
+        <td class="parametervalue">Basic</td>
+       </tr>
+       <tr>
+        <td class="parametername">bw_sel</td>
+        <td class="parametervalue">high</td>
+       </tr>
+       <tr>
+        <td class="parametername">refclk_cnt</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">refclk_index</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">primary_pll_buffer</td>
+        <td class="parametervalue">GXT clock output buffer</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_8G_path</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_output_frm_abv_atx</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_output_frm_blw_atx</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_local_atx_path</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_input_frm_abv_atx</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_input_frm_blw_atx</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_GXT_out_buffer_abv</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_GXT_out_buffer_blw</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_GXT_clock_source</td>
+        <td class="parametervalue">atx_lcl</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_pcie_clk</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_atx_to_fpll_cascade_out</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_output_clock_frequency</td>
+        <td class="parametervalue">12890.625</td>
+       </tr>
+       <tr>
+        <td class="parametername">output_clock_datarate</td>
+        <td class="parametervalue">25781.25</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_auto_reference_clock_frequency</td>
+        <td class="parametervalue">644.53125</td>
+       </tr>
+       <tr>
+        <td class="parametername">select_manual_config</td>
+        <td class="parametervalue">false</td>
+       </tr>
+       <tr>
+        <td class="parametername">m_counter</td>
+        <td class="parametervalue">10</td>
+       </tr>
+       <tr>
+        <td class="parametername">ref_clk_div</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">l_counter</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">usr_analog_voltage</td>
+        <td class="parametervalue">1_1V</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_mcgb</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_div</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_hfreq_clk</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_mcgb_pcie_clksw</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_mcgb_reset</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_aux_clkin_cnt</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_in_clk_freq</td>
+        <td class="parametervalue">12890.625</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_out_datarate</td>
+        <td class="parametervalue">25781.25</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_bonding_clks</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">pma_width</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">gui_parameter_list</td>
+        <td class="parametervalue">L cascade predivider/VCO divider(valid in cascade mode) ,L counter (valid in non-cascade mode),L cascade counter (valid in cascade mode),M counter,K counter (valid in fractional mode),N counter,PLL output frequency,vco_freq,datarate</td>
+       </tr>
+       <tr>
+        <td class="parametername">gui_parameter_values</td>
+        <td class="parametervalue">select_div_by_2,1,1,8,0,1,2500 MHz,0 MHz,0 Mbps</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">UNKNOWN</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
+  <a name="module_altera_ethernet_100g_inst_atx_pll_s100_slave"> </a>
+  <div>
+   <hr/>
+   <h2>altera_ethernet_100g_inst_atx_pll_s100_slave</h2>alt_e100s10_altera_xcvr_atx_pll_s10_htile v20.1.0
+   <br/>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">rcfg_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_jtag_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_separate_avmm_busy</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_capability_reg_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_user_identifier</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_csr_soft_logic_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_file_prefix</td>
+        <td class="parametervalue">altera_xcvr_atx_pll_s10</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_sv_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_h_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_mif_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_multi_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_rcfg_emb_strm_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_reduced_files_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_cnt</td>
+        <td class="parametervalue">2</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_select</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data0</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data1</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data2</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data3</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data4</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data5</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data6</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data7</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">message_level</td>
+        <td class="parametervalue">error</td>
+       </tr>
+       <tr>
+        <td class="parametername">prot_mode</td>
+        <td class="parametervalue">Basic</td>
+       </tr>
+       <tr>
+        <td class="parametername">bw_sel</td>
+        <td class="parametervalue">high</td>
+       </tr>
+       <tr>
+        <td class="parametername">refclk_cnt</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">refclk_index</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">primary_pll_buffer</td>
+        <td class="parametervalue">GXT clock output buffer</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_8G_path</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_output_frm_abv_atx</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_output_frm_blw_atx</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_local_atx_path</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_input_frm_abv_atx</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_input_frm_blw_atx</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_GXT_out_buffer_abv</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_GXT_out_buffer_blw</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_GXT_clock_source</td>
+        <td class="parametervalue">atx_abv</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_pcie_clk</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_atx_to_fpll_cascade_out</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_output_clock_frequency</td>
+        <td class="parametervalue">12890.625</td>
+       </tr>
+       <tr>
+        <td class="parametername">output_clock_datarate</td>
+        <td class="parametervalue">25781.25</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_auto_reference_clock_frequency</td>
+        <td class="parametervalue">644.53125</td>
+       </tr>
+       <tr>
+        <td class="parametername">select_manual_config</td>
+        <td class="parametervalue">false</td>
+       </tr>
+       <tr>
+        <td class="parametername">m_counter</td>
+        <td class="parametervalue">10</td>
+       </tr>
+       <tr>
+        <td class="parametername">ref_clk_div</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">l_counter</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">usr_analog_voltage</td>
+        <td class="parametervalue">1_1V</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_mcgb</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_div</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_hfreq_clk</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_mcgb_pcie_clksw</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_mcgb_reset</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_aux_clkin_cnt</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_in_clk_freq</td>
+        <td class="parametervalue">12890.625</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_out_datarate</td>
+        <td class="parametervalue">25781.25</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_bonding_clks</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">pma_width</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">gui_parameter_list</td>
+        <td class="parametervalue">L cascade predivider/VCO divider(valid in cascade mode) ,L counter (valid in non-cascade mode),L cascade counter (valid in cascade mode),M counter,K counter (valid in fractional mode),N counter,PLL output frequency,vco_freq,datarate</td>
+       </tr>
+       <tr>
+        <td class="parametername">gui_parameter_values</td>
+        <td class="parametervalue">select_div_by_2,1,1,8,0,1,2500 MHz,0 MHz,0 Mbps</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">UNKNOWN</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
+  <a
+     name="module_altera_ethernet_100g_inst_atx_pll_s100_slave_atx_pll_s100_slave"> </a>
+  <div>
+   <hr/>
+   <h2>altera_ethernet_100g_inst_atx_pll_s100_slave_atx_pll_s100_slave</h2>altera_xcvr_atx_pll_s10_htile v19.1.2
+   <br/>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">rcfg_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_jtag_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_separate_avmm_busy</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_capability_reg_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_user_identifier</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_csr_soft_logic_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_file_prefix</td>
+        <td class="parametervalue">altera_xcvr_atx_pll_s10</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_sv_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_h_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_mif_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_multi_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_rcfg_emb_strm_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_reduced_files_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_cnt</td>
+        <td class="parametervalue">2</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_select</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data0</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data1</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data2</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data3</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data4</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data5</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data6</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data7</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">message_level</td>
+        <td class="parametervalue">error</td>
+       </tr>
+       <tr>
+        <td class="parametername">prot_mode</td>
+        <td class="parametervalue">Basic</td>
+       </tr>
+       <tr>
+        <td class="parametername">bw_sel</td>
+        <td class="parametervalue">high</td>
+       </tr>
+       <tr>
+        <td class="parametername">refclk_cnt</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">refclk_index</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">primary_pll_buffer</td>
+        <td class="parametervalue">GXT clock output buffer</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_8G_path</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_output_frm_abv_atx</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_output_frm_blw_atx</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_local_atx_path</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_input_frm_abv_atx</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_input_frm_blw_atx</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_GXT_out_buffer_abv</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_GXT_out_buffer_blw</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_GXT_clock_source</td>
+        <td class="parametervalue">atx_abv</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_pcie_clk</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_atx_to_fpll_cascade_out</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_output_clock_frequency</td>
+        <td class="parametervalue">12890.625</td>
+       </tr>
+       <tr>
+        <td class="parametername">output_clock_datarate</td>
+        <td class="parametervalue">25781.25</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_auto_reference_clock_frequency</td>
+        <td class="parametervalue">644.53125</td>
+       </tr>
+       <tr>
+        <td class="parametername">select_manual_config</td>
+        <td class="parametervalue">false</td>
+       </tr>
+       <tr>
+        <td class="parametername">m_counter</td>
+        <td class="parametervalue">10</td>
+       </tr>
+       <tr>
+        <td class="parametername">ref_clk_div</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">l_counter</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">usr_analog_voltage</td>
+        <td class="parametervalue">1_1V</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_mcgb</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_div</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_hfreq_clk</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_mcgb_pcie_clksw</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_mcgb_reset</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_aux_clkin_cnt</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_in_clk_freq</td>
+        <td class="parametervalue">12890.625</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_out_datarate</td>
+        <td class="parametervalue">25781.25</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_bonding_clks</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">pma_width</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">gui_parameter_list</td>
+        <td class="parametervalue">L cascade predivider/VCO divider(valid in cascade mode) ,L counter (valid in non-cascade mode),L cascade counter (valid in cascade mode),M counter,K counter (valid in fractional mode),N counter,PLL output frequency,vco_freq,datarate</td>
+       </tr>
+       <tr>
+        <td class="parametername">gui_parameter_values</td>
+        <td class="parametervalue">select_div_by_2,1,1,8,0,1,2500 MHz,0 MHz,0 Mbps</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">UNKNOWN</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
+  <a name="module_altera_ethernet_100g_inst_atx_pll_s100"> </a>
+  <div>
+   <hr/>
+   <h2>altera_ethernet_100g_inst_atx_pll_s100</h2>alt_e100s10_altera_xcvr_atx_pll_s10_htile v20.1.0
+   <br/>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">rcfg_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_jtag_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_separate_avmm_busy</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_capability_reg_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_user_identifier</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_csr_soft_logic_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_file_prefix</td>
+        <td class="parametervalue">altera_xcvr_atx_pll_s10</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_sv_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_h_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_mif_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_multi_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_rcfg_emb_strm_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_reduced_files_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_cnt</td>
+        <td class="parametervalue">2</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_select</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data0</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data1</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data2</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data3</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data4</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data5</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data6</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data7</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">message_level</td>
+        <td class="parametervalue">error</td>
+       </tr>
+       <tr>
+        <td class="parametername">prot_mode</td>
+        <td class="parametervalue">Basic</td>
+       </tr>
+       <tr>
+        <td class="parametername">bw_sel</td>
+        <td class="parametervalue">high</td>
+       </tr>
+       <tr>
+        <td class="parametername">refclk_cnt</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">refclk_index</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">primary_pll_buffer</td>
+        <td class="parametervalue">GXT clock output buffer</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_8G_path</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_output_frm_abv_atx</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_output_frm_blw_atx</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_local_atx_path</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_input_frm_abv_atx</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_input_frm_blw_atx</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_GXT_out_buffer_abv</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_GXT_out_buffer_blw</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_GXT_clock_source</td>
+        <td class="parametervalue">atx_lcl</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_pcie_clk</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_atx_to_fpll_cascade_out</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_output_clock_frequency</td>
+        <td class="parametervalue">12890.625</td>
+       </tr>
+       <tr>
+        <td class="parametername">output_clock_datarate</td>
+        <td class="parametervalue">25781.25</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_auto_reference_clock_frequency</td>
+        <td class="parametervalue">644.53125</td>
+       </tr>
+       <tr>
+        <td class="parametername">select_manual_config</td>
+        <td class="parametervalue">false</td>
+       </tr>
+       <tr>
+        <td class="parametername">m_counter</td>
+        <td class="parametervalue">10</td>
+       </tr>
+       <tr>
+        <td class="parametername">ref_clk_div</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">l_counter</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">usr_analog_voltage</td>
+        <td class="parametervalue">1_1V</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_mcgb</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_div</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_hfreq_clk</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_mcgb_pcie_clksw</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_mcgb_reset</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_aux_clkin_cnt</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_in_clk_freq</td>
+        <td class="parametervalue">12890.625</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_out_datarate</td>
+        <td class="parametervalue">25781.25</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_bonding_clks</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">pma_width</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">gui_parameter_list</td>
+        <td class="parametervalue">L cascade predivider/VCO divider(valid in cascade mode) ,L counter (valid in non-cascade mode),L cascade counter (valid in cascade mode),M counter,K counter (valid in fractional mode),N counter,PLL output frequency,vco_freq,datarate</td>
+       </tr>
+       <tr>
+        <td class="parametername">gui_parameter_values</td>
+        <td class="parametervalue">select_div_by_2,1,1,8,0,1,2500 MHz,0 MHz,0 Mbps</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">UNKNOWN</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
+  <a name="module_altera_ethernet_100g_inst_atx_pll_s100_atx_pll_s100"> </a>
+  <div>
+   <hr/>
+   <h2>altera_ethernet_100g_inst_atx_pll_s100_atx_pll_s100</h2>altera_xcvr_atx_pll_s10_htile v19.1.2
+   <br/>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">rcfg_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_jtag_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_separate_avmm_busy</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_capability_reg_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_user_identifier</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_csr_soft_logic_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_file_prefix</td>
+        <td class="parametervalue">altera_xcvr_atx_pll_s10</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_sv_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_h_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_mif_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_multi_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_rcfg_emb_strm_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_reduced_files_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_cnt</td>
+        <td class="parametervalue">2</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_select</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data0</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data1</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data2</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data3</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data4</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data5</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data6</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data7</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">message_level</td>
+        <td class="parametervalue">error</td>
+       </tr>
+       <tr>
+        <td class="parametername">prot_mode</td>
+        <td class="parametervalue">Basic</td>
+       </tr>
+       <tr>
+        <td class="parametername">bw_sel</td>
+        <td class="parametervalue">high</td>
+       </tr>
+       <tr>
+        <td class="parametername">refclk_cnt</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">refclk_index</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">primary_pll_buffer</td>
+        <td class="parametervalue">GXT clock output buffer</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_8G_path</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_output_frm_abv_atx</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_output_frm_blw_atx</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_local_atx_path</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_input_frm_abv_atx</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_28G_input_frm_blw_atx</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_GXT_out_buffer_abv</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_GXT_out_buffer_blw</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_GXT_clock_source</td>
+        <td class="parametervalue">atx_lcl</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_pcie_clk</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_atx_to_fpll_cascade_out</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_output_clock_frequency</td>
+        <td class="parametervalue">12890.625</td>
+       </tr>
+       <tr>
+        <td class="parametername">output_clock_datarate</td>
+        <td class="parametervalue">25781.25</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_auto_reference_clock_frequency</td>
+        <td class="parametervalue">644.53125</td>
+       </tr>
+       <tr>
+        <td class="parametername">select_manual_config</td>
+        <td class="parametervalue">false</td>
+       </tr>
+       <tr>
+        <td class="parametername">m_counter</td>
+        <td class="parametervalue">10</td>
+       </tr>
+       <tr>
+        <td class="parametername">ref_clk_div</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">l_counter</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">usr_analog_voltage</td>
+        <td class="parametervalue">1_1V</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_mcgb</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_div</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_hfreq_clk</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_mcgb_pcie_clksw</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_mcgb_reset</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_aux_clkin_cnt</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_in_clk_freq</td>
+        <td class="parametervalue">12890.625</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_out_datarate</td>
+        <td class="parametervalue">25781.25</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_bonding_clks</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">pma_width</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">gui_parameter_list</td>
+        <td class="parametervalue">L cascade predivider/VCO divider(valid in cascade mode) ,L counter (valid in non-cascade mode),L cascade counter (valid in cascade mode),M counter,K counter (valid in fractional mode),N counter,PLL output frequency,vco_freq,datarate</td>
+       </tr>
+       <tr>
+        <td class="parametername">gui_parameter_values</td>
+        <td class="parametervalue">select_div_by_2,1,1,8,0,1,2500 MHz,0 MHz,0 Mbps</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">UNKNOWN</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
+  <a name="module_altera_ethernet_100g_inst_caui4_xcvr"> </a>
+  <div>
+   <hr/>
+   <h2>altera_ethernet_100g_inst_caui4_xcvr</h2>alt_e100s10_altera_xcvr_native_s10_htile v20.1.0
+   <br/>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">rcfg_enable</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_jtag_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_separate_avmm_busy</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_capability_reg_enable</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_user_identifier</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_csr_soft_logic_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_file_prefix</td>
+        <td class="parametervalue">altera_xcvr_rcfg_10</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_sv_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_h_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_mif_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_multi_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_rcfg_emb_strm_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_reduced_files_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_cnt</td>
+        <td class="parametervalue">2</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_select</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data0</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data1</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data2</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data3</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data4</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data5</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data6</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data7</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">message_level</td>
+        <td class="parametervalue">error</td>
+       </tr>
+       <tr>
+        <td class="parametername">reduced_reset_sim_time</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">channel_type</td>
+        <td class="parametervalue">GXT</td>
+       </tr>
+       <tr>
+        <td class="parametername">protocol_mode</td>
+        <td class="parametervalue">basic_enh</td>
+       </tr>
+       <tr>
+        <td class="parametername">pma_mode</td>
+        <td class="parametervalue">basic</td>
+       </tr>
+       <tr>
+        <td class="parametername">duplex_mode</td>
+        <td class="parametervalue">duplex</td>
+       </tr>
+       <tr>
+        <td class="parametername">channels</td>
+        <td class="parametervalue">4</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_data_rate</td>
+        <td class="parametervalue">25781.25</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_iface_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_simple_interface</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_split_interface</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_double_rate_transfer</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_background_cal_gui</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">bonded_mode</td>
+        <td class="parametervalue">not_bonded</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_pcs_bonding_master</td>
+        <td class="parametervalue">Auto</td>
+       </tr>
+       <tr>
+        <td class="parametername">pcs_bonding_master</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">pcs_reset_sequencing_mode</td>
+        <td class="parametervalue">bonded</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pma_clk_div</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">plls</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">pll_select</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_tx_pma_iqtxrx_clkout</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_tx_pma_elecidle</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">cdr_refclk_cnt</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">cdr_refclk_select</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_cdr_refclk_freq</td>
+        <td class="parametervalue">644.531250</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_ppm_detect_threshold</td>
+        <td class="parametervalue">1000</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_pma_iqtxrx_clkout</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_pma_clkslip</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_is_lockedtodata</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_is_lockedtoref</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_ports_rx_manual_cdr_mode</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_ports_rx_prbs</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_seriallpbken</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_pcs_pma_width</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_pld_pcs_width</td>
+        <td class="parametervalue">66</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_low_latency_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_frmgen_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_frmgen_mfrm_length</td>
+        <td class="parametervalue">2048</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_frmgen_burst_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_tx_enh_frame</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_tx_enh_frame_diag_status</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_tx_enh_frame_burst_en</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_rx_frmsync_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_rx_frmsync_mfrm_length</td>
+        <td class="parametervalue">2048</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_enh_frame</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_enh_frame_lock</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_enh_frame_diag_status</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_crcgen_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_crcerr_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_rx_crcchk_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_enh_crc32_err</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_enh_highber</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_enh_highber_clr_cnt</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_enh_clr_errblk_count</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_64b66b_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_rx_64b66b_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_sh_err</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_scram_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_scram_seed</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_rx_descram_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_dispgen_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_rx_dispchk_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_randomdispbit_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_rx_blksync_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_enh_blk_lock</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_bitslip_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_polinv_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_rx_bitslip_enable</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_rx_polinv_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_tx_enh_bitslip</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_enh_bitslip</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_rx_krfec_err_mark_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_rx_krfec_err_mark_type</td>
+        <td class="parametervalue">10G</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_krfec_burst_err_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_krfec_burst_err_len</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_krfec_tx_enh_frame</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_krfec_rx_enh_frame</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_krfec_rx_enh_frame_diag_status</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_debug_ports</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_fifo_mode</td>
+        <td class="parametervalue">Basic</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_fifo_pfull</td>
+        <td class="parametervalue">26</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_fifo_pempty</td>
+        <td class="parametervalue">6</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_tx_fifo_full</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_tx_fifo_empty</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_tx_fifo_pfull</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_tx_fifo_pempty</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_tx_dll_lock</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_fifo_mode</td>
+        <td class="parametervalue">Phase compensation-Basic</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_fifo_pfull</td>
+        <td class="parametervalue">51</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_fifo_pempty</td>
+        <td class="parametervalue">13</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_fifo_align_del</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_fifo_control_del</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_data_valid</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_fifo_full</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_fifo_empty</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_fifo_pfull</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_fifo_pempty</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_fifo_del</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_fifo_insert</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_fifo_rd_en</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_fifo_align_clr</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_clkout_sel</td>
+        <td class="parametervalue">pcs_clkout</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_tx_clkout2</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_clkout2_sel</td>
+        <td class="parametervalue">pma_div_clkout</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pma_div_clkout_divider</td>
+        <td class="parametervalue">33</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_coreclkin_clock_network</td>
+        <td class="parametervalue">dedicated</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_clkout_sel</td>
+        <td class="parametervalue">pcs_clkout</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_clkout2</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_clkout2_sel</td>
+        <td class="parametervalue">pma_div_clkout</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_pma_div_clkout_divider</td>
+        <td class="parametervalue">33</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_coreclkin_clock_network</td>
+        <td class="parametervalue">dedicated</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_latency_measurement</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">generate_docs</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_tx_coreclkin2</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ovrd_tx_dv_mode</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ovrd_rx_dv_mode</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_shared</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_use_clk_reset_only</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_prbs_soft_logic_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_rcfg_tx_digitalreset_release_ctrl</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pll_type</td>
+        <td class="parametervalue">ATX</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pll_refclk</td>
+        <td class="parametervalue">125.0</td>
+       </tr>
+       <tr>
+        <td class="parametername">use_tx_clkout2</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">use_rx_clkout2</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_fast_sim</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">design_example_filename</td>
+        <td class="parametervalue">top</td>
+       </tr>
+       <tr>
+        <td class="parametername">anlg_voltage</td>
+        <td class="parametervalue">1_1V</td>
+       </tr>
+       <tr>
+        <td class="parametername">anlg_link</td>
+        <td class="parametervalue">sr</td>
+       </tr>
+       <tr>
+        <td class="parametername">qsf_assignments_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">qsf_assignments_list</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pma_analog_mode</td>
+        <td class="parametervalue">user_custom</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_pma_analog_mode</td>
+        <td class="parametervalue">user_custom</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pma_optimal_settings</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pma_output_swing_ctrl</td>
+        <td class="parametervalue">12</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pma_pre_emp_sign_pre_tap_1t</td>
+        <td class="parametervalue">negative</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pma_pre_emp_switching_ctrl_pre_tap_1t</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pma_pre_emp_sign_1st_post_tap</td>
+        <td class="parametervalue">negative</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pma_pre_emp_switching_ctrl_1st_post_tap</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pma_slew_rate_ctrl</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pma_term_sel</td>
+        <td class="parametervalue">r_r1</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pma_compensation_en</td>
+        <td class="parametervalue">enable</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_pma_optimal_settings</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_pma_adapt_mode</td>
+        <td class="parametervalue">ctle_dfe</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_pma_term_sel</td>
+        <td class="parametervalue">r_r4</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_ctle_ac_gain</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_ctle_eq_gain</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_vga_dc_gain</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_pma_adapt_start_gui</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">UNKNOWN</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
+  <a name="module_altera_ethernet_100g_inst_caui4_xcvr_caui4_xcvr"> </a>
+  <div>
+   <hr/>
+   <h2>altera_ethernet_100g_inst_caui4_xcvr_caui4_xcvr</h2>altera_xcvr_native_s10_htile v19.3.1
+   <br/>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">rcfg_enable</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_jtag_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_separate_avmm_busy</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_capability_reg_enable</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_user_identifier</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_csr_soft_logic_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_file_prefix</td>
+        <td class="parametervalue">altera_xcvr_rcfg_10</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_sv_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_h_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_mif_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_multi_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_rcfg_emb_strm_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_reduced_files_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_cnt</td>
+        <td class="parametervalue">2</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_select</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data0</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data1</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data2</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data3</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data4</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data5</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data6</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data7</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">message_level</td>
+        <td class="parametervalue">error</td>
+       </tr>
+       <tr>
+        <td class="parametername">reduced_reset_sim_time</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">channel_type</td>
+        <td class="parametervalue">GXT</td>
+       </tr>
+       <tr>
+        <td class="parametername">protocol_mode</td>
+        <td class="parametervalue">basic_enh</td>
+       </tr>
+       <tr>
+        <td class="parametername">pma_mode</td>
+        <td class="parametervalue">basic</td>
+       </tr>
+       <tr>
+        <td class="parametername">duplex_mode</td>
+        <td class="parametervalue">duplex</td>
+       </tr>
+       <tr>
+        <td class="parametername">channels</td>
+        <td class="parametervalue">4</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_data_rate</td>
+        <td class="parametervalue">25781.25</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_iface_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_simple_interface</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_split_interface</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_double_rate_transfer</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_background_cal_gui</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">bonded_mode</td>
+        <td class="parametervalue">not_bonded</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_pcs_bonding_master</td>
+        <td class="parametervalue">Auto</td>
+       </tr>
+       <tr>
+        <td class="parametername">pcs_bonding_master</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">pcs_reset_sequencing_mode</td>
+        <td class="parametervalue">bonded</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pma_clk_div</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">plls</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">pll_select</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_tx_pma_iqtxrx_clkout</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_tx_pma_elecidle</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">cdr_refclk_cnt</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">cdr_refclk_select</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_cdr_refclk_freq</td>
+        <td class="parametervalue">644.531250</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_ppm_detect_threshold</td>
+        <td class="parametervalue">1000</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_pma_iqtxrx_clkout</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_pma_clkslip</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_is_lockedtodata</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_is_lockedtoref</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_ports_rx_manual_cdr_mode</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_ports_rx_prbs</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_seriallpbken</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_pcs_pma_width</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_pld_pcs_width</td>
+        <td class="parametervalue">66</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_low_latency_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_frmgen_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_frmgen_mfrm_length</td>
+        <td class="parametervalue">2048</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_frmgen_burst_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_tx_enh_frame</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_tx_enh_frame_diag_status</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_tx_enh_frame_burst_en</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_rx_frmsync_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_rx_frmsync_mfrm_length</td>
+        <td class="parametervalue">2048</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_enh_frame</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_enh_frame_lock</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_enh_frame_diag_status</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_crcgen_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_crcerr_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_rx_crcchk_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_enh_crc32_err</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_enh_highber</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_enh_highber_clr_cnt</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_enh_clr_errblk_count</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_64b66b_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_rx_64b66b_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_sh_err</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_scram_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_scram_seed</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_rx_descram_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_dispgen_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_rx_dispchk_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_randomdispbit_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_rx_blksync_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_enh_blk_lock</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_bitslip_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_polinv_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_rx_bitslip_enable</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_rx_polinv_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_tx_enh_bitslip</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_enh_bitslip</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_rx_krfec_err_mark_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_rx_krfec_err_mark_type</td>
+        <td class="parametervalue">10G</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_krfec_burst_err_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enh_tx_krfec_burst_err_len</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_krfec_tx_enh_frame</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_krfec_rx_enh_frame</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_krfec_rx_enh_frame_diag_status</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_debug_ports</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_fifo_mode</td>
+        <td class="parametervalue">Basic</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_fifo_pfull</td>
+        <td class="parametervalue">26</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_fifo_pempty</td>
+        <td class="parametervalue">6</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_tx_fifo_full</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_tx_fifo_empty</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_tx_fifo_pfull</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_tx_fifo_pempty</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_tx_dll_lock</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_fifo_mode</td>
+        <td class="parametervalue">Phase compensation-Basic</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_fifo_pfull</td>
+        <td class="parametervalue">51</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_fifo_pempty</td>
+        <td class="parametervalue">13</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_fifo_align_del</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_fifo_control_del</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_data_valid</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_fifo_full</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_fifo_empty</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_fifo_pfull</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_fifo_pempty</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_fifo_del</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_fifo_insert</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_fifo_rd_en</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_fifo_align_clr</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_clkout_sel</td>
+        <td class="parametervalue">pcs_clkout</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_tx_clkout2</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_clkout2_sel</td>
+        <td class="parametervalue">pma_div_clkout</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pma_div_clkout_divider</td>
+        <td class="parametervalue">33</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_coreclkin_clock_network</td>
+        <td class="parametervalue">dedicated</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_clkout_sel</td>
+        <td class="parametervalue">pcs_clkout</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_rx_clkout2</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_clkout2_sel</td>
+        <td class="parametervalue">pma_div_clkout</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_pma_div_clkout_divider</td>
+        <td class="parametervalue">33</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_coreclkin_clock_network</td>
+        <td class="parametervalue">dedicated</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_port_latency_measurement</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">generate_docs</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_tx_coreclkin2</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ovrd_tx_dv_mode</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ovrd_rx_dv_mode</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_shared</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_use_clk_reset_only</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_prbs_soft_logic_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_rcfg_tx_digitalreset_release_ctrl</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pll_type</td>
+        <td class="parametervalue">ATX</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pll_refclk</td>
+        <td class="parametervalue">125.0</td>
+       </tr>
+       <tr>
+        <td class="parametername">use_tx_clkout2</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">use_rx_clkout2</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_fast_sim</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">design_example_filename</td>
+        <td class="parametervalue">top</td>
+       </tr>
+       <tr>
+        <td class="parametername">anlg_voltage</td>
+        <td class="parametervalue">1_1V</td>
+       </tr>
+       <tr>
+        <td class="parametername">anlg_link</td>
+        <td class="parametervalue">sr</td>
+       </tr>
+       <tr>
+        <td class="parametername">qsf_assignments_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">qsf_assignments_list</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pma_analog_mode</td>
+        <td class="parametervalue">user_custom</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_pma_analog_mode</td>
+        <td class="parametervalue">user_custom</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pma_optimal_settings</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pma_output_swing_ctrl</td>
+        <td class="parametervalue">12</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pma_pre_emp_sign_pre_tap_1t</td>
+        <td class="parametervalue">negative</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pma_pre_emp_switching_ctrl_pre_tap_1t</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pma_pre_emp_sign_1st_post_tap</td>
+        <td class="parametervalue">negative</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pma_pre_emp_switching_ctrl_1st_post_tap</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pma_slew_rate_ctrl</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pma_term_sel</td>
+        <td class="parametervalue">r_r1</td>
+       </tr>
+       <tr>
+        <td class="parametername">tx_pma_compensation_en</td>
+        <td class="parametervalue">enable</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_pma_optimal_settings</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_pma_adapt_mode</td>
+        <td class="parametervalue">ctle_dfe</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_pma_term_sel</td>
+        <td class="parametervalue">r_r4</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_ctle_ac_gain</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_ctle_eq_gain</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_vga_dc_gain</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rx_pma_adapt_start_gui</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">UNKNOWN</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
+  <a name="module_altera_ethernet_100g_inst_s10_xcvr_reset_controller"> </a>
+  <div>
+   <hr/>
+   <h2>altera_ethernet_100g_inst_s10_xcvr_reset_controller</h2>alt_e100s10_altera_xcvr_reset_control_s10 v20.1.0
+   <br/>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">TILE_TYPE</td>
+        <td class="parametervalue">h_tile</td>
+       </tr>
+       <tr>
+        <td class="parametername">CHANNELS</td>
+        <td class="parametervalue">4</td>
+       </tr>
+       <tr>
+        <td class="parametername">PLLS</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">SYS_CLK_IN_MHZ</td>
+        <td class="parametervalue">100</td>
+       </tr>
+       <tr>
+        <td class="parametername">REDUCED_SIM_TIME</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">ENABLE_DIGITAL_SEQ</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">gui_split_interfaces</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">TX_ENABLE</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">TX_PER_CHANNEL</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">TX_MANUAL_RESET</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">T_TX_ANALOGRESET</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">T_TX_DIGITALRESET</td>
+        <td class="parametervalue">20</td>
+       </tr>
+       <tr>
+        <td class="parametername">T_PLL_LOCK_HYST</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">gui_pll_cal_busy</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">RX_ENABLE</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">RX_PER_CHANNEL</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">RX_MANUAL_RESET</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">T_RX_ANALOGRESET</td>
+        <td class="parametervalue">40</td>
+       </tr>
+       <tr>
+        <td class="parametername">T_RX_DIGITALRESET</td>
+        <td class="parametervalue">5000</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">UNKNOWN</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
+  <a
+     name="module_altera_ethernet_100g_inst_s10_xcvr_reset_controller_s10_xcvr_reset_controller"> </a>
+  <div>
+   <hr/>
+   <h2>altera_ethernet_100g_inst_s10_xcvr_reset_controller_s10_xcvr_reset_controller</h2>altera_xcvr_reset_control_s10 v19.1.2
+   <br/>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">TILE_TYPE</td>
+        <td class="parametervalue">h_tile</td>
+       </tr>
+       <tr>
+        <td class="parametername">CHANNELS</td>
+        <td class="parametervalue">4</td>
+       </tr>
+       <tr>
+        <td class="parametername">PLLS</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">SYS_CLK_IN_MHZ</td>
+        <td class="parametervalue">100</td>
+       </tr>
+       <tr>
+        <td class="parametername">REDUCED_SIM_TIME</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">ENABLE_DIGITAL_SEQ</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">gui_split_interfaces</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">TX_ENABLE</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">TX_PER_CHANNEL</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">TX_MANUAL_RESET</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">T_TX_ANALOGRESET</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">T_TX_DIGITALRESET</td>
+        <td class="parametervalue">20</td>
+       </tr>
+       <tr>
+        <td class="parametername">T_PLL_LOCK_HYST</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">gui_pll_cal_busy</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">RX_ENABLE</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">RX_PER_CHANNEL</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">RX_MANUAL_RESET</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">T_RX_ANALOGRESET</td>
+        <td class="parametervalue">40</td>
+       </tr>
+       <tr>
+        <td class="parametername">T_RX_DIGITALRESET</td>
+        <td class="parametervalue">5000</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">UNKNOWN</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
+  <a name="module_altera_ethernet_100g_inst_altera_xcvr_fpll_s10_tx_ext"> </a>
+  <div>
+   <hr/>
+   <h2>altera_ethernet_100g_inst_altera_xcvr_fpll_s10_tx_ext</h2>alt_e100s10_altera_xcvr_fpll_s10_htile v20.1.0
+   <br/>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">rcfg_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_jtag_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_separate_avmm_busy</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_capability_reg_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_user_identifier</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_csr_soft_logic_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_file_prefix</td>
+        <td class="parametervalue">altera_xcvr_fpll_s10</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_sv_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_h_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_mif_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_multi_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_rcfg_emb_strm_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_reduced_files_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_cnt</td>
+        <td class="parametervalue">2</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_select</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data0</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data1</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data2</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data3</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data4</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data5</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data6</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data7</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">generate_docs</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_x1_core_clock</td>
+        <td class="parametervalue">true</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_x2_core_clock</td>
+        <td class="parametervalue">false</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_x4_core_clock</td>
+        <td class="parametervalue">false</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_primary_use</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">message_level</td>
+        <td class="parametervalue">error</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_bw_sel</td>
+        <td class="parametervalue">medium</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_refclk_cnt</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_refclk_index</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_output_clock_frequency</td>
+        <td class="parametervalue">312.5</td>
+       </tr>
+       <tr>
+        <td class="parametername">output_datarate</td>
+        <td class="parametervalue">0.0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_enable_fractional</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_auto_reference_clock_frequency</td>
+        <td class="parametervalue">644.53125</td>
+       </tr>
+       <tr>
+        <td class="parametername">select_manual_config</td>
+        <td class="parametervalue">false</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_m_counter</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_ref_clk_div</td>
+        <td class="parametervalue">11</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_c_counter</td>
+        <td class="parametervalue">6</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_power_mode</td>
+        <td class="parametervalue">1_1V</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_mcgb</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_div</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_hfreq_clk</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_mcgb_pcie_clksw</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_mcgb_reset</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_aux_clkin_cnt</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_in_clk_freq</td>
+        <td class="parametervalue">312.5</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_out_datarate</td>
+        <td class="parametervalue">625.0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_bonding_clks</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">pma_width</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_parameter_list</td>
+        <td class="parametervalue">L-Counter,M-Counter,N-Counter,C-Counter,K-Counter,PLL output datarate,PLL output frequency,VCO frequency,PFD frequency,C0 Counter Output Frequency,C0 Counter Output Frequency in Hz,C1 Counter Output Frequency,C1 Counter Output Frequency in Hz</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_parameter_values</td>
+        <td class="parametervalue">1,1,1,1,0,5000.0,2500.0,1250.0,1250.0,0,0,0,0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_display_units</td>
+        <td class="parametervalue">,,,,,Mbps,MHz,MHz,MHz,ps,ps,ps,ps</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">UNKNOWN</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
+  <a
+     name="module_altera_ethernet_100g_inst_altera_xcvr_fpll_s10_tx_ext_altera_xcvr_fpll_s10_tx_ext"> </a>
+  <div>
+   <hr/>
+   <h2>altera_ethernet_100g_inst_altera_xcvr_fpll_s10_tx_ext_altera_xcvr_fpll_s10_tx_ext</h2>altera_xcvr_fpll_s10_htile v19.1.5
+   <br/>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">rcfg_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_jtag_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_separate_avmm_busy</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_capability_reg_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_user_identifier</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_csr_soft_logic_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_file_prefix</td>
+        <td class="parametervalue">altera_xcvr_fpll_s10</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_sv_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_h_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_mif_file_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_multi_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_rcfg_emb_strm_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_reduced_files_enable</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_cnt</td>
+        <td class="parametervalue">2</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_select</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data0</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data1</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data2</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data3</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data4</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data5</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data6</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">rcfg_profile_data7</td>
+        <td class="parametervalue"></td>
+       </tr>
+       <tr>
+        <td class="parametername">generate_docs</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_x1_core_clock</td>
+        <td class="parametervalue">true</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_x2_core_clock</td>
+        <td class="parametervalue">false</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_x4_core_clock</td>
+        <td class="parametervalue">false</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_primary_use</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">message_level</td>
+        <td class="parametervalue">error</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_bw_sel</td>
+        <td class="parametervalue">medium</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_refclk_cnt</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_refclk_index</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_output_clock_frequency</td>
+        <td class="parametervalue">312.5</td>
+       </tr>
+       <tr>
+        <td class="parametername">output_datarate</td>
+        <td class="parametervalue">0.0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_enable_fractional</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_auto_reference_clock_frequency</td>
+        <td class="parametervalue">644.53125</td>
+       </tr>
+       <tr>
+        <td class="parametername">select_manual_config</td>
+        <td class="parametervalue">false</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_m_counter</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_ref_clk_div</td>
+        <td class="parametervalue">11</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_c_counter</td>
+        <td class="parametervalue">6</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_power_mode</td>
+        <td class="parametervalue">1_1V</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_mcgb</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_div</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_hfreq_clk</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_mcgb_pcie_clksw</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_mcgb_reset</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_aux_clkin_cnt</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_in_clk_freq</td>
+        <td class="parametervalue">312.5</td>
+       </tr>
+       <tr>
+        <td class="parametername">mcgb_out_datarate</td>
+        <td class="parametervalue">625.0</td>
+       </tr>
+       <tr>
+        <td class="parametername">enable_bonding_clks</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">pma_width</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_parameter_list</td>
+        <td class="parametervalue">L-Counter,M-Counter,N-Counter,C-Counter,K-Counter,PLL output datarate,PLL output frequency,VCO frequency,PFD frequency,C0 Counter Output Frequency,C0 Counter Output Frequency in Hz,C1 Counter Output Frequency,C1 Counter Output Frequency in Hz</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_parameter_values</td>
+        <td class="parametervalue">1,1,1,1,0,5000.0,2500.0,1250.0,1250.0,0,0,0,0</td>
+       </tr>
+       <tr>
+        <td class="parametername">set_display_units</td>
+        <td class="parametervalue">,,,,,Mbps,MHz,MHz,MHz,ps,ps,ps,ps</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">UNKNOWN</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
+  <a name="module_altera_ethernet_100g_inst_alt_e100s10_jtag_int"> </a>
+  <div>
+   <hr/>
+   <h2>altera_ethernet_100g_inst_alt_e100s10_jtag_int</h2>alt_e100s10_altera_jtag_avalon_master v20.1.0
+   <br/>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">USE_PLI</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">PLI_PORT</td>
+        <td class="parametervalue">50000</td>
+       </tr>
+       <tr>
+        <td class="parametername">FAST_VER</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">FIFO_DEPTHS</td>
+        <td class="parametervalue">2</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
+  <a
+     name="module_altera_ethernet_100g_inst_alt_e100s10_jtag_int_alt_e100s10_jtag_int"> </a>
+  <div>
+   <hr/>
+   <h2>altera_ethernet_100g_inst_alt_e100s10_jtag_int_alt_e100s10_jtag_int</h2>altera_jtag_avalon_master v19.1
+   <br/>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">USE_PLI</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">PLI_PORT</td>
+        <td class="parametervalue">50000</td>
+       </tr>
+       <tr>
+        <td class="parametername">FAST_VER</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">FIFO_DEPTHS</td>
+        <td class="parametervalue">2</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
+  <table class="blueBar">
+   <tr>
+    <td class="l">generation took 0.00 seconds</td>
+    <td class="r">rendering took 0.04 seconds</td>
+   </tr>
+  </table>
+ </body>
+</html>

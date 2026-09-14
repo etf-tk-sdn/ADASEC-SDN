@@ -1,0 +1,584 @@
+IP Upgrade report for DE10_Pro
+Mon Sep  7 22:07:06 2026
+Quartus Prime Version 26.1.1 Build 130 08/06/2026 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. IP Upgrade Summary
+  3. Successfully Upgraded IP Components
+  4. IP Upgrade Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2026  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++---------------------------------------------------------------------------+
+; IP Upgrade Summary                                                        ;
++------------------------------+--------------------------------------------+
+; IP Components Upgrade Status ; Passed - Mon Sep  7 22:07:06 2026          ;
+; Quartus Prime Version        ; 26.1.1 Build 130 08/06/2026 SC Pro Edition ;
+; Revision Name                ; DE10_Pro                                   ;
+; Top-level Entity Name        ; de10_pro_top                               ;
+; Family                       ; Stratix 10                                 ;
++------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Successfully Upgraded IP Components                                                                                                                                                          ;
++----------------------+----------------+---------+--------------------------------------------------+----------------------------+--------------------------------------------------+---------+
+; Entity Name          ; Component Name ; Version ; Original Source File                             ; Generation File Path       ; New Source File                                  ; Message ;
++----------------------+----------------+---------+--------------------------------------------------+----------------------------+--------------------------------------------------+---------+
+; altera_system_pll    ; altera_iopll   ; 19.1    ; ip/altera_system_pll.ip                          ; ip/altera_system_pll.ip    ;                                                  ;         ;
+; altera_ethernet_100g ; alt_e100s10    ; 19.1.0  ; ip/altera_ethernet_100g/altera_ethernet_100g.qip ; ip/altera_ethernet_100g.ip ; ip/altera_ethernet_100g/altera_ethernet_100g.qip ;         ;
++----------------------+----------------+---------+--------------------------------------------------+----------------------------+--------------------------------------------------+---------+
+
+
++---------------------+
+; IP Upgrade Messages ;
++---------------------+
+Info (11902): Backing up file "/home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_system_pll.ip" to "/home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_system_pll.BAK.ip"
+Info (20325): ***************************************************************
+Info (20325): Quartus is a registered trademark of Altera Corporation in the
+Info (20325): US and other countries.  Portions of the Quartus Prime software
+Info (20325): code, and other portions of the code included in this download
+Info (20325): or on this DVD, are licensed to Altera Corporation and are the
+Info (20325): copyrighted property of third parties. For license details,
+Info (20325): refer to the Altera Software License Subscription Agreements
+Info (20325): on the Quartus Prime software download page.
+Info (20325): ***************************************************************
+Info (20325): 2026.09.07.22:04:40 Info: Starting to upgrade the IP cores in the Platform Designer system
+Info (20325): 2026.09.07.22:04:40 Info: Finished upgrading the ip cores
+Info (20325): ***************************************************************
+Info (20325): Quartus is a registered trademark of Altera Corporation in the
+Info (20325): US and other countries.  Portions of the Quartus Prime software
+Info (20325): code, and other portions of the code included in this download
+Info (20325): or on this DVD, are licensed to Altera Corporation and are the
+Info (20325): copyrighted property of third parties. For license details,
+Info (20325): refer to the Altera Software License Subscription Agreements
+Info (20325): on the Quartus Prime software download page.
+Info (20325): ***************************************************************
+Info (20325): 2026.09.07.22:04:57 Info: Saving generation log to /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_system_pll/altera_system_pll_generation.rpt
+Info (20325): 2026.09.07.22:04:57 Info: Generated by version: 26.1.1 build 130
+Info (20325): 2026.09.07.22:04:57 Info: Starting: Create simulation model
+Info (20325): 2026.09.07.22:04:57 Info: qsys-generate /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_system_pll.ip --simulation=VERILOG --allow-mixed-language-simulation --output-directory=/home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_system_pll --family="Stratix 10" --part=1SX280HU2F50E1VG
+Info (20325): 2026.09.07.22:04:58 Info: altera_system_pll.altera_system_pll_inst: Able to implement PLL with user settings
+Info (20325): 2026.09.07.22:04:58 Info: altera_system_pll: "Transforming system: altera_system_pll"
+Info (20325): 2026.09.07.22:04:59 Info: altera_system_pll: "Naming system components in system: altera_system_pll"
+Info (20325): 2026.09.07.22:04:59 Info: altera_system_pll: "Processing generation queue"
+Info (20325): 2026.09.07.22:04:59 Info: altera_system_pll: "Generating: altera_system_pll"
+Info (20325): 2026.09.07.22:04:59 Info: altera_system_pll: "Generating: altera_system_pll_altera_iopll_2110_3vyv37q"
+Info (20325): 2026.09.07.22:04:59 Info: altera_system_pll: Done "altera_system_pll" with 2 modules, 3 files
+Info (20325): 2026.09.07.22:04:59 Info: Generating the following file(s) for MODELSIM simulator in /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_system_pll/sim/ directory:
+Info (20325): 2026.09.07.22:04:59 Info:     common/modelsim_files.tcl
+Info (20325): 2026.09.07.22:04:59 Info: Generating the following file(s) for XCELIUM simulator in /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_system_pll/sim/ directory:
+Info (20325): 2026.09.07.22:04:59 Info:     common/xcelium_files.tcl
+Info (20325): 2026.09.07.22:04:59 Info: Generating the following file(s) for VCSMX simulator in /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_system_pll/sim/ directory:
+Info (20325): 2026.09.07.22:04:59 Info:     common/vcsmx_files.tcl
+Info (20325): 2026.09.07.22:04:59 Info: Generating the following file(s) for VCS simulator in /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_system_pll/sim/ directory:
+Info (20325): 2026.09.07.22:04:59 Info:     common/vcs_files.tcl
+Info (20325): 2026.09.07.22:04:59 Info: Generating the following file(s) for RIVIERA simulator in /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_system_pll/sim/ directory:
+Info (20325): 2026.09.07.22:04:59 Info:     common/riviera_files.tcl
+Info (20325): 2026.09.07.22:04:59 Info: For information on how to simulate your IP, see the explanatory comments in the simulator-specific subdirectories under /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_system_pll/sim/.
+Info (20325): 2026.09.07.22:04:59 Info: Regenerate these scripts whenever you make any change to any Quartus-generated IP in your project.
+Info (20325): 2026.09.07.22:04:59 Info: Finished: Create simulation model
+Info (20325): 2026.09.07.22:04:59 Info: Starting: Create simulation script
+Info (20325): 2026.09.07.22:04:59 Info: sim-script-gen --system-file=/home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_system_pll.ip --output-directory=/home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_system_pll/sim/ --use-relative-paths=true
+Info (20325): 2026.09.07.22:05:02 Info: Generating the following file(s) for MODELSIM simulator in /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_system_pll/sim/ directory:
+Info (20325): 2026.09.07.22:05:02 Info:     mentor/msim_setup.tcl
+Info (20325): 2026.09.07.22:05:02 Info:     mentor/run_msim_setup.tcl
+Info (20325): 2026.09.07.22:05:02 Info: Generating the following file(s) for XCELIUM simulator in /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_system_pll/sim/ directory:
+Info (20325): 2026.09.07.22:05:02 Info:     xcelium/cds.lib
+Info (20325): 2026.09.07.22:05:02 Info:     xcelium/hdl.var
+Info (20325): 2026.09.07.22:05:02 Info:     xcelium/xcelium_setup.sh
+Info (20325): 2026.09.07.22:05:02 Info:     3 .cds.lib files in xcelium/cds_libs/ directory
+Info (20325): 2026.09.07.22:05:02 Info: Generating the following file(s) for VCSMX simulator in /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_system_pll/sim/ directory:
+Info (20325): 2026.09.07.22:05:02 Info:     synopsys/vcsmx/_device_synopsys_sim.setup
+Info (20325): 2026.09.07.22:05:02 Info:     synopsys/vcsmx/synopsys_sim.setup
+Info (20325): 2026.09.07.22:05:02 Info:     synopsys/vcsmx/vcsmx_setup.sh
+Info (20325): 2026.09.07.22:05:02 Info: Generating the following file(s) for VCS simulator in /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_system_pll/sim/ directory:
+Info (20325): 2026.09.07.22:05:02 Info:     synopsys/vcs/vcs_setup.sh
+Info (20325): 2026.09.07.22:05:02 Info: Generating the following file(s) for RIVIERA simulator in /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_system_pll/sim/ directory:
+Info (20325): 2026.09.07.22:05:02 Info:     aldec/rivierapro_setup.tcl
+Info (20325): 2026.09.07.22:05:02 Info:     aldec/run_rivierapro_setup.tcl
+Info (20325): 2026.09.07.22:05:02 Info: For information on how to simulate your IP, see the explanatory comments in the simulator-specific subdirectories under /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_system_pll/sim/.
+Info (20325): 2026.09.07.22:05:02 Info: Regenerate these scripts whenever you make any change to any Quartus-generated IP in your project.
+Info (20325): 2026.09.07.22:05:02 Info: Finished: Create simulation script
+Info (20325): 2026.09.07.22:05:02 Info: Starting: Create block symbol file (.bsf)
+Info (20325): 2026.09.07.22:05:02 Info: qsys-generate /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_system_pll.ip --block-symbol-file --output-directory=/home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_system_pll --family="Stratix 10" --part=1SX280HU2F50E1VG
+Info (20325): 2026.09.07.22:05:02 Info: altera_system_pll.altera_system_pll_inst: Able to implement PLL with user settings
+Info (20325): 2026.09.07.22:05:03 Info: Finished: Create block symbol file (.bsf)
+Info (20325): 2026.09.07.22:05:03 Info:
+Info (20325): 2026.09.07.22:05:03 Info: Starting: Create HDL design files for synthesis
+Info (20325): 2026.09.07.22:05:03 Info: qsys-generate /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_system_pll.ip --synthesis=VERILOG --output-directory=/home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_system_pll --family="Stratix 10" --part=1SX280HU2F50E1VG
+Info (20325): 2026.09.07.22:05:04 Info: altera_system_pll.altera_system_pll_inst: Able to implement PLL with user settings
+Info (20325): 2026.09.07.22:05:04 Info: altera_system_pll: "Transforming system: altera_system_pll"
+Info (20325): 2026.09.07.22:05:04 Info: altera_system_pll: "Naming system components in system: altera_system_pll"
+Info (20325): 2026.09.07.22:05:04 Info: altera_system_pll: "Processing generation queue"
+Info (20325): 2026.09.07.22:05:04 Info: altera_system_pll: "Generating: altera_system_pll"
+Info (20325): 2026.09.07.22:05:04 Info: altera_system_pll: "Generating: altera_system_pll_altera_iopll_2110_3vyv37q"
+Info (20325): 2026.09.07.22:05:04 Info: altera_system_pll: Done "altera_system_pll" with 2 modules, 8 files
+Info (20325): 2026.09.07.22:05:04 Info: Finished: Create HDL design files for synthesis
+Info (20325): 2026.09.07.22:05:04 Info: Generation of /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_system_pll.ip (altera_system_pll) took 7109 ms
+Info (11902): Backing up file "ip/altera_ethernet_100g.ip" to "ip/altera_ethernet_100g.BAK.ip"
+Info (11902): Backing up file "ip/altera_ethernet_100g/synth/altera_ethernet_100g.v" to "ip/altera_ethernet_100g.BAK.v"
+Info (11837): Started upgrading IP component alt_e100s10 with file "ip/altera_ethernet_100g.ip"
+Info (20325): ***************************************************************
+Quartus is a registered trademark of Altera Corporation in the
+US and other countries.  Portions of the Quartus Prime software
+code, and other portions of the code included in this download
+or on this DVD, are licensed to Altera Corporation and are the
+copyrighted property of third parties. For license details,
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+***************************************************************
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+Info (20325): 2026.09.07.22:05:46 Info: Starting to upgrade the IP cores in the Platform Designer system
+Info (20325): 2026.09.07.22:05:46 Info: Finished upgrading the ip cores
+Info (20325): ***************************************************************
+Quartus is a registered trademark of Altera Corporation in the
+US and other countries.  Portions of the Quartus Prime software
+code, and other portions of the code included in this download
+or on this DVD, are licensed to Altera Corporation and are the
+copyrighted property of third parties. For license details,
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+***************************************************************
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+Info (20325): 2026.09.07.22:06:30 Info: Saving generation log to /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_ethernet_100g/altera_ethernet_100g_generation.rpt
+Info (20325): 2026.09.07.22:06:30 Info: Generated by version: 26.1.1 build 130
+Info (20325): 2026.09.07.22:06:30 Info: Starting: Create simulation model
+Info (20325): 2026.09.07.22:06:30 Info: qsys-generate /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_ethernet_100g.ip --simulation=VERILOG --allow-mixed-language-simulation --output-directory=/home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_ethernet_100g --family="Stratix 10" --part=1SX280HU2F50E1VG
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+Info (20325): get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+Info (20325): get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+Info (20325): 2026.09.07.22:06:31 Info: altera_ethernet_100g.altera_ethernet_100g_inst: If AN/LT is enabled then clk_status and reconfig_clk must be fed by the same clock source
+Info (20325): 2026.09.07.22:06:31 Info: altera_ethernet_100g.altera_ethernet_100g_inst: TXPLL is external to IP
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+Info (20325): get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+Info (20325): get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): 2026.09.07.22:06:36 Info: altera_ethernet_100g_inst.atx_pll_s100_master: For the selected device(1SX280HU2F50E1VG), PLL speed grade is 2.
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): 2026.09.07.22:06:37 Info: altera_ethernet_100g_inst.atx_pll_s100_slave: For the selected device(1SX280HU2F50E1VG), PLL speed grade is 2.
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): 2026.09.07.22:06:37 Info: altera_ethernet_100g_inst.atx_pll_s100: For the selected device(1SX280HU2F50E1VG), PLL speed grade is 2.
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+Info (20325): 2026.09.07.22:06:39 Info: altera_ethernet_100g_inst.caui4_xcvr: The TX PCS-Core Interface FIFO is operating in full-rate transfer mode.
+Info (20325): 2026.09.07.22:06:39 Info: altera_ethernet_100g_inst.caui4_xcvr: The RX PCS-Core Interface FIFO is operating in full-rate transfer mode.
+Info (20325): 2026.09.07.22:06:39 Info: altera_ethernet_100g_inst.caui4_xcvr: For the selected device(1SX280HU2F50E1VG), transceiver speed grade is 2 and core speed grade is 1.
+Info (20325): 2026.09.07.22:06:39 Info: altera_ethernet_100g_inst.caui4_xcvr: Simplified data interface has been enabled. The Native PHY will present the data/control interface for the current configuration only. Dynamic reconfiguration of the data interface cannot be supported. The unused_tx_parallel_data and unused_tx_control ports should be connected to 0.
+Info (20325): 2026.09.07.22:06:39 Info: altera_ethernet_100g_inst.caui4_xcvr: For current configuration, TX PCS FIFO depth is "16" and TX Core FIFO depth is "32".
+Info (20325): 2026.09.07.22:06:39 Info: altera_ethernet_100g_inst.caui4_xcvr: For current configuration, RX PCS FIFO depth is "16" and RX Core FIFO depth is "64".
+Info (20325): 2026.09.07.22:06:39 Info: altera_ethernet_100g_inst.caui4_xcvr: "PCS clkout" (pcs_clkout) is selected to drive tx_clkout port and the clock frequency is 402.832031 MHz.
+Info (20325): 2026.09.07.22:06:39 Info: altera_ethernet_100g_inst.caui4_xcvr: "pma_div_clkout" is selected to drive tx_clkout2 port and it should not be used for register mode data transfers (Relevant parameter: "Selected tx_clkout2 clock source" (tx_clkout2_sel)).
+Info (20325): 2026.09.07.22:06:39 Info: altera_ethernet_100g_inst.caui4_xcvr: "PCS clkout" (pcs_clkout) is selected to drive rx_clkout port and the clock frequency is 402.832031 MHz.
+Info (20325): 2026.09.07.22:06:39 Info: altera_ethernet_100g_inst.caui4_xcvr: "pma_div_clkout" is selected to drive rx_clkout2 port and it should not be used for register mode data transfers (Relevant parameter: "Selected rx_clkout2 clock source" (rx_clkout2_sel)).
+Info (20325): 2026.09.07.22:06:39 Info: altera_ethernet_100g_inst.caui4_xcvr: A design example cannot be generated for "Tx PLL reference clock frequency"=="125.0" && "Selected CDR reference clock frequency"=="644.531250"
+Info (20325): 2026.09.07.22:06:39 Info: altera_ethernet_100g_inst.caui4_xcvr: For multi channel configurations, a design example cannot be generated unless "Provide separate interface for each channel" is selected.
+Info (20325): 2026.09.07.22:06:39 Info: altera_ethernet_100g_inst.caui4_xcvr: Note - The external TX PLL IP must be configured with an output clock frequency of 12890.625 MHz.
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): 2026.09.07.22:06:41 Info: altera_ethernet_100g_inst.altera_xcvr_fpll_s10_tx_ext: For the selected device(1SX280HU2F50E1VG), PLL speed grade is 2.
+Info (20325): 2026.09.07.22:06:41 Info: altera_ethernet_100g: "Transforming system: altera_ethernet_100g"
+Info (20325): 2026.09.07.22:06:41 Info: altera_ethernet_100g: "Naming system components in system: altera_ethernet_100g"
+Info (20325): 2026.09.07.22:06:41 Info: altera_ethernet_100g: "Processing generation queue"
+Info (20325): 2026.09.07.22:06:41 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g"
+Info (20325): 2026.09.07.22:06:41 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g_alt_e100s10_2010_nxbtffy"
+Info (20325): 2026.09.07.22:06:41 Info: altera_ethernet_100g_inst: Current dir is /tools/altera_pro/26.1.1/ip/altera/ethernet/alt_e100s10/hwtcl
+Info (20325): 2026.09.07.22:06:42 Info: altera_ethernet_100g_inst: alt_e100s10_mac.ocp
+Info (20325): 2026.09.07.22:06:42 Info: altera_ethernet_100g_inst: alt_e100s10_pcs_r.ocp
+Info (20325): 2026.09.07.22:06:42 Info: altera_ethernet_100g_inst: alt_e100s10_pcs_t.ocp
+Info (20325): 2026.09.07.22:06:42 Info: altera_ethernet_100g_inst: alt_e100s10_stats_counters.v
+Info (20325): 2026.09.07.22:06:42 Info: altera_ethernet_100g_inst: alt_e100s10_eth_4.v.terp
+Info (20325): 2026.09.07.22:06:42 Info: altera_ethernet_100g_inst: alt_e100s10_top.v.terp
+Info (20325): 2026.09.07.22:06:42 Info: altera_ethernet_100g_inst: alt_e100s10_fecpll.v.terp
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100_master: "Generating: atx_pll_s100_master"
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100_slave: "Generating: atx_pll_s100_slave"
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100: "Generating: atx_pll_s100"
+Info (20325): 2026.09.07.22:06:42 Info: caui4_xcvr: "Generating: caui4_xcvr"
+Info (20325): 2026.09.07.22:06:42 Info: s10_xcvr_reset_controller: "Generating: s10_xcvr_reset_controller"
+Info (20325): 2026.09.07.22:06:42 Info: altera_xcvr_fpll_s10_tx_ext: "Generating: altera_xcvr_fpll_s10_tx_ext"
+Info (20325): 2026.09.07.22:06:42 Info: alt_e100s10_jtag_int: "Generating: alt_e100s10_jtag_int"
+Info (20325): 2026.09.07.22:06:42 Info: altera_ethernet_100g: "Generating: atx_pll_s100_master"
+Info (20325): 2026.09.07.22:06:42 Info: altera_ethernet_100g: "Generating: atx_pll_s100_slave"
+Info (20325): 2026.09.07.22:06:42 Info: altera_ethernet_100g: "Generating: atx_pll_s100"
+Info (20325): 2026.09.07.22:06:42 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g_alt_e100s10_altera_xcvr_native_s10_htile_2010_cd2o7zq"
+Info (20325): 2026.09.07.22:06:42 Info: altera_ethernet_100g: "Generating: s10_xcvr_reset_controller"
+Info (20325): 2026.09.07.22:06:42 Info: altera_ethernet_100g: "Generating: altera_xcvr_fpll_s10_tx_ext"
+Info (20325): 2026.09.07.22:06:42 Info: altera_ethernet_100g: "Generating: alt_e100s10_jtag_int"
+Info (20325): 2026.09.07.22:06:42 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g_altera_xcvr_atx_pll_s10_htile_1912_cilcl7i"
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100_master: add_fileset_file ./altera_std_synchronizer_nocut.v VERILOG PATH ../../../../primitives/altera_std_synchronizer/altera_std_synchronizer_nocut.v
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100_master: add_fileset_file ./alt_xcvr_resync.sv SYSTEM_VERILOG PATH ../../../../altera_xcvr_generic/ctrl/alt_xcvr_resync.sv
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100_master: add_fileset_file ./alt_xcvr_arbiter.sv SYSTEM_VERILOG PATH ../../../../altera_xcvr_generic/ctrl/alt_xcvr_arbiter.sv
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100_master: add_fileset_file ./s10_avmm_h.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/s10_avmm_h.sv
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100_master: add_fileset_file ./altera_xcvr_native_s10_functions_h.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/altera_xcvr_native_s10_functions_h.sv
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100_master: add_fileset_file ./alt_xcvr_native_anlg_reset_seq.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/alt_xcvr_native_anlg_reset_seq.sv
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100_master: add_fileset_file ./alt_xcvr_pll_rcfg_arb.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_rcfg_arb.sv
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100_master: add_fileset_file ./alt_xcvr_pll_embedded_debug.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_embedded_debug.sv
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100_master: add_fileset_file ./alt_xcvr_pll_avmm_csr.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_avmm_csr.sv
+Info (20325): 2026.09.07.22:06:42 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g_altera_xcvr_atx_pll_s10_htile_1912_4f3pbba"
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100_slave: add_fileset_file ./altera_std_synchronizer_nocut.v VERILOG PATH ../../../../primitives/altera_std_synchronizer/altera_std_synchronizer_nocut.v
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100_slave: add_fileset_file ./alt_xcvr_resync.sv SYSTEM_VERILOG PATH ../../../../altera_xcvr_generic/ctrl/alt_xcvr_resync.sv
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100_slave: add_fileset_file ./alt_xcvr_arbiter.sv SYSTEM_VERILOG PATH ../../../../altera_xcvr_generic/ctrl/alt_xcvr_arbiter.sv
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100_slave: add_fileset_file ./s10_avmm_h.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/s10_avmm_h.sv
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100_slave: add_fileset_file ./altera_xcvr_native_s10_functions_h.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/altera_xcvr_native_s10_functions_h.sv
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100_slave: add_fileset_file ./alt_xcvr_native_anlg_reset_seq.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/alt_xcvr_native_anlg_reset_seq.sv
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100_slave: add_fileset_file ./alt_xcvr_pll_rcfg_arb.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_rcfg_arb.sv
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100_slave: add_fileset_file ./alt_xcvr_pll_embedded_debug.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_embedded_debug.sv
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100_slave: add_fileset_file ./alt_xcvr_pll_avmm_csr.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_avmm_csr.sv
+Info (20325): 2026.09.07.22:06:42 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g_altera_xcvr_atx_pll_s10_htile_1912_r6brnja"
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100: add_fileset_file ./altera_std_synchronizer_nocut.v VERILOG PATH ../../../../primitives/altera_std_synchronizer/altera_std_synchronizer_nocut.v
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100: add_fileset_file ./alt_xcvr_resync.sv SYSTEM_VERILOG PATH ../../../../altera_xcvr_generic/ctrl/alt_xcvr_resync.sv
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100: add_fileset_file ./alt_xcvr_arbiter.sv SYSTEM_VERILOG PATH ../../../../altera_xcvr_generic/ctrl/alt_xcvr_arbiter.sv
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100: add_fileset_file ./s10_avmm_h.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/s10_avmm_h.sv
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100: add_fileset_file ./altera_xcvr_native_s10_functions_h.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/altera_xcvr_native_s10_functions_h.sv
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100: add_fileset_file ./alt_xcvr_native_anlg_reset_seq.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/alt_xcvr_native_anlg_reset_seq.sv
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100: add_fileset_file ./alt_xcvr_pll_rcfg_arb.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_rcfg_arb.sv
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100: add_fileset_file ./alt_xcvr_pll_embedded_debug.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_embedded_debug.sv
+Info (20325): 2026.09.07.22:06:42 Info: atx_pll_s100: add_fileset_file ./alt_xcvr_pll_avmm_csr.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_avmm_csr.sv
+Info (20325): 2026.09.07.22:06:43 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g_altera_xcvr_native_s10_htile_1931_b76uu2i"
+Info (20325): 2026.09.07.22:06:43 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_arbiter.sv SYSTEM_VERILOG PATH ../../../../altera_xcvr_generic/ctrl/alt_xcvr_arbiter.sv
+Info (20325): 2026.09.07.22:06:43 Info: caui4_xcvr: add_fileset_file ./altera_std_synchronizer_nocut.v VERILOG PATH ../../../../primitives/altera_std_synchronizer/altera_std_synchronizer_nocut.v
+Info (20325): 2026.09.07.22:06:43 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_resync_std.sv SYSTEM_VERILOG PATH ../../../alt_xcvr_generic/alt_xcvr_resync_std.sv
+Info (20325): 2026.09.07.22:06:43 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_reset_counter_s10.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_reset_control_s10/alt_xcvr_reset_counter_s10.sv
+Info (20325): 2026.09.07.22:06:43 Info: caui4_xcvr: add_fileset_file ./altera_xcvr_native_s10_functions_h.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/altera_xcvr_native_s10_functions_h.sv
+Info (20325): 2026.09.07.22:06:43 Info: caui4_xcvr: add_fileset_file ./s10_avmm_h.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/s10_avmm_h.sv
+Info (20325): 2026.09.07.22:06:43 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_avmm_csr.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_avmm_csr.sv
+Info (20325): 2026.09.07.22:06:43 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_prbs_accum.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_prbs_accum.sv
+Info (20325): 2026.09.07.22:06:43 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_odi_accel.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_odi_accel.sv
+Info (20325): 2026.09.07.22:06:43 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_rcfg_arb.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_rcfg_arb.sv
+Info (20325): 2026.09.07.22:06:43 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_early_spd_chng_s10_htile.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_early_spd_chng_s10_htile.sv
+Info (20325): 2026.09.07.22:06:43 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_anlg_reset_seq.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_anlg_reset_seq.sv
+Info (20325): 2026.09.07.22:06:43 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_dig_reset_seq.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_dig_reset_seq.sv
+Info (20325): 2026.09.07.22:06:43 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_reset_seq.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_reset_seq.sv
+Info (20325): 2026.09.07.22:06:43 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_anlg_reset_seq_wrapper.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_anlg_reset_seq_wrapper.sv
+Info (20325): 2026.09.07.22:06:43 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_re_cal_chnl.v VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_re_cal_chnl.v
+Info (20325): 2026.09.07.22:06:43 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_pcie_rx_eios_prot.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_pcie_rx_eios_prot.sv
+Info (20325): 2026.09.07.22:06:43 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_rx_maib_wa.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_rx_maib_wa.sv
+Info (20325): 2026.09.07.22:06:43 Info: caui4_xcvr: Building configuration data for reconfiguration profile 0
+Info (20325): 2026.09.07.22:06:44 Info: altera_ethernet_100g: "Generating: altera_xcvr_reset_control_s10"
+Info (20325): 2026.09.07.22:06:44 Info: s10_xcvr_reset_controller: add_fileset_file ./altera_std_synchronizer_nocut.v VERILOG PATH ../../../primitives/altera_std_synchronizer/altera_std_synchronizer_nocut.v
+Info (20325): 2026.09.07.22:06:44 Info: s10_xcvr_reset_controller: add_fileset_file ./alt_xcvr_resync_std.sv SYSTEM_VERILOG PATH ../../alt_xcvr_generic/alt_xcvr_resync_std.sv
+Info (20325): 2026.09.07.22:06:44 Info: s10_xcvr_reset_controller: add_fileset_file ./altera_xcvr_reset_control_s10.sv SYSTEM_VERILOG PATH ..//altera_xcvr_reset_control_s10.sv
+Info (20325): 2026.09.07.22:06:44 Info: s10_xcvr_reset_controller: add_fileset_file ./alt_xcvr_reset_counter_s10.sv SYSTEM_VERILOG PATH ..//alt_xcvr_reset_counter_s10.sv
+Info (20325): 2026.09.07.22:06:44 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g_altera_xcvr_fpll_s10_htile_1915_6rpkcza"
+Info (20325): 2026.09.07.22:06:44 Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./altera_std_synchronizer_nocut.v VERILOG PATH ../../../../primitives/altera_std_synchronizer/altera_std_synchronizer_nocut.v
+Info (20325): 2026.09.07.22:06:44 Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./s10_avmm_h.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/s10_avmm_h.sv
+Info (20325): 2026.09.07.22:06:44 Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./altera_xcvr_native_s10_functions_h.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/altera_xcvr_native_s10_functions_h.sv
+Info (20325): 2026.09.07.22:06:44 Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./alt_xcvr_native_anlg_reset_seq.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/alt_xcvr_native_anlg_reset_seq.sv
+Info (20325): 2026.09.07.22:06:44 Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./alt_xcvr_pll_rcfg_arb.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_rcfg_arb.sv
+Info (20325): 2026.09.07.22:06:44 Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./alt_xcvr_pll_embedded_debug.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_embedded_debug.sv
+Info (20325): 2026.09.07.22:06:44 Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./alt_xcvr_pll_avmm_csr.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_avmm_csr.sv
+Info (20325): 2026.09.07.22:06:44 Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./alt_xcvr_resync.sv SYSTEM_VERILOG PATH ../../../../altera_xcvr_generic/ctrl/alt_xcvr_resync.sv
+Info (20325): 2026.09.07.22:06:44 Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./alt_xcvr_arbiter.sv SYSTEM_VERILOG PATH ../../../../altera_xcvr_generic/ctrl/alt_xcvr_arbiter.sv
+Info (20325): 2026.09.07.22:06:44 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g_altera_jtag_avalon_master_191_unfwqdy"
+Info (20325): 2026.09.07.22:06:44 Info: altera_ethernet_100g: "Generating: altera_avalon_st_jtag_interface"
+Info (20325): 2026.09.07.22:06:44 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g_timing_adapter_1950_si4vvtq"
+Info (20325): 2026.09.07.22:06:44 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g_altera_avalon_sc_fifo_1932_onpcouq"
+Info (20325): 2026.09.07.22:06:44 Info: altera_ethernet_100g: "Generating: altera_avalon_st_bytes_to_packets"
+Info (20325): 2026.09.07.22:06:44 Info: altera_ethernet_100g: "Generating: altera_avalon_st_packets_to_bytes"
+Info (20325): 2026.09.07.22:06:44 Info: altera_ethernet_100g: "Generating: altera_avalon_packets_to_master"
+Info (20325): 2026.09.07.22:06:44 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g_channel_adapter_1922_rd56ufy"
+Info (20325): 2026.09.07.22:06:44 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g_channel_adapter_1922_5vp3d5a"
+Info (20325): 2026.09.07.22:06:44 Info: altera_ethernet_100g: "Generating: altera_reset_controller"
+Info (20325): 2026.09.07.22:06:44 Info: altera_ethernet_100g: Done "altera_ethernet_100g" with 25 modules, 434 files
+Info (20325): 2026.09.07.22:06:46 Info: Generating the following file(s) for MODELSIM simulator in /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_ethernet_100g/sim/ directory:
+Info (20325): 2026.09.07.22:06:46 Info:     common/modelsim_files.tcl
+Info (20325): 2026.09.07.22:06:46 Info: Generating the following file(s) for VCS simulator in /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_ethernet_100g/sim/ directory:
+Info (20325): 2026.09.07.22:06:46 Info:     common/vcs_files.tcl
+Info (20325): 2026.09.07.22:06:46 Info: Generating the following file(s) for RIVIERA simulator in /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_ethernet_100g/sim/ directory:
+Info (20325): 2026.09.07.22:06:46 Info:     common/riviera_files.tcl
+Info (20325): 2026.09.07.22:06:46 Info: Generating the following file(s) for VCSMX simulator in /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_ethernet_100g/sim/ directory:
+Info (20325): 2026.09.07.22:06:46 Info:     common/vcsmx_files.tcl
+Info (20325): 2026.09.07.22:06:46 Info: Generating the following file(s) for XCELIUM simulator in /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_ethernet_100g/sim/ directory:
+Info (20325): 2026.09.07.22:06:46 Info:     common/xcelium_files.tcl
+Info (20325): 2026.09.07.22:06:46 Info: For information on how to simulate your IP, see the explanatory comments in the simulator-specific subdirectories under /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_ethernet_100g/sim/.
+Info (20325): 2026.09.07.22:06:46 Info: Regenerate these scripts whenever you make any change to any Quartus-generated IP in your project.
+Info (20325): 2026.09.07.22:06:46 Info: Finished: Create simulation model
+Info (20325): 2026.09.07.22:06:46 Info: Starting: Create simulation script
+Info (20325): 2026.09.07.22:06:46 Info: sim-script-gen --system-file=/home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_ethernet_100g.ip --output-directory=/home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_ethernet_100g/sim/ --use-relative-paths=true
+Info (20325): 2026.09.07.22:06:49 Info: Generating the following file(s) for MODELSIM simulator in /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_ethernet_100g/sim/ directory:
+Info (20325): 2026.09.07.22:06:49 Info:     mentor/msim_setup.tcl
+Info (20325): 2026.09.07.22:06:49 Info:     mentor/run_msim_setup.tcl
+Info (20325): 2026.09.07.22:06:49 Info: Generating the following file(s) for VCS simulator in /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_ethernet_100g/sim/ directory:
+Info (20325): 2026.09.07.22:06:49 Info:     synopsys/vcs/vcs_setup.sh
+Info (20325): 2026.09.07.22:06:49 Info: Generating the following file(s) for RIVIERA simulator in /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_ethernet_100g/sim/ directory:
+Info (20325): 2026.09.07.22:06:49 Info:     aldec/rivierapro_setup.tcl
+Info (20325): 2026.09.07.22:06:49 Info:     aldec/run_rivierapro_setup.tcl
+Info (20325): 2026.09.07.22:06:49 Info: Generating the following file(s) for VCSMX simulator in /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_ethernet_100g/sim/ directory:
+Info (20325): 2026.09.07.22:06:49 Info:     synopsys/vcsmx/_device_synopsys_sim.setup
+Info (20325): 2026.09.07.22:06:49 Info:     synopsys/vcsmx/synopsys_sim.setup
+Info (20325): 2026.09.07.22:06:49 Info:     synopsys/vcsmx/vcsmx_setup.sh
+Info (20325): 2026.09.07.22:06:49 Info: Generating the following file(s) for XCELIUM simulator in /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_ethernet_100g/sim/ directory:
+Info (20325): 2026.09.07.22:06:49 Info:     xcelium/cds.lib
+Info (20325): 2026.09.07.22:06:49 Info:     xcelium/hdl.var
+Info (20325): 2026.09.07.22:06:49 Info:     xcelium/xcelium_setup.sh
+Info (20325): 2026.09.07.22:06:49 Info:     17 .cds.lib files in xcelium/cds_libs/ directory
+Info (20325): 2026.09.07.22:06:49 Info: For information on how to simulate your IP, see the explanatory comments in the simulator-specific subdirectories under /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_ethernet_100g/sim/.
+Info (20325): 2026.09.07.22:06:49 Info: Regenerate these scripts whenever you make any change to any Quartus-generated IP in your project.
+2026.09.07.22:06:49 Info: Finished: Create simulation script
+Info (20325): 2026.09.07.22:06:49 Info: Starting: Create block symbol file (.bsf)
+Info (20325): 2026.09.07.22:06:49 Info: qsys-generate /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_ethernet_100g.ip --block-symbol-file --output-directory=/home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_ethernet_100g --family="Stratix 10" --part=1SX280HU2F50E1VG
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+Info (20325): get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+Info (20325): 2026.09.07.22:06:50 Info: altera_ethernet_100g.altera_ethernet_100g_inst: If AN/LT is enabled then clk_status and reconfig_clk must be fed by the same clock source
+Info (20325): 2026.09.07.22:06:50 Info: altera_ethernet_100g.altera_ethernet_100g_inst: TXPLL is external to IP
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+Info (20325): get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+Info (20325): get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): 2026.09.07.22:06:54 Info: Finished: Create block symbol file (.bsf)
+Info (20325): 2026.09.07.22:06:54 Info:
+Info (20325): 2026.09.07.22:06:54 Info: Starting: Create HDL design files for synthesis
+Info (20325): 2026.09.07.22:06:54 Info: qsys-generate /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_ethernet_100g.ip --synthesis=VERILOG --output-directory=/home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_ethernet_100g --family="Stratix 10" --part=1SX280HU2F50E1VG
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+Info (20325): 2026.09.07.22:06:54 Info: altera_ethernet_100g.altera_ethernet_100g_inst: If AN/LT is enabled then clk_status and reconfig_clk must be fed by the same clock source
+Info (20325): 2026.09.07.22:06:54 Info: altera_ethernet_100g.altera_ethernet_100g_inst: TXPLL is external to IP
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+Info (20325): get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+Info (20325): get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): 2026.09.07.22:06:58 Info: altera_ethernet_100g_inst.atx_pll_s100_master: For the selected device(1SX280HU2F50E1VG), PLL speed grade is 2.
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+Info (20325): get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+Info (20325): get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): 2026.09.07.22:06:59 Info: altera_ethernet_100g_inst.atx_pll_s100_slave: For the selected device(1SX280HU2F50E1VG), PLL speed grade is 2.
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): 2026.09.07.22:06:59 Info: altera_ethernet_100g_inst.atx_pll_s100: For the selected device(1SX280HU2F50E1VG), PLL speed grade is 2.
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "MAIN_FM*" "HSSI_CRETE2.*"
+Info (20325): 2026.09.07.22:07:00 Info: altera_ethernet_100g_inst.caui4_xcvr: The TX PCS-Core Interface FIFO is operating in full-rate transfer mode.
+Info (20325): 2026.09.07.22:07:00 Info: altera_ethernet_100g_inst.caui4_xcvr: The RX PCS-Core Interface FIFO is operating in full-rate transfer mode.
+Info (20325): 2026.09.07.22:07:00 Info: altera_ethernet_100g_inst.caui4_xcvr: For the selected device(1SX280HU2F50E1VG), transceiver speed grade is 2 and core speed grade is 1.
+Info (20325): 2026.09.07.22:07:00 Info: altera_ethernet_100g_inst.caui4_xcvr: Simplified data interface has been enabled. The Native PHY will present the data/control interface for the current configuration only. Dynamic reconfiguration of the data interface cannot be supported. The unused_tx_parallel_data and unused_tx_control ports should be connected to 0.
+Info (20325): 2026.09.07.22:07:00 Info: altera_ethernet_100g_inst.caui4_xcvr: For current configuration, TX PCS FIFO depth is "16" and TX Core FIFO depth is "32".
+Info (20325): 2026.09.07.22:07:00 Info: altera_ethernet_100g_inst.caui4_xcvr: For current configuration, RX PCS FIFO depth is "16" and RX Core FIFO depth is "64".
+Info (20325): 2026.09.07.22:07:00 Info: altera_ethernet_100g_inst.caui4_xcvr: "PCS clkout" (pcs_clkout) is selected to drive tx_clkout port and the clock frequency is 402.832031 MHz.
+Info (20325): 2026.09.07.22:07:00 Info: altera_ethernet_100g_inst.caui4_xcvr: "pma_div_clkout" is selected to drive tx_clkout2 port and it should not be used for register mode data transfers (Relevant parameter: "Selected tx_clkout2 clock source" (tx_clkout2_sel)).
+Info (20325): 2026.09.07.22:07:00 Info: altera_ethernet_100g_inst.caui4_xcvr: "PCS clkout" (pcs_clkout) is selected to drive rx_clkout port and the clock frequency is 402.832031 MHz.
+Info (20325): 2026.09.07.22:07:00 Info: altera_ethernet_100g_inst.caui4_xcvr: "pma_div_clkout" is selected to drive rx_clkout2 port and it should not be used for register mode data transfers (Relevant parameter: "Selected rx_clkout2 clock source" (rx_clkout2_sel)).
+Info (20325): 2026.09.07.22:07:00 Info: altera_ethernet_100g_inst.caui4_xcvr: A design example cannot be generated for "Tx PLL reference clock frequency"=="125.0" && "Selected CDR reference clock frequency"=="644.531250"
+Info (20325): 2026.09.07.22:07:00 Info: altera_ethernet_100g_inst.caui4_xcvr: For multi channel configurations, a design example cannot be generated unless "Provide separate interface for each channel" is selected.
+Info (20325): 2026.09.07.22:07:00 Info: altera_ethernet_100g_inst.caui4_xcvr: Note - The external TX PLL IP must be configured with an output clock frequency of 12890.625 MHz.
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+Info (20325): get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: supported_die_types "MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): get_s10_die_pair:: device_die_revisions HSSI_CRETE2E_REVB MAIN_ND5_REVC die HSSI_CRETE2.* -> hssi_die_revision HSSI_CRETE2E_REVB
+get_s10_die_pair:: die_pair MAIN_ND5_REVC_HSSI_CRETE2E_REVB  device=1SX280HU2F50E1VG die_types=HSSI_CRETE2E MAIN_ND5 die_revisions=HSSI_CRETE2E_REVB MAIN_ND5_REVC supported_die_types="MAIN_ND.*" "HSSI_CRETE2.*"
+Info (20325): 2026.09.07.22:07:02 Info: altera_ethernet_100g_inst.altera_xcvr_fpll_s10_tx_ext: For the selected device(1SX280HU2F50E1VG), PLL speed grade is 2.
+Info (20325): 2026.09.07.22:07:02 Info: altera_ethernet_100g: "Transforming system: altera_ethernet_100g"
+Info (20325): 2026.09.07.22:07:02 Info: altera_ethernet_100g: "Naming system components in system: altera_ethernet_100g"
+Info (20325): 2026.09.07.22:07:02 Info: altera_ethernet_100g: "Processing generation queue"
+Info (20325): 2026.09.07.22:07:02 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g"
+Info (20325): 2026.09.07.22:07:02 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g_alt_e100s10_2010_nxbtffy"
+Info (20325): 2026.09.07.22:07:02 Info: altera_ethernet_100g_inst: Current dir is /tools/altera_pro/26.1.1/ip/altera/ethernet/alt_e100s10/hwtcl
+Info (20325): 2026.09.07.22:07:02 Info: atx_pll_s100_master: "Generating: atx_pll_s100_master"
+Info (20325): 2026.09.07.22:07:02 Info: atx_pll_s100_slave: "Generating: atx_pll_s100_slave"
+Info (20325): 2026.09.07.22:07:02 Info: atx_pll_s100: "Generating: atx_pll_s100"
+Info (20325): 2026.09.07.22:07:02 Info: caui4_xcvr: "Generating: caui4_xcvr"
+Info (20325): 2026.09.07.22:07:02 Info: s10_xcvr_reset_controller: "Generating: s10_xcvr_reset_controller"
+Info (20325): 2026.09.07.22:07:02 Info: altera_xcvr_fpll_s10_tx_ext: "Generating: altera_xcvr_fpll_s10_tx_ext"
+Info (20325): 2026.09.07.22:07:02 Info: alt_e100s10_jtag_int: "Generating: alt_e100s10_jtag_int"
+Info (20325): 2026.09.07.22:07:02 Info: altera_ethernet_100g: "Generating: atx_pll_s100_master"
+Info (20325): 2026.09.07.22:07:02 Info: altera_ethernet_100g: "Generating: atx_pll_s100_slave"
+Info (20325): 2026.09.07.22:07:02 Info: altera_ethernet_100g: "Generating: atx_pll_s100"
+Info (20325): 2026.09.07.22:07:02 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g_alt_e100s10_altera_xcvr_native_s10_htile_2010_cd2o7zq"
+Info (20325): 2026.09.07.22:07:02 Info: altera_ethernet_100g: "Generating: s10_xcvr_reset_controller"
+Info (20325): 2026.09.07.22:07:02 Info: altera_ethernet_100g: "Generating: altera_xcvr_fpll_s10_tx_ext"
+Info (20325): 2026.09.07.22:07:02 Info: altera_ethernet_100g: "Generating: alt_e100s10_jtag_int"
+Info (20325): 2026.09.07.22:07:02 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g_altera_xcvr_atx_pll_s10_htile_1912_cilcl7i"
+Info (20325): 2026.09.07.22:07:02 Info: atx_pll_s100_master: add_fileset_file ./altera_std_synchronizer_nocut.v VERILOG PATH ../../../../primitives/altera_std_synchronizer/altera_std_synchronizer_nocut.v
+Info (20325): 2026.09.07.22:07:02 Info: atx_pll_s100_master: add_fileset_file ./alt_xcvr_resync.sv SYSTEM_VERILOG PATH ../../../../altera_xcvr_generic/ctrl/alt_xcvr_resync.sv
+Info (20325): 2026.09.07.22:07:02 Info: atx_pll_s100_master: add_fileset_file ./alt_xcvr_arbiter.sv SYSTEM_VERILOG PATH ../../../../altera_xcvr_generic/ctrl/alt_xcvr_arbiter.sv
+Info (20325): 2026.09.07.22:07:02 Info: atx_pll_s100_master: add_fileset_file ./s10_avmm_h.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/s10_avmm_h.sv
+Info (20325): 2026.09.07.22:07:02 Info: atx_pll_s100_master: add_fileset_file ./altera_xcvr_native_s10_functions_h.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/altera_xcvr_native_s10_functions_h.sv
+Info (20325): 2026.09.07.22:07:02 Info: atx_pll_s100_master: add_fileset_file ./alt_xcvr_native_anlg_reset_seq.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/alt_xcvr_native_anlg_reset_seq.sv
+Info (20325): 2026.09.07.22:07:02 Info: atx_pll_s100_master: add_fileset_file ./alt_xcvr_pll_rcfg_arb.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_rcfg_arb.sv
+Info (20325): 2026.09.07.22:07:02 Info: atx_pll_s100_master: add_fileset_file ./alt_xcvr_pll_embedded_debug.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_embedded_debug.sv
+2026.09.07.22:07:02 Info: atx_pll_s100_master: add_fileset_file ./alt_xcvr_pll_avmm_csr.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_avmm_csr.sv
+Info (20325): 2026.09.07.22:07:03 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g_altera_xcvr_atx_pll_s10_htile_1912_4f3pbba"
+Info (20325): 2026.09.07.22:07:03 Info: atx_pll_s100_slave: add_fileset_file ./altera_std_synchronizer_nocut.v VERILOG PATH ../../../../primitives/altera_std_synchronizer/altera_std_synchronizer_nocut.v
+Info (20325): 2026.09.07.22:07:03 Info: atx_pll_s100_slave: add_fileset_file ./alt_xcvr_resync.sv SYSTEM_VERILOG PATH ../../../../altera_xcvr_generic/ctrl/alt_xcvr_resync.sv
+Info (20325): 2026.09.07.22:07:03 Info: atx_pll_s100_slave: add_fileset_file ./alt_xcvr_arbiter.sv SYSTEM_VERILOG PATH ../../../../altera_xcvr_generic/ctrl/alt_xcvr_arbiter.sv
+Info (20325): 2026.09.07.22:07:03 Info: atx_pll_s100_slave: add_fileset_file ./s10_avmm_h.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/s10_avmm_h.sv
+Info (20325): 2026.09.07.22:07:03 Info: atx_pll_s100_slave: add_fileset_file ./altera_xcvr_native_s10_functions_h.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/altera_xcvr_native_s10_functions_h.sv
+Info (20325): 2026.09.07.22:07:03 Info: atx_pll_s100_slave: add_fileset_file ./alt_xcvr_native_anlg_reset_seq.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/alt_xcvr_native_anlg_reset_seq.sv
+Info (20325): 2026.09.07.22:07:03 Info: atx_pll_s100_slave: add_fileset_file ./alt_xcvr_pll_rcfg_arb.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_rcfg_arb.sv
+Info (20325): 2026.09.07.22:07:03 Info: atx_pll_s100_slave: add_fileset_file ./alt_xcvr_pll_embedded_debug.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_embedded_debug.sv
+Info (20325): 2026.09.07.22:07:03 Info: atx_pll_s100_slave: add_fileset_file ./alt_xcvr_pll_avmm_csr.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_avmm_csr.sv
+Info (20325): 2026.09.07.22:07:03 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g_altera_xcvr_atx_pll_s10_htile_1912_r6brnja"
+Info (20325): 2026.09.07.22:07:03 Info: atx_pll_s100: add_fileset_file ./altera_std_synchronizer_nocut.v VERILOG PATH ../../../../primitives/altera_std_synchronizer/altera_std_synchronizer_nocut.v
+Info (20325): 2026.09.07.22:07:03 Info: atx_pll_s100: add_fileset_file ./alt_xcvr_resync.sv SYSTEM_VERILOG PATH ../../../../altera_xcvr_generic/ctrl/alt_xcvr_resync.sv
+Info (20325): 2026.09.07.22:07:03 Info: atx_pll_s100: add_fileset_file ./alt_xcvr_arbiter.sv SYSTEM_VERILOG PATH ../../../../altera_xcvr_generic/ctrl/alt_xcvr_arbiter.sv
+Info (20325): 2026.09.07.22:07:03 Info: atx_pll_s100: add_fileset_file ./s10_avmm_h.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/s10_avmm_h.sv
+Info (20325): 2026.09.07.22:07:03 Info: atx_pll_s100: add_fileset_file ./altera_xcvr_native_s10_functions_h.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/altera_xcvr_native_s10_functions_h.sv
+Info (20325): 2026.09.07.22:07:03 Info: atx_pll_s100: add_fileset_file ./alt_xcvr_native_anlg_reset_seq.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/alt_xcvr_native_anlg_reset_seq.sv
+Info (20325): 2026.09.07.22:07:03 Info: atx_pll_s100: add_fileset_file ./alt_xcvr_pll_rcfg_arb.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_rcfg_arb.sv
+Info (20325): 2026.09.07.22:07:03 Info: atx_pll_s100: add_fileset_file ./alt_xcvr_pll_embedded_debug.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_embedded_debug.sv
+Info (20325): 2026.09.07.22:07:03 Info: atx_pll_s100: add_fileset_file ./alt_xcvr_pll_avmm_csr.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_avmm_csr.sv
+Info (20325): 2026.09.07.22:07:03 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g_altera_xcvr_native_s10_htile_1931_b76uu2i"
+Info (20325): 2026.09.07.22:07:03 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_arbiter.sv SYSTEM_VERILOG PATH ../../../../altera_xcvr_generic/ctrl/alt_xcvr_arbiter.sv
+Info (20325): 2026.09.07.22:07:03 Info: caui4_xcvr: add_fileset_file ./altera_std_synchronizer_nocut.v VERILOG PATH ../../../../primitives/altera_std_synchronizer/altera_std_synchronizer_nocut.v
+Info (20325): 2026.09.07.22:07:03 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_resync_std.sv SYSTEM_VERILOG PATH ../../../alt_xcvr_generic/alt_xcvr_resync_std.sv
+Info (20325): 2026.09.07.22:07:03 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_reset_counter_s10.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_reset_control_s10/alt_xcvr_reset_counter_s10.sv
+Info (20325): 2026.09.07.22:07:03 Info: caui4_xcvr: add_fileset_file ./altera_xcvr_native_s10_functions_h.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/altera_xcvr_native_s10_functions_h.sv
+Info (20325): 2026.09.07.22:07:03 Info: caui4_xcvr: add_fileset_file ./s10_avmm_h.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/s10_avmm_h.sv
+Info (20325): 2026.09.07.22:07:03 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_avmm_csr.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_avmm_csr.sv
+Info (20325): 2026.09.07.22:07:03 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_prbs_accum.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_prbs_accum.sv
+Info (20325): 2026.09.07.22:07:03 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_odi_accel.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_odi_accel.sv
+Info (20325): 2026.09.07.22:07:03 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_rcfg_arb.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_rcfg_arb.sv
+Info (20325): 2026.09.07.22:07:03 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_early_spd_chng_s10_htile.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_early_spd_chng_s10_htile.sv
+Info (20325): 2026.09.07.22:07:03 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_anlg_reset_seq.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_anlg_reset_seq.sv
+Info (20325): 2026.09.07.22:07:03 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_dig_reset_seq.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_dig_reset_seq.sv
+Info (20325): 2026.09.07.22:07:03 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_reset_seq.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_reset_seq.sv
+Info (20325): 2026.09.07.22:07:03 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_anlg_reset_seq_wrapper.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_anlg_reset_seq_wrapper.sv
+Info (20325): 2026.09.07.22:07:03 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_re_cal_chnl.v VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_re_cal_chnl.v
+Info (20325): 2026.09.07.22:07:03 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_pcie_rx_eios_prot.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_pcie_rx_eios_prot.sv
+Info (20325): 2026.09.07.22:07:03 Info: caui4_xcvr: add_fileset_file ./alt_xcvr_native_rx_maib_wa.sv SYSTEM_VERILOG PATH ../../altera_xcvr_native_s10/source/alt_xcvr_native_rx_maib_wa.sv
+Info (20325): 2026.09.07.22:07:03 Info: caui4_xcvr: Building configuration data for reconfiguration profile 0
+Info (20325): 2026.09.07.22:07:04 Info: altera_ethernet_100g: "Generating: altera_xcvr_reset_control_s10"
+Info (20325): 2026.09.07.22:07:04 Info: s10_xcvr_reset_controller: add_fileset_file ./altera_std_synchronizer_nocut.v VERILOG PATH ../../../primitives/altera_std_synchronizer/altera_std_synchronizer_nocut.v
+Info (20325): 2026.09.07.22:07:04 Info: s10_xcvr_reset_controller: add_fileset_file ./alt_xcvr_resync_std.sv SYSTEM_VERILOG PATH ../../alt_xcvr_generic/alt_xcvr_resync_std.sv
+Info (20325): 2026.09.07.22:07:04 Info: s10_xcvr_reset_controller: add_fileset_file ./altera_xcvr_reset_control_s10.sv SYSTEM_VERILOG PATH ..//altera_xcvr_reset_control_s10.sv
+Info (20325): 2026.09.07.22:07:04 Info: s10_xcvr_reset_controller: add_fileset_file ./alt_xcvr_reset_counter_s10.sv SYSTEM_VERILOG PATH ..//alt_xcvr_reset_counter_s10.sv
+Info (20325): 2026.09.07.22:07:04 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g_altera_xcvr_fpll_s10_htile_1915_6rpkcza"
+Info (20325): 2026.09.07.22:07:04 Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./altera_std_synchronizer_nocut.v VERILOG PATH ../../../../primitives/altera_std_synchronizer/altera_std_synchronizer_nocut.v
+Info (20325): 2026.09.07.22:07:04 Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./s10_avmm_h.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/s10_avmm_h.sv
+Info (20325): 2026.09.07.22:07:04 Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./altera_xcvr_native_s10_functions_h.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/altera_xcvr_native_s10_functions_h.sv
+Info (20325): 2026.09.07.22:07:04 Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./alt_xcvr_native_anlg_reset_seq.sv SYSTEM_VERILOG PATH ../../../altera_xcvr_native_phy/altera_xcvr_native_s10/source/alt_xcvr_native_anlg_reset_seq.sv
+Info (20325): 2026.09.07.22:07:04 Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./alt_xcvr_pll_rcfg_arb.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_rcfg_arb.sv
+Info (20325): 2026.09.07.22:07:04 Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./alt_xcvr_pll_embedded_debug.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_embedded_debug.sv
+Info (20325): 2026.09.07.22:07:04 Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./alt_xcvr_pll_avmm_csr.sv SYSTEM_VERILOG PATH ../../common/alt_xcvr_pll_avmm_csr.sv
+Info (20325): 2026.09.07.22:07:04 Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./alt_xcvr_resync.sv SYSTEM_VERILOG PATH ../../../../altera_xcvr_generic/ctrl/alt_xcvr_resync.sv
+Info (20325): 2026.09.07.22:07:04 Info: altera_xcvr_fpll_s10_tx_ext: add_fileset_file ./alt_xcvr_arbiter.sv SYSTEM_VERILOG PATH ../../../../altera_xcvr_generic/ctrl/alt_xcvr_arbiter.sv
+Info (20325): 2026.09.07.22:07:04 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g_altera_jtag_avalon_master_191_unfwqdy"
+Info (20325): 2026.09.07.22:07:04 Info: altera_ethernet_100g: "Generating: altera_avalon_st_jtag_interface"
+Info (20325): 2026.09.07.22:07:04 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g_timing_adapter_1950_si4vvtq"
+Info (20325): 2026.09.07.22:07:04 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g_altera_avalon_sc_fifo_1932_onpcouq"
+Info (20325): 2026.09.07.22:07:04 Info: altera_ethernet_100g: "Generating: altera_avalon_st_bytes_to_packets"
+Info (20325): 2026.09.07.22:07:04 Info: altera_ethernet_100g: "Generating: altera_avalon_st_packets_to_bytes"
+Info (20325): 2026.09.07.22:07:04 Info: altera_ethernet_100g: "Generating: altera_avalon_packets_to_master"
+Info (20325): 2026.09.07.22:07:04 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g_channel_adapter_1922_rd56ufy"
+Info (20325): 2026.09.07.22:07:04 Info: altera_ethernet_100g: "Generating: altera_ethernet_100g_channel_adapter_1922_5vp3d5a"
+Info (20325): 2026.09.07.22:07:04 Info: altera_ethernet_100g: "Generating: altera_reset_controller"
+Info (20325): 2026.09.07.22:07:04 Info: altera_ethernet_100g: Done "altera_ethernet_100g" with 25 modules, 419 files
+Info (20325): 2026.09.07.22:07:05 Info: Finished: Create HDL design files for synthesis
+Info (20325): 2026.09.07.22:07:05 Info: Generation of /home/enio/Projects/etf-tk-sdn/ADASEC-SDN/ip/altera_ethernet_100g.ip (altera_ethernet_100g) took 35175 ms
+Info (11131): Completed upgrading IP component altera_iopll with file "ip/altera_system_pll.ip"
+Info (11131): Completed upgrading IP component alt_e100s10 with file "ip/altera_ethernet_100g.ip"
+Info (23030): Evaluation of Tcl script /tools/altera_pro/26.1.1/quartus/common/tcl/internal/ip_regen/ip_regen.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 1437 megabytes
+    Info: Processing ended: Mon Sep  7 22:07:07 2026
+    Info: Elapsed time: 00:02:56
+    Info: System process ID: 7403
+
+
